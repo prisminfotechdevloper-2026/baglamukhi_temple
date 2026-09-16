@@ -1,26 +1,111 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* ================================
+     BRAND COLORS
+     ================================ */
+
+  --color-primary: #8b0000;
+  --color-primary-dark: #5c0000;
+  --color-primary-light: #b22222;
+
+  /* ================================
+     GOLD / SAFFRON
+     ================================ */
+
+  --color-gold: #d89b18;
+  --color-gold-dark: #b77900;
+  --color-gold-light: #f4d58d;
+
+  --color-saffron: #e59a17;
+  --color-saffron-light: #f7c85f;
+
+  /* ================================
+     BACKGROUNDS
+     ================================ */
+
+  --color-background: #fff8e7;
+  --color-background-light: #fffcf4;
+  --color-surface: #ffffff;
+  --color-surface-warm: #fff4d6;
+
+  /* ================================
+     TEXT
+     ================================ */
+
+  --color-text-primary: #4a2618;
+  --color-text-secondary: #795548;
+  --color-text-muted: #8c7568;
+
+  /* ================================
+     BORDERS
+     ================================ */
+
+  --color-border: #ead7a7;
+  --color-border-gold: #d89b18;
+
+  /* ================================
+     CTA
+     ================================ */
+
+  --color-cta: #a90000;
+  --color-cta-hover: #7f0000;
+
+  --color-whatsapp: #16a34a;
+  --color-whatsapp-hover: #12833c;
+
+  /* ================================
+     ICONS
+     ================================ */
+
+  --color-icon: #7a0000;
+  --color-icon-background: #fff1c9;
+
+  /* ================================
+     SHADOWS
+     ================================ */
+
+  --shadow-soft: 0 4px 20px rgba(139, 0, 0, 0.08);
+  --shadow-gold: 0 4px 20px rgba(216, 155, 24, 0.18);
+
+  /* ================================
+     GRADIENTS
+     ================================ */
+
+  --gradient-primary: linear-gradient(
+    135deg,
+    #8b0000 0%,
+    #b22222 100%
+  );
+
+  --gradient-gold: linear-gradient(
+    135deg,
+    #b77900 0%,
+    #d89b18 50%,
+    #f4d58d 100%
+  );
+
+  --gradient-cream: linear-gradient(
+    180deg,
+    #fffdf7 0%,
+    #fff8e7 100%
+  );
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+/* ================================
+   GLOBAL
+   ================================ */
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-background);
+  color: var(--color-text-primary);
+}
+
+/* ================================
+   SELECTION
+   ================================ */
+
+::selection {
+  background: var(--color-primary);
+  color: #ffffff;
 }

@@ -25,23 +25,39 @@ export default function LandingHero() {
     >
       {/* ============================================================
           1. BACKGROUND IMAGE & ATMOSPHERIC SACRED OVERLAYS
+          - Mobile screens (< md): Uses /hero/mobile-hero.png
+          - Large/Desktop screens (>= md): Uses /hero/hero.png
           ============================================================ */}
       <div className="absolute inset-0 w-full h-full z-0 overflow-hidden pointer-events-none">
-        {/* Divine Temple Sanctum Background Image */}
-        <Image
-          src="/hero/hero.png"
-          alt="माँ बगलामुखी नलखेड़ा धाम गर्भगृह"
-          fill
-          priority
-          quality={95}
-          sizes="100vw"
-          placeholder="blur"
-          blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAJABADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDp7J0+yR7ANuwdPpWVqkMI2sTgbufyNS6F/wAgtag1n/j0X/erilqkdENz/9k="
-          className="object-cover object-center lg:object-[center_28%] select-none transition-transform duration-700 ease-out scale-100"
-        />
+        {/* Mobile Background Image (Phone Viewport: visible on < md screens) */}
+        <div className="block md:hidden absolute inset-0 w-full h-full">
+          <Image
+            src="/hero/mobile-hero.png"
+            alt="माँ बगलामुखी नलखेड़ा धाम - मोबाइल दर्शन"
+            fill
+            priority
+            quality={100}
+            sizes="100vw"
+            className="object-cover object-top select-none"
+          />
+          {/* Transparent soft radial/vignette overlay allowing mobile-hero.png to shine vividly */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-transparent via-50% to-black/45 pointer-events-none" />
+        </div>
 
-        {/* Directional Vignette: Deep rich contrast on the left for text, open golden sanctum on the right */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#180205]/95 via-[#250409]/80 via-48% to-[#180205]/35 lg:from-[#180205]/92 lg:via-[#250409]/72 lg:via-46% lg:to-transparent" />
+        {/* Large / Desktop Background Image (Tablet & Desktop Viewport) */}
+        <div className="hidden md:block absolute inset-0 w-full h-full">
+          <Image
+            src="/hero/hero.png"
+            alt="माँ बगलामुखी नलखेड़ा धाम गर्भगृह"
+            fill
+            priority
+            quality={95}
+            sizes="100vw"
+            className="object-cover object-center lg:object-[center_28%] select-none transition-transform duration-700 ease-out scale-100"
+          />
+          {/* Directional Vignette: Deep rich contrast on the left for text, open golden sanctum on the right */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#180205]/95 via-[#250409]/80 via-48% to-[#180205]/35 lg:from-[#180205]/92 lg:via-[#250409]/72 lg:via-46% lg:to-transparent" />
+        </div>
 
         {/* Top subtle navbar shadow */}
         <div className="absolute top-0 inset-x-0 h-6 bg-gradient-to-b from-[#140204]/30 to-transparent" />

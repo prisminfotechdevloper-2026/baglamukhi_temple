@@ -91,7 +91,7 @@ export default function Footer() {
 
   return (
     <footer
-      id="sampark"
+      id="contact"
       className="relative isolate w-full max-w-full overflow-hidden bg-gradient-to-b from-[#1a0205] via-[#240307] to-[#120103] text-[#f7e7ce] border-t-2 border-[#d89b18]/60 shadow-[0_-12px_40px_rgba(0,0,0,0.7)] pt-8 sm:pt-12 lg:pt-14 pb-28 sm:pb-32 md:pb-12 lg:pb-14 z-20"
       aria-label="मंदिर संपर्क, दर्शन समय एवं गुरुजी विवरण"
       itemScope

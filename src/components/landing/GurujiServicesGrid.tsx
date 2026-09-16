@@ -270,7 +270,7 @@ export default function GurujiServicesGrid() {
 
   return (
     <section
-      id="sevayein"
+      id="services"
       className="relative isolate w-full py-6 sm:py-8 lg:py-10 bg-gradient-to-b from-[#fffcf7] via-[#fffaf2] to-[#fff8e7] overflow-hidden"
       aria-label="गुरुजी द्वारा की जाने वाली प्रमुख सेवाएँ एवं 12 विशेष अनुष्ठान"
       itemScope

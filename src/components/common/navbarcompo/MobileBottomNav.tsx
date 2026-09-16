@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Home, Flame, Landmark, HelpCircle, Phone } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { Home, Flame, Landmark, Images, Phone } from "lucide-react";
 import { NavLinkItem, ContactInfo } from "./types";
 
 interface MobileBottomNavProps {
@@ -17,15 +18,15 @@ interface MobileBottomNavProps {
  * delivering an ultra-fast, native-app feel with gold & crimson sacred accents.
  */
 export default function MobileBottomNav({
-  links = [],
   contact,
   className = "",
 }: MobileBottomNavProps) {
+  const pathname = usePathname();
   const [activeHash, setActiveHash] = useState<string>("");
 
   useEffect(() => {
     const handleHashChange = () => {
-      setActiveHash(window.location.hash || "/");
+      setActiveHash(window.location.hash || "");
     };
     handleHashChange();
     window.addEventListener("hashchange", handleHashChange);
@@ -33,50 +34,52 @@ export default function MobileBottomNav({
   }, []);
 
   const handleNavClick = (href: string) => {
-    setActiveHash(href);
-    if (href.startsWith("#")) {
-      const target = document.querySelector(href);
+    if (href.startsWith("/#")) {
+      setActiveHash(href.replace("/", ""));
+      const target = document.querySelector(href.replace("/", ""));
       if (target) {
         target.scrollIntoView({ behavior: "smooth" });
       }
+    } else {
+      setActiveHash("");
     }
   };
 
   // 5 Balanced Sacred Tabs for Mobile Bottom Navigation
   const navTabs = [
     {
-      label: "मुख्य",
+      label: "Home",
       subLabel: "Home",
       href: "/",
       icon: Home,
       isAction: false,
     },
     {
-      label: "सेवाएं",
-      subLabel: "Sevayein",
-      href: "#sevayein",
-      icon: Flame,
+      label: "Gallery",
+      subLabel: "Gallery",
+      href: "/gallery",
+      icon: Images,
       isAction: false,
     },
     {
-      label: "कॉल करें",
+      label: "Call",
       subLabel: "Call",
       href: `tel:${contact.phone}`,
       icon: Phone,
       isAction: true, // Center Elevated Primary CTA
     },
     {
-      label: "मंदिर",
-      subLabel: "Mandir",
-      href: "#mandir",
-      icon: Landmark,
+      label: "Services",
+      subLabel: "Services",
+      href: "/#services",
+      icon: Flame,
       isAction: false,
     },
     {
-      label: "FAQ",
-      subLabel: "प्रश्नोत्तरी",
-      href: "#faq",
-      icon: HelpCircle,
+      label: "Mandir",
+      subLabel: "Mandir",
+      href: "/#mandir",
+      icon: Landmark,
       isAction: false,
     },
   ];
@@ -93,7 +96,14 @@ export default function MobileBottomNav({
       <div className="grid grid-cols-5 items-end justify-items-center max-w-md mx-auto">
         {navTabs.map((tab) => {
           const Icon = tab.icon;
-          const isActive = activeHash === tab.href;
+          const isExactRoute =
+            tab.href === pathname ||
+            (tab.href === "/" && pathname === "/" && !activeHash);
+          const isHashActive =
+            pathname === "/" &&
+            tab.href.startsWith("/#") &&
+            activeHash === tab.href.replace("/", "");
+          const isActive = isExactRoute || isHashActive;
 
           if (tab.isAction) {
             // Elevated Center Direct Call Button

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { NavLinkItem } from "./types";
 
 interface NavLinksProps {
@@ -12,18 +13,17 @@ interface NavLinksProps {
 
 /**
  * NavLinks - Client Component for Interactive Desktop Navigation Links.
- * Manages active hash highlighting and smooth client-side navigation.
- * Renders dynamically from props passed by the parent server Navbar.
+ * Manages active route (/gallery) and hash (#sevayein, #mandir) highlighting.
  */
 export default function NavLinks({
   links,
   className = "",
   onLinkClick,
 }: NavLinksProps) {
+  const pathname = usePathname();
   const [activeHash, setActiveHash] = useState<string>("");
 
   useEffect(() => {
-    // Sync active hash on mount and hash changes
     const updateHash = () => {
       setActiveHash(window.location.hash);
     };
@@ -40,14 +40,26 @@ export default function NavLinks({
       itemType="https://schema.org/SiteNavigationElement"
     >
       {links.map((link) => {
-        const isActive = activeHash === link.href;
+        // Active state checking: match exact path OR match hash on homepage
+        const isExactRoute =
+          link.href === pathname ||
+          (link.href === "/" && pathname === "/" && !activeHash);
+        const isHashActive =
+          pathname === "/" &&
+          link.href.startsWith("/#") &&
+          activeHash === link.href.replace("/", "");
+        const isActive = isExactRoute || isHashActive;
 
         return (
           <Link
             key={link.label}
             href={link.href}
             onClick={() => {
-              setActiveHash(link.href);
+              if (link.href.startsWith("/#")) {
+                setActiveHash(link.href.replace("/", ""));
+              } else {
+                setActiveHash("");
+              }
               if (onLinkClick) onLinkClick(link);
             }}
             className={`temple-nav-link text-[1rem] lg:text-[1.05rem] font-serif font-semibold transition-colors duration-200 ${
@@ -66,3 +78,4 @@ export default function NavLinks({
     </nav>
   );
 }
+

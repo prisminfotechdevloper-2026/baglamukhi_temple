@@ -1,10 +1,11 @@
 import { NavLinkItem, ContactInfo } from "./types";
 
 export const DEFAULT_NAV_LINKS: NavLinkItem[] = [
-  { label: "Sevayein", href: "#sevayein" },
-  { label: "Mandir", href: "#mandir" },
-  { label: "FAQ", href: "#faq" },
-  { label: "Sampark", href: "#sampark" },
+  { label: "Services", href: "/#services" },
+  { label: "Gallery", href: "/gallery" },
+  { label: "Mandir", href: "/#mandir" },
+  { label: "FAQ", href: "/#faq" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export const DEFAULT_CONTACT: ContactInfo = {

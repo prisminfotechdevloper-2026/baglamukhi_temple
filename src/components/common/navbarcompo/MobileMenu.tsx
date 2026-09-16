@@ -68,7 +68,7 @@ export default function MobileMenu({ links, contact }: MobileMenuProps) {
             aria-label="Mobile Navigation Drawer"
           >
             {/* Drawer Top Header */}
-            <div className="flex items-center justify-between pb-4 border-b border-amber-200">
+            <div className="flex items-center justify-between pb-4  border-b border-amber-200">
               <div className="flex items-center gap-3">
                 <div className="w-11 h-11 rounded-full overflow-hidden border-2 border-amber-500 shadow-sm relative">
                   <Image

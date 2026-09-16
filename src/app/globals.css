@@ -102,14 +102,28 @@
    GLOBAL
    ================================ */
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
 }
 
 body {
   background: var(--color-background);
   color: var(--color-text-primary);
   font-family: var(--font-body);
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 /* ================================
@@ -370,4 +384,26 @@ body {
 .group:hover .button-sheen-sweep,
 .group:active .button-sheen-sweep {
   animation: buttonSheenSweep 0.75s cubic-bezier(0.2, 0, 0.2, 1) forwards;
+}
+
+
+@keyframes spinReverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin 26s linear infinite;
+}
+
+.animate-spin-reverse-slow {
+  animation: spinReverse 34s linear infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }

@@ -19,6 +19,7 @@ export default function LandingHero() {
 
   return (
     <section
+      id="mandir"
       className="relative isolate w-full overflow-hidden pt-2 sm:pt-2.5 lg:pt-3.5 pb-6 sm:pb-8 lg:pb-10"
       aria-label="माँ बगलामुखी नलखेड़ा धाम - मुख्य पृष्ठ"
     >
@@ -42,12 +43,6 @@ export default function LandingHero() {
         {/* Directional Vignette: Deep rich contrast on the left for text, open golden sanctum on the right */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#180205]/95 via-[#250409]/80 via-48% to-[#180205]/35 lg:from-[#180205]/92 lg:via-[#250409]/72 lg:via-46% lg:to-transparent" />
 
-        {/* Soft Golden Ambient Light Filter across top & bottom */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#140204]/40 via-transparent to-[#140204]/25" />
-
-        {/* Bottom smooth fade to bridge seamlessly with page background (#fff8e7) */}
-        <div className="absolute bottom-0 inset-x-0 h-16 sm:h-20 bg-gradient-to-t from-[#fff8e7] via-[#fff8e7]/15 to-transparent" />
-
         {/* Top subtle navbar shadow */}
         <div className="absolute top-0 inset-x-0 h-6 bg-gradient-to-b from-[#140204]/30 to-transparent" />
       </div>
@@ -55,7 +50,7 @@ export default function LandingHero() {
       {/* ============================================================
           2. HERO CONTENT GRID (Left: Mantra & CTA | Right: Maa Darshan)
           ============================================================ */}
-      <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 md:px-8 lg:px-12 relative z-10">
+      <div className="max-w-7xl mx-auto w-full py-3 px-4 sm:px-6 md:px-8 lg:px-12 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 xl:gap-10 items-center">
 
           {/* ------------------------------------------------------------

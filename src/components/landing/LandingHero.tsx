@@ -1,16 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
-import { PhoneCall, MessageCircle, Sparkles, ShieldCheck, Flame } from "lucide-react";
+import { Phone, Sparkles, ShieldCheck, Flame, CheckCircle2 } from "lucide-react";
 import LotusDivider from "@/components/common/navbarcompo/LotusDivider";
 import { DEFAULT_CONTACT } from "@/components/common/navbarcompo/constants";
 import maaDarshanImg from "../../../public/image.png";
 
 /**
  * LandingHero Component
- * - Background Image: hero.png (/hero/hero.png) with sacred royal temple aura overlay
+ * - Background Image: hero.png (/hero/hero.png) with sacred royal temple sanctum aura overlay
  * - Left Side: Maa Bagalamukhi authentic Beej Mantra, Vedic Anushthan benefits, and direct Contact CTA buttons
- * - Right Side: hero-right.png (/hero/hero-right.png) sacred Trishul-Om-Dhwaja with glowing golden halo & floating animation
- * - Responsive: 80% viewport height (80vh) on desktop (lg screen) and elegantly adaptive on mobile
+ * - Right Side: maaDarshanImg (Trishakti Bagalamukhi Divya Darshan) enlarged on lg screens with sacred glowing golden aura
+ * - Responsive: Adaptive height & padding ensuring all CTA buttons and sacred elements fit perfectly in view
  */
 export default function LandingHero() {
   const whatsappUrl = `https://wa.me/${DEFAULT_CONTACT.phone.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(
@@ -19,7 +19,7 @@ export default function LandingHero() {
 
   return (
     <section
-      className="relative isolate w-full overflow-hidden flex items-center lg:h-[80vh] lg:min-h-[620px] lg:max-h-[820px] min-h-[620px] py-10 sm:py-14 lg:py-0"
+      className="relative isolate w-full overflow-hidden pt-2 sm:pt-2.5 lg:pt-3.5 pb-6 sm:pb-8 lg:pb-10"
       aria-label="माँ बगलामुखी नलखेड़ा धाम - मुख्य पृष्ठ"
     >
       {/* ============================================================
@@ -39,8 +39,8 @@ export default function LandingHero() {
           className="object-cover object-center lg:object-[center_28%] select-none transition-transform duration-700 ease-out scale-100"
         />
 
-        {/* Directional Vignette: Deep rich contrast on the left for text, completely open & sunlit on the right */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#180205]/92 via-[#250409]/75 via-48% to-[#180205]/30 lg:from-[#180205]/90 lg:via-[#250409]/68 lg:via-46% lg:to-transparent" />
+        {/* Directional Vignette: Deep rich contrast on the left for text, open golden sanctum on the right */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#180205]/95 via-[#250409]/80 via-48% to-[#180205]/35 lg:from-[#180205]/92 lg:via-[#250409]/72 lg:via-46% lg:to-transparent" />
 
         {/* Soft Golden Ambient Light Filter across top & bottom */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#140204]/40 via-transparent to-[#140204]/25" />
@@ -49,14 +49,14 @@ export default function LandingHero() {
         <div className="absolute bottom-0 inset-x-0 h-16 sm:h-20 bg-gradient-to-t from-[#fff8e7] via-[#fff8e7]/15 to-transparent" />
 
         {/* Top subtle navbar shadow */}
-        <div className="absolute top-0 inset-x-0 h-10 bg-gradient-to-b from-[#140204]/40 to-transparent" />
+        <div className="absolute top-0 inset-x-0 h-6 bg-gradient-to-b from-[#140204]/30 to-transparent" />
       </div>
 
       {/* ============================================================
-          2. HERO CONTENT GRID (Left: Mantra & CTA | Right: Hero Right)
+          2. HERO CONTENT GRID (Left: Mantra & CTA | Right: Maa Darshan)
           ============================================================ */}
       <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 md:px-8 lg:px-12 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 xl:gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 xl:gap-10 items-center">
 
           {/* ------------------------------------------------------------
               LEFT COLUMN: SACRED MANTRA, PEETH INFO & CONTACT BUTTONS
@@ -64,7 +64,7 @@ export default function LandingHero() {
           <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left">
 
             {/* Sacred Peeth Top Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#4a0000]/90 border border-[#d89b18] shadow-[0_2px_12px_rgba(216,155,24,0.35)] backdrop-blur-md mb-3.5 sm:mb-4">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#4a0000]/90 border border-[#d89b18] shadow-[0_2px_12px_rgba(216,155,24,0.35)] backdrop-blur-md mb-2 sm:mb-2.5">
               <Sparkles className="w-3.5 h-3.5 text-[#f4d58d] animate-pulse" />
               <span className="font-serif text-[#fbe9b9] text-xs sm:text-[0.82rem] tracking-wide font-semibold">
                 ॥ ॐ ह्लीं पीताम्बरायै नमः ॥ विश्वप्रसिद्ध सिद्धपीठ • नलखेड़ा धाम
@@ -72,7 +72,7 @@ export default function LandingHero() {
             </div>
 
             {/* Main Sacred Heading */}
-            <h1 className="font-serif font-bold text-white tracking-wide text-2xl sm:text-3xl md:text-4xl lg:text-[2.6rem] xl:text-[2.85rem] leading-[1.2] drop-shadow-[0_3px_12px_rgba(0,0,0,0.85)]">
+            <h1 className="font-serif font-bold text-white tracking-wide text-2xl sm:text-3xl md:text-4xl lg:text-[2.65rem] xl:text-[2.9rem] leading-[1.18] drop-shadow-[0_3px_12px_rgba(0,0,0,0.85)]">
               माँ बगलामुखी{" "}
               <span className="bg-gradient-to-r from-[#ffe49e] via-[#f7c85f] to-[#d89b18] bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(216,155,24,0.5)]">
                 नलखेड़ा धाम
@@ -80,17 +80,17 @@ export default function LandingHero() {
             </h1>
 
             {/* Sub-headline / Blessing promise */}
-            <p className="font-serif text-[#ffedd5] text-sm sm:text-base md:text-lg mt-1.5 sm:mt-2 max-w-xl font-medium drop-shadow-[0_2px_6px_rgba(0,0,0,0.85)]">
+            <p className="font-serif text-[#ffedd5] text-sm sm:text-base md:text-lg mt-1 sm:mt-1.5 max-w-xl font-medium drop-shadow-[0_2px_6px_rgba(0,0,0,0.85)]">
               समस्त शत्रु बाधा, रोग-दोष निवारण एवं मनोकामना सिद्धि हेतु अखंड प्रत्यक्ष वैदिक अनुष्ठान
             </p>
 
-            {/* Ornate Divider */}
-            <div className="w-full max-w-md my-3 sm:my-4">
+            {/* Ornate Lotus Divider */}
+            <div className="w-full max-w-md my-2 sm:my-2.5">
               <LotusDivider />
             </div>
 
             {/* Sacred Mantra Box */}
-            <div className="w-full max-w-xl bg-gradient-to-br from-[#2a0408]/95 via-[#1a0204]/98 to-[#2a0408]/95 border border-[#d89b18]/60 rounded-2xl p-4 sm:p-5 shadow-[0_12px_35px_rgba(0,0,0,0.65),inset_0_1px_1px_rgba(255,255,255,0.15)] backdrop-blur-md mb-5 sm:mb-6 text-left relative overflow-hidden group">
+            <div className="w-full max-w-xl bg-gradient-to-br from-[#2a0408]/95 via-[#1a0204]/98 to-[#2a0408]/95 border border-[#d89b18]/60 rounded-2xl p-4 sm:p-5 shadow-[0_12px_35px_rgba(0,0,0,0.65),inset_0_1px_1px_rgba(255,255,255,0.15)] backdrop-blur-md mb-3.5 sm:mb-4 text-left relative overflow-hidden group">
               {/* Subtle radiant golden accent top line */}
               <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-[#d89b18] to-transparent opacity-90" />
 
@@ -103,7 +103,7 @@ export default function LandingHero() {
               </div>
 
               {/* The Sacred Sanskrit Mantra in prominent glowing Devanagari */}
-              <p className="text-amber-100 font-serif text-[1.05rem] sm:text-xl md:text-[1.28rem] font-bold leading-relaxed tracking-wide text-center sm:text-left py-1 text-transparent bg-clip-text bg-gradient-to-r from-[#fff7d6] via-[#fce293] to-[#f4d58d] drop-shadow-[0_2px_8px_rgba(216,155,24,0.4)]">
+              <p className="font-serif text-[1.05rem] sm:text-xl md:text-[1.28rem] font-bold leading-relaxed tracking-wide text-center sm:text-left py-1 text-transparent bg-clip-text bg-gradient-to-r from-[#fff7d6] via-[#fce293] to-[#f4d58d] drop-shadow-[0_2px_8px_rgba(216,155,24,0.4)]">
                 ॐ ह्लीं बगलामुखि सर्वदुष्टानां वाचं मुखं पदं स्तम्भय जिह्वां कीलय बुद्धिं विनाशय ह्लीं ॐ स्वाहा॥
               </p>
 
@@ -124,72 +124,109 @@ export default function LandingHero() {
               </div>
             </div>
 
-            {/* Contact Action Buttons (Call & WhatsApp) */}
-            <div className="flex flex-col sm:flex-row items-center gap-3.5 w-full sm:w-auto">
+            {/* ============================================================
+                CONTACT ACTION BUTTONS (CALL & WHATSAPP) - MATCHING USER DESIGN
+                With Left-to-Right Moving Color Sheen ONLY on Hover & Click
+                ============================================================ */}
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto">
 
-              {/* Primary Contact Button: Direct Phone Call */}
+              {/* Button 1: Call Now (Red Gradient Pill with Handset Icon) */}
               <a
                 href={`tel:${DEFAULT_CONTACT.phone}`}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-6 sm:px-7 py-3.5 rounded-full text-white font-bold text-base sm:text-lg shadow-[0_6px_22px_rgba(185,28,28,0.55)] border border-amber-300/40 bg-gradient-to-r from-[#b91c1c] via-[#dc2626] to-[#991b1b] hover:from-[#dc2626] hover:to-[#7f1d1d] transform hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 group"
-                aria-label={`परामर्श हेतु कॉल करें - ${DEFAULT_CONTACT.displayPhone}`}
+                className="relative overflow-hidden w-full sm:w-auto min-w-[210px] sm:min-w-[235px] inline-flex items-center gap-3 px-6 py-2.5 sm:py-3 rounded-full bg-gradient-to-r from-[#ba1616] via-[#8c0608] to-[#4e0204] text-white shadow-[0_4px_16px_rgba(139,0,0,0.38)] hover:brightness-110 hover:scale-[1.02] active:scale-[0.97] transition-all duration-200 group"
+                aria-label={`Call Now - ${DEFAULT_CONTACT.displayPhone}`}
               >
-                <span className="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center group-hover:scale-110 transition-transform flex-shrink-0">
-                  <PhoneCall className="w-5 h-5 text-white animate-pulse" />
-                </span>
-                <div className="flex flex-col text-left">
-                  <span className="text-xs uppercase tracking-wider text-amber-200 font-semibold leading-none">
-                    निःशुल्क परामर्श
+                {/* Left-to-Right Moving Color Sheen (Only on Hover & Click) */}
+                <div className="absolute inset-0 w-1/2 h-full bg-gradient-to-r from-transparent via-white/35 to-transparent button-sheen-sweep" />
+
+                {/* Phone Handset Icon: White Outline, Terracotta Interior */}
+                <Phone className="relative z-10 w-5 h-5 text-white fill-[#b84724] stroke-[2.2] transform -rotate-12 flex-shrink-0" />
+
+                {/* Text: Call Now & Number */}
+                <div className="relative z-10 flex flex-col text-left">
+                  <span className="text-white font-serif font-bold text-base sm:text-[1.08rem] leading-tight tracking-wide">
+                    Call Now
                   </span>
-                  <span className="leading-tight font-serif tracking-wide text-white">
-                    Call Now : {DEFAULT_CONTACT.displayPhone}
+                  <span className="text-white/90 text-xs sm:text-[0.82rem] font-medium tracking-wide leading-tight mt-0.5">
+                    {DEFAULT_CONTACT.displayPhone}
                   </span>
                 </div>
               </a>
 
-              {/* Secondary Contact Button: WhatsApp Anushthan Booking */}
+              {/* Button 2: WhatsApp (Ivory Pill with Green Logo) */}
               <a
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-5 sm:px-6 py-3.5 rounded-full text-white font-bold text-sm sm:text-base shadow-[0_4px_18px_rgba(22,163,74,0.4)] border border-emerald-300/40 bg-gradient-to-r from-[#16a34a] to-[#15803d] hover:from-[#22c55e] hover:to-[#166534] transform hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
-                aria-label="व्हाट्सएप पर पूजा अनुष्ठान बुक करें"
+                className="relative overflow-hidden w-full sm:w-auto min-w-[210px] sm:min-w-[235px] inline-flex items-center gap-3 px-6 py-2.5 sm:py-3 rounded-full bg-[#fffcf7] hover:bg-white text-[#38040b] border border-[#ead6b3] shadow-[0_4px_14px_rgba(0,0,0,0.06)] hover:border-[#dfc38c] hover:scale-[1.02] active:scale-[0.97] transition-all duration-200 group"
+                aria-label="WhatsApp - Chat with Us"
               >
-                <MessageCircle className="w-5 h-5 fill-white text-emerald-600 flex-shrink-0" />
-                <span>पूजा अनुष्ठान बुक करें</span>
+                {/* Left-to-Right Moving Color Sheen (Only on Hover & Click) */}
+                <div className="absolute inset-0 w-1/2 h-full bg-gradient-to-r from-transparent via-[#25D366]/25 to-transparent button-sheen-sweep" />
+
+                {/* WhatsApp Green Outline Logo */}
+                <svg
+                  className="relative z-10 w-6 h-6 flex-shrink-0 text-[#25D366]"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12c0 1.95.56 3.77 1.53 5.31L2.5 21.5l4.33-1.01A9.94 9.94 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2z"
+                    stroke="#25D366"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M8.8 8.8c-.2 0-.44.07-.67.33-.23.26-.88.85-.88 2.08s.9 2.41 1.02 2.58c.12.17 1.73 2.76 4.28 3.79 2.12.85 2.55.68 3.01.64.46-.05 1.48-.61 1.69-1.19.21-.59.21-1.09.15-1.19-.06-.11-.23-.17-.48-.3s-1.48-.73-1.71-.81c-.23-.08-.4-.12-.57.12-.17.25-.65.81-.8 1-.15.17-.29.19-.54.06s-1.07-.39-2.04-1.25c-.75-.67-1.26-1.5-1.41-1.75-.15-.25-.02-.39.11-.52.11-.11.25-.29.38-.44.13-.14.17-.25.25-.42.08-.17.04-.32-.02-.44-.06-.13-.57-1.37-.78-1.88-.2-.5-.41-.43-.57-.44h-.48z"
+                    fill="#25D366"
+                  />
+                </svg>
+
+                {/* Text: WhatsApp & Chat with Us */}
+                <div className="relative z-10 flex flex-col text-left">
+                  <span className="text-[#38040b] font-serif font-bold text-base sm:text-[1.08rem] leading-tight tracking-wide">
+                    WhatsApp
+                  </span>
+                  <span className="text-[#6b5247] text-xs sm:text-[0.82rem] font-medium leading-tight mt-0.5">
+                    Chat with Us
+                  </span>
+                </div>
               </a>
+
             </div>
 
-            {/* Micro Pandit Ji Trust Guarantee */}
-            <p className="text-[#f4d58d] text-xs sm:text-sm mt-3 font-serif flex items-center justify-center lg:justify-start gap-1.5 drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]">
-              <span className="text-[#f7c85f] font-bold">✓</span>
-              पूज्य पंडित शुभम शर्मा जी के सानिध्य में 100% शास्त्रोक्त तंत्र विधि
+            {/* Pandit Ji Trust Guarantee */}
+            <p className="text-[#f4d58d] text-xs sm:text-sm mt-3.5 font-serif flex items-center justify-center lg:justify-start gap-2 drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]">
+              <CheckCircle2 className="w-4 h-4 text-[#f7c85f] flex-shrink-0" />
+              <span>पूज्य पंडित शुभम शर्मा जी के सानिध्य में 100% शास्त्रोक्त तंत्र विधि</span>
             </p>
           </div>
 
           {/* ------------------------------------------------------------
               RIGHT COLUMN: ROYAL SANCTUM DARSHAN (माँ बगलामुखी दिव्य दर्शन)
-              Inspired by India's Top Pilgrimage & Mandir Shrines
+              - Scaled up on lg / xl breakpoints for majestic prominence
+              - Soft glowing golden halo aura and holy depth drop-shadows
               ------------------------------------------------------------ */}
-          <div className="lg:col-span-5 flex justify-center items-center relative mt-6 lg:mt-0">
-            {/* Multi-Layer Divine Golden Sunburst Aura */}
-             
-            {/* Royal Sanctum Arch Frame with Gold Trim */}
-            <div className="relative w-[280px] sm:w-[340px] md:w-[380px] lg:w-[410px] xl:w-[440px] aspect-square  overflow-hidden border-2 border-[#d89b18] shadow-[0_20px_50px_rgba(0,0,0,0.85),0_0_35px_rgba(216,155,24,0.35)] group bg-[#1a0306] transition-all duration-500 hover:shadow-[0_25px_65px_rgba(216,155,24,0.5)]">
+          <div className="lg:col-span-5 flex justify-center items-center relative mt-4 lg:mt-0">
+            {/* Sized container: noticeably increased on lg & xl */}
+            <div className="relative w-[300px] sm:w-[380px] md:w-[440px] lg:w-[490px] xl:w-[540px] 2xl:w-[580px] aspect-square flex items-center justify-center group">
               
-              
-               
-              {/* The High-Definition Divine Deity Image */}
-              <Image
-                src={maaDarshanImg}
-                alt="माँ बगलामुखी नलखेड़ा धाम - दिव्य पीताम्बरा स्वरूप दर्शन"
-                priority
-                quality={95}
-                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
-              />
+              {/* Divine Multi-Layer Golden Glow / Aura */}
+              <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#d89b18]/30 via-[#f4d58d]/25 to-[#e59a17]/15 blur-2xl lg:blur-3xl animate-aura-pulse pointer-events-none" />
+              <div className="absolute inset-6 rounded-full bg-amber-500/20 blur-xl pointer-events-none" />
 
-              
-
-             
+              {/* The High-Definition Divine Deity Image with Floating Sanctum Effect */}
+              <div className="relative z-10 w-full h-full transition-transform duration-700 ease-out group-hover:scale-105  ">
+                <Image
+                  src={maaDarshanImg}
+                  alt="माँ बगलामुखी नलखेड़ा धाम - दिव्य पीताम्बरा स्वरूप दर्शन"
+                  priority
+                  quality={95}
+                  className="w-full h-full object-contain filter drop-shadow-[0_15px_35px_rgba(0,0,0,0.75)] drop-shadow-[0_0_35px_rgba(216,155,24,0.35)] select-none"
+                />
+              </div>
 
             </div>
           </div>
@@ -199,3 +236,4 @@ export default function LandingHero() {
     </section>
   );
 }
+

@@ -177,7 +177,7 @@ export default function GurujiBioSection() {
                 {/* WhatsApp official SVG icon */}
                 <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-[#25D366] flex items-center justify-center flex-shrink-0 shadow-sm">
                   <svg className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-white" viewBox="0 0 24 24">
-                    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.969.541 1.961.828 2.796.828 3.182 0 5.768-2.587 5.768-5.766.001-3.181-2.585-5.815-5.768-5.815zm3.433 8.243c-.145.408-.838.749-1.164.797-.325.048-.745.074-2.395-.572-1.428-.56-2.346-2.008-2.417-2.103-.071-.096-.583-.775-.583-1.479 0-.703.367-1.05.498-1.194.131-.144.286-.18.382-.18.095 0 .191.002.274.006.089.004.208-.034.325.247.12.287.408 1.002.444 1.074.036.072.06.156.012.251-.048.096-.072.156-.144.239-.072.084-.152.187-.217.251-.072.072-.147.151-.063.295.084.144.373.616.802.998.552.492 1.017.644 1.161.716.144.072.228.06.313-.036.084-.096.36-419.456-.563.096-.144.192-.12.324-.072.132.048.838.395.982.467.144.072.24.108.276.168.036.06.036.348-.109.756z" />
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
                   </svg>
                 </div>
                 <span>WhatsApp Par Sankalp Book Karein</span>
@@ -214,43 +214,54 @@ export default function GurujiBioSection() {
               ============================================================ */}
           <div className="lg:col-span-5 flex flex-col items-center justify-center relative mt-4 lg:mt-0 select-none">
 
-            {/* Circular Orbit & Rotating Wheel Container (Enlarged) */}
-            <div className="relative w-[320px] h-[320px] xs:w-[360px] xs:h-[360px] sm:w-[440px] sm:h-[440px] md:w-[480px] md:h-[480px] lg:w-[530px] lg:h-[530px] xl:w-[560px] xl:h-[560px] flex items-center justify-center group my-2 sm:my-0">
+            {/* Circular Orbit & Rotating Wheel Container (Enlarged for Mobile & Desktop) */}
+            <div className="relative w-[330px] h-[330px] xs:w-[365px] xs:h-[365px] sm:w-[440px] sm:h-[440px] md:w-[480px] md:h-[480px] lg:w-[520px] lg:h-[520px] flex items-center justify-center group my-2 sm:my-0">
 
               {/* 1. Concentric Golden Atmospheric Glow Rings */}
               <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#ffd778]/30 via-[#fde3ab]/20 to-[#d89b18]/30 blur-2xl pointer-events-none animate-aura-pulse" />
-              <div className="absolute inset-2 sm:inset-3 rounded-full border border-[#d89b18]/45 border-dashed pointer-events-none" />
-              <div className="absolute inset-5 sm:inset-7 rounded-full border border-[#deb881]/50 pointer-events-none" />
+              <div className="absolute inset-1 sm:inset-2 rounded-full border border-[#d89b18]/40 border-dashed pointer-events-none" />
+              <div className="absolute inset-4 sm:inset-6 rounded-full border border-[#deb881]/45 pointer-events-none" />
 
               {/* 2. 360-DEGREE INFINITE ROTATING VEDIC SERVICE TEXT WHEEL (SVG textPath - Left to Right Reverse Rotation) */}
               <svg
                 className="absolute inset-0 w-full h-full animate-spin-reverse-slow group-hover:[animation-play-state:paused] transition-all duration-300 pointer-events-none"
-                viewBox="0 0 560 560"
+                viewBox="0 0 600 600"
               >
                 <defs>
-                  {/* Circular path around the center with radius = 245 (circumference = 1539.4px) */}
+                  {/* Circular path around the center with radius = 232 (circumference = 1457.7px) */}
                   <path
                     id="serviceTextCircle"
-                    d="M 280, 280 m -245, 0 a 245,245 0 1,1 490,0 a 245,245 0 1,1 -490,0"
+                    d="M 300, 300 m -232, 0 a 232,232 0 1,1 464,0 a 232,232 0 1,1 -464,0"
                   />
                 </defs>
 
-                {/* Outer Dashed Orbit Track */}
+                {/* Dashed Text Guide Orbit Track */}
                 <circle
-                  cx="280"
-                  cy="280"
-                  r="245"
+                  cx="300"
+                  cy="300"
+                  r="232"
                   fill="none"
                   stroke="#d89b18"
-                  strokeWidth="1.5"
+                  strokeWidth="1.2"
                   strokeDasharray="8 6"
-                  opacity="0.45"
+                  opacity="0.35"
+                />
+
+                {/* Outer Boundary Ring (Clearance from text) */}
+                <circle
+                  cx="300"
+                  cy="300"
+                  r="280"
+                  fill="none"
+                  stroke="#deb881"
+                  strokeWidth="1"
+                  opacity="0.4"
                 />
 
                 {/* Rotating Sanskrit & Hindi Service Names with Distinct Spacing & Sacred ॐ Separators */}
                 <text
                   xmlSpace="preserve"
-                  className="font-serif font-bold text-[13.5px] sm:text-[14.5px] fill-[#700913] tracking-wide"
+                  className="font-serif font-bold text-[13px] sm:text-[14px] fill-[#700913] tracking-wide"
                 >
                   <textPath href="#serviceTextCircle" startOffset="0%">
                     {"\u00A0\u00A0॥ ॐ ॥\u00A0\u00A0 माँ बगलामुखी महाहवन \u00A0\u00A0॥ ॐ ॥\u00A0\u00A0 शत्रु स्तम्भन अनुष्ठान \u00A0\u00A0॥ ॐ ॥\u00A0\u00A0 कोर्ट-कचहरी विजय \u00A0\u00A0॥ ॐ ॥\u00A0\u00A0 सवा लाख महामंत्र जाप \u00A0\u00A0॥ ॐ ॥\u00A0\u00A0 कालसर्प दोष शांति \u00A0\u00A0॥ ॐ ॥\u00A0\u00A0 व्यापार वृद्धि अनुष्ठान \u00A0\u00A0॥ ॐ ॥\u00A0\u00A0 नवग्रह बाधा निवारण \u00A0\u00A0॥ ॐ ॥\u00A0\u00A0 पितृ दोष शांति \u00A0\u00A0"}
@@ -258,37 +269,37 @@ export default function GurujiBioSection() {
                 </text>
               </svg>
 
-              {/* 3. Cardinal Sacred ॐ Motifs on Orbit (Top, Right, Bottom, Left - Pure Vedic ॐ Symbols) */}
+              {/* 3. Cardinal Sacred ॐ Motifs on Outermost Orbit (Placed cleanly on outer perimeter with zero text overlap) */}
               {/* TOP CARDINAL OM */}
-              <div className="absolute -top-1.5 sm:-top-2 left-1/2 -translate-x-1/2 z-20 flex items-center justify-center">
-                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-gradient-to-b from-[#ffe7a3] via-[#d89b18] to-[#8f5d00] border-2 border-white shadow-[0_2px_8px_rgba(216,155,24,0.6)] flex items-center justify-center">
-                  <span className="font-serif font-extrabold text-white text-xs sm:text-sm drop-shadow-sm">ॐ</span>
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 flex items-center justify-center">
+                <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-gradient-to-b from-[#ffe7a3] via-[#d89b18] to-[#8f5d00] border border-white shadow-[0_2px_8px_rgba(216,155,24,0.6)] flex items-center justify-center">
+                  <span className="font-serif font-extrabold text-white text-[0.65rem] sm:text-xs drop-shadow-sm">ॐ</span>
                 </div>
               </div>
 
               {/* RIGHT CARDINAL OM */}
-              <div className="absolute top-1/2 -right-1.5 sm:-right-2 -translate-y-1/2 z-20 flex items-center justify-center">
-                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-gradient-to-b from-[#ffe7a3] via-[#d89b18] to-[#8f5d00] border-2 border-white shadow-[0_2px_8px_rgba(216,155,24,0.6)] flex items-center justify-center">
-                  <span className="font-serif font-extrabold text-white text-xs sm:text-sm drop-shadow-sm">ॐ</span>
+              <div className="absolute top-1/2 right-0 translate-x-1/2 -translate-y-1/2 z-20 flex items-center justify-center">
+                <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-gradient-to-b from-[#ffe7a3] via-[#d89b18] to-[#8f5d00] border border-white shadow-[0_2px_8px_rgba(216,155,24,0.6)] flex items-center justify-center">
+                  <span className="font-serif font-extrabold text-white text-[0.65rem] sm:text-xs drop-shadow-sm">ॐ</span>
                 </div>
               </div>
 
               {/* BOTTOM CARDINAL OM */}
-              <div className="absolute -bottom-1.5 sm:-bottom-2 left-1/2 -translate-x-1/2 z-20 flex items-center justify-center">
-                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-gradient-to-b from-[#ffe7a3] via-[#d89b18] to-[#8f5d00] border-2 border-white shadow-[0_2px_8px_rgba(216,155,24,0.6)] flex items-center justify-center">
-                  <span className="font-serif font-extrabold text-white text-xs sm:text-sm drop-shadow-sm">ॐ</span>
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 z-20 flex items-center justify-center">
+                <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-gradient-to-b from-[#ffe7a3] via-[#d89b18] to-[#8f5d00] border border-white shadow-[0_2px_8px_rgba(216,155,24,0.6)] flex items-center justify-center">
+                  <span className="font-serif font-extrabold text-white text-[0.65rem] sm:text-xs drop-shadow-sm">ॐ</span>
                 </div>
               </div>
 
               {/* LEFT CARDINAL OM */}
-              <div className="absolute top-1/2 -left-1.5 sm:-left-2 -translate-y-1/2 z-20 flex items-center justify-center">
-                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-gradient-to-b from-[#ffe7a3] via-[#d89b18] to-[#8f5d00] border-2 border-white shadow-[0_2px_8px_rgba(216,155,24,0.6)] flex items-center justify-center">
-                  <span className="font-serif font-extrabold text-white text-xs sm:text-sm drop-shadow-sm">ॐ</span>
+              <div className="absolute top-1/2 left-0 -translate-x-1/2 -translate-y-1/2 z-20 flex items-center justify-center">
+                <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-gradient-to-b from-[#ffe7a3] via-[#d89b18] to-[#8f5d00] border border-white shadow-[0_2px_8px_rgba(216,155,24,0.6)] flex items-center justify-center">
+                  <span className="font-serif font-extrabold text-white text-[0.65rem] sm:text-xs drop-shadow-sm">ॐ</span>
                 </div>
               </div>
 
-              {/* 4. THE 50% BORDER RADIUS CIRCULAR GURUJI PORTRAIT (ENLARGED) */}
-              <div className="relative w-[220px] h-[220px] xs:w-[250px] xs:h-[250px] sm:w-[310px] sm:h-[310px] md:w-[340px] md:h-[340px] lg:w-[380px] lg:h-[380px] xl:w-[400px] xl:h-[400px] rounded-full overflow-hidden p-2 sm:p-2.5 bg-gradient-to-b from-[#fae29c] via-[#d89b18] to-[#8a5900] shadow-[0_20px_50px_rgba(139,0,0,0.32),0_0_45px_rgba(216,155,24,0.4)] ring-4 ring-[#fff6dc] ring-offset-4 ring-offset-[#fff8e7] z-10 group-hover:scale-[1.02] transition-transform duration-500">
+              {/* 4. THE 50% BORDER RADIUS CIRCULAR GURUJI PORTRAIT (ENLARGED ON MOBILE & DESKTOP) */}
+              <div className="relative w-[215px] h-[215px] xs:w-[245px] xs:h-[245px] sm:w-[295px] sm:h-[295px] md:w-[325px] md:h-[325px] lg:w-[355px] lg:h-[355px] rounded-full overflow-hidden p-2 sm:p-2.5 bg-gradient-to-b from-[#fae29c] via-[#d89b18] to-[#8a5900] shadow-[0_18px_45px_rgba(139,0,0,0.3),0_0_40px_rgba(216,155,24,0.38)] ring-4 ring-[#fff6dc] ring-offset-3 ring-offset-[#fff8e7] z-10 group-hover:scale-[1.02] transition-transform duration-500">
 
                 {/* Inner Circular Image Container */}
                 <div className="relative w-full h-full rounded-full overflow-hidden bg-[#240307]">

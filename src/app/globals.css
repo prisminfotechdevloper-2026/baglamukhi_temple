@@ -306,3 +306,35 @@ body {
   from { transform: translateX(100%); }
   to { transform: translateX(0); }
 }
+
+/* ================================
+   HERO SECTION ANIMATIONS
+   ================================ */
+
+@keyframes divineFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes divinePulseGlow {
+  0%, 100% {
+    opacity: 0.55;
+    transform: scale(0.96);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.05);
+  }
+}
+
+.animate-divine-float {
+  animation: divineFloat 5.5s ease-in-out infinite;
+}
+
+.animate-aura-pulse {
+  animation: divinePulseGlow 4s ease-in-out infinite;
+}

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Marcellus&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 
 :root {
@@ -90,15 +91,25 @@
     #fffdf7 0%,
     #fff8e7 100%
   );
+
+  /* Fonts */
+  --font-heading: 'Cinzel', 'Marcellus', Georgia, serif;
+  --font-serif: 'Marcellus', Georgia, serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
 }
 
 /* ================================
    GLOBAL
    ================================ */
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: var(--color-background);
   color: var(--color-text-primary);
+  font-family: var(--font-body);
 }
 
 /* ================================
@@ -108,4 +119,190 @@ body {
 ::selection {
   background: var(--color-primary);
   color: #ffffff;
+}
+
+/* ================================
+   TEMPLE NAVBAR STYLES
+   ================================ */
+
+.temple-navbar {
+  background-color: rgba(255, 252, 244, 0.96);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(216, 155, 24, 0.35);
+  box-shadow: 0 2px 14px rgba(92, 0, 0, 0.06);
+  transition: all 0.3s ease;
+}
+
+.temple-logo-container {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  text-decoration: none;
+}
+
+.temple-logo-frame {
+  position: relative;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2.5px solid var(--color-gold);
+  box-shadow: 0 0 12px rgba(216, 155, 24, 0.4), inset 0 0 6px rgba(183, 121, 0, 0.2);
+  background: radial-gradient(circle, #fff7d6 0%, #ecd089 100%);
+  flex-shrink: 0;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+}
+
+.temple-logo-container:hover .temple-logo-frame,
+.group:hover .temple-logo-frame {
+  transform: scale(1.05);
+  box-shadow: 0 0 18px rgba(216, 155, 24, 0.6), inset 0 0 8px rgba(183, 121, 0, 0.3);
+}
+
+/* Precise cropping for logo.png circle */
+.temple-logo-crop-img {
+  width: 142.5% !important;
+  height: 142.5% !important;
+  max-width: none !important;
+  position: absolute;
+  top: -5%;
+  left: -20.8%;
+  object-fit: cover;
+  display: block;
+}
+
+.temple-brand-title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #4a0c16;
+  font-size: 1.05rem;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+.temple-brand-subtitle {
+  font-family: var(--font-serif);
+  font-size: 0.92rem;
+  color: #b22222;
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.temple-brand-subtitle .dot {
+  color: #d89b18;
+  margin: 0 0.3rem;
+  font-weight: bold;
+}
+
+.temple-nav-link {
+  position: relative;
+  font-family: var(--font-serif);
+  font-size: 1.02rem;
+  font-weight: 600;
+  color: #4a2618;
+  padding: 0.5rem 0.25rem;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.temple-nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #d89b18, transparent);
+  transition: width 0.3s ease;
+  border-radius: 9999px;
+}
+
+.temple-nav-link:hover {
+  color: #8b0000;
+}
+
+.temple-nav-link:hover::after {
+  width: 100%;
+}
+
+.temple-call-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  background: linear-gradient(135deg, #c31b1b 0%, #880000 100%);
+  color: #ffffff;
+  padding: 0.65rem 1.35rem;
+  border-radius: 9999px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.96rem;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(139, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+}
+
+.temple-call-btn:hover {
+  background: linear-gradient(135deg, #dc2626 0%, #990000 100%);
+  transform: translateY(-1.5px);
+  box-shadow: 0 6px 20px rgba(185, 28, 28, 0.45);
+}
+
+.temple-call-btn:active {
+  transform: translateY(0.5px);
+  box-shadow: 0 2px 8px rgba(139, 0, 0, 0.3);
+}
+
+.temple-call-icon {
+  width: 1.15rem;
+  height: 1.15rem;
+  fill: currentColor;
+  transition: transform 0.25s ease;
+}
+
+.temple-call-btn:hover .temple-call-icon {
+  transform: rotate(-12deg) scale(1.1);
+}
+
+/* Mobile Drawer */
+.mobile-nav-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(74, 38, 24, 0.45);
+  backdrop-filter: blur(4px);
+  z-index: 40;
+  animation: fadeIn 0.25s ease-out;
+}
+
+.mobile-nav-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 82%;
+  max-width: 320px;
+  background-color: #fffcf4;
+  border-left: 1px solid var(--color-border-gold);
+  box-shadow: -8px 0 24px rgba(74, 38, 24, 0.15);
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  animation: slideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
 }

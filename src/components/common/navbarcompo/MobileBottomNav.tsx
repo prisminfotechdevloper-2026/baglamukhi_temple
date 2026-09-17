@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, Flame, Landmark, Images, PhoneCall } from "lucide-react";
+import { Home, Flame, ShieldCheck, Images, PhoneCall } from "lucide-react";
 import { NavLinkItem, ContactInfo } from "./types";
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -11,15 +11,17 @@ interface MobileBottomNavProps {
   links?: NavLinkItem[];
   contact?: ContactInfo;
   className?: string;
+  onOpenSolutions?: () => void;
 }
 
 /**
  * MobileBottomNav - Client Component for Fixed Mobile Navigation Dock.
- * Displays multilingual labels (Home, Services, Gallery, Mandir, Contact),
+ * Displays multilingual labels (Home, Services, Solutions, Gallery, Contact),
  * delivering an ultra-fast, native-app feel with gold & crimson sacred accents.
  */
 export default function MobileBottomNav({
   className = "",
+  onOpenSolutions,
 }: MobileBottomNavProps) {
   const pathname = usePathname();
   const [activeHash, setActiveHash] = useState<string>("");
@@ -34,7 +36,12 @@ export default function MobileBottomNav({
     return () => window.removeEventListener("hashchange", handleHashChange);
   }, []);
 
-  const handleNavClick = (href: string) => {
+  const handleNavClick = (e: React.MouseEvent, href: string) => {
+    if (href === "/solutions" && onOpenSolutions) {
+      e.preventDefault();
+      onOpenSolutions();
+      return;
+    }
     if (href.startsWith("/#")) {
       setActiveHash(href.replace("/", ""));
       const target = document.querySelector(href.replace("/", ""));
@@ -59,14 +66,14 @@ export default function MobileBottomNav({
       icon: Flame,
     },
     {
+      label: t.nav.solutions,
+      href: "/solutions",
+      icon: ShieldCheck,
+    },
+    {
       label: t.nav.gallery,
       href: "/gallery",
       icon: Images,
-    },
-    {
-      label: t.nav.mandir,
-      href: "/#mandir",
-      icon: Landmark,
     },
     {
       label: t.nav.contact,
@@ -90,6 +97,7 @@ export default function MobileBottomNav({
           const isExactRoute =
             tab.href === pathname ||
             (tab.href === "/" && (pathname === "/" || pathname === "/home") && !activeHash) ||
+            (tab.href === "/solutions" && pathname.startsWith("/solutions")) ||
             (tab.href === "/contact" && (pathname === "/contact" || pathname === "/contactus")) ||
             (tab.href === "/gallery" && pathname === "/gallery");
           const isHashActive =
@@ -102,7 +110,7 @@ export default function MobileBottomNav({
             <Link
               key={tab.href}
               href={tab.href}
-              onClick={() => handleNavClick(tab.href)}
+              onClick={(e) => handleNavClick(e, tab.href)}
               className={`group flex flex-col items-center justify-center w-full py-0.5 text-center transition-all duration-150 active:scale-90 focus:outline-none ${
                 isActive
                   ? "text-[#8b0000]"

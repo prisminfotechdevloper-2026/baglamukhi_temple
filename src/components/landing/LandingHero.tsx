@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Phone, Sparkles, ShieldCheck, Flame, CheckCircle2 } from "lucide-react";
+import { Phone, ShieldCheck, Flame, CheckCircle2 } from "lucide-react";
 import LotusDivider from "@/components/common/navbarcompo/LotusDivider";
 import { DEFAULT_CONTACT } from "@/components/common/navbarcompo/constants";
 import { useLanguage } from "@/context/LanguageContext";
@@ -80,7 +80,7 @@ export default function LandingHero() {
 
             {/* Sacred Peeth Top Badge */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#4a0000]/90 border border-[#d89b18] shadow-[0_2px_12px_rgba(216,155,24,0.35)] backdrop-blur-md mb-1.5 sm:mb-2">
-              <Sparkles className="w-3.5 h-3.5 text-[#f4d58d] animate-pulse" />
+              <Flame className="w-3.5 h-3.5 text-[#f4d58d]" />
               <span className="font-serif text-[#fbe9b9] text-xs sm:text-[0.82rem] tracking-wide font-semibold">
                 {t.hero.badge}
               </span>

@@ -9,7 +9,6 @@ import {
   Moon,
   Flame,
   Building2,
-  Sparkles,
 } from "lucide-react";
 import { DEFAULT_CONTACT } from "@/components/common/navbarcompo/constants";
 import { useLanguage } from "@/context/LanguageContext";
@@ -94,7 +93,7 @@ export default function ContactFormAndMapSection() {
 
             <div className="mb-6">
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#faedd2] border border-[#d89b18]/60 text-xs font-serif font-bold text-[#8b0000] mb-2">
-                <Sparkles className="w-3.5 h-3.5 text-[#b77900]" />
+                <Flame className="w-3.5 h-3.5 text-[#b77900]" />
                 <span>{t.contact.formBadge}</span>
               </div>
               <h3 className="text-xl sm:text-2xl font-serif font-bold text-[#420a10]">

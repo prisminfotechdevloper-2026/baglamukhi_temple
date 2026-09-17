@@ -1,6 +1,10 @@
+"use client";
+
+import { useState } from "react";
 import NavBrand from "./NavBrand";
 import NavLinks from "./NavLinks";
 import MobileBottomNav from "./MobileBottomNav";
+import MobileSolutionsDrawer from "./MobileSolutionsDrawer";
 import LanguageSwitcher from "@/components/common/LanguageSwitcher";
 import { DEFAULT_NAV_LINKS, DEFAULT_CONTACT } from "./constants";
 import { NavbarProps } from "./types";
@@ -15,6 +19,8 @@ export default function Navbar({
   contact = DEFAULT_CONTACT,
   className = "",
 }: NavbarProps) {
+  const [isMobileSolutionsOpen, setIsMobileSolutionsOpen] = useState(false);
+
   return (
     <>
       {/* ============================================================
@@ -30,7 +36,7 @@ export default function Navbar({
             {/* Brand Identity (Logo + Deity Name + Sacred Lotus) */}
             <NavBrand />
 
-            {/* Mobile Language Switcher (Visible on small screens) */}
+            {/* Mobile Actions: Language Switcher Only */}
             <div className="flex md:hidden items-center flex-shrink-0">
               <LanguageSwitcher variant="mobile" />
             </div>
@@ -45,9 +51,21 @@ export default function Navbar({
       </header>
 
       {/* ============================================================
+          MOBILE SOLUTIONS DRAWER / DROPDOWN
+          ============================================================ */}
+      <MobileSolutionsDrawer
+        isOpen={isMobileSolutionsOpen}
+        onClose={() => setIsMobileSolutionsOpen(false)}
+      />
+
+      {/* ============================================================
           MOBILE BOTTOM NAVIGATION DOCK (Fixed at viewport bottom)
           ============================================================ */}
-      <MobileBottomNav links={links} contact={contact} />
+      <MobileBottomNav
+        links={links}
+        contact={contact}
+        onOpenSolutions={() => setIsMobileSolutionsOpen(true)}
+      />
     </>
   );
 }

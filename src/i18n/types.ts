@@ -2,6 +2,8 @@ export type Language = "hi" | "en";
 
 export interface NavTranslations {
   home: string;
+  solutions: string;
+  allSolutions: string;
   services: string;
   gallery: string;
   mandir: string;

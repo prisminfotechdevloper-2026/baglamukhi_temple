@@ -8,4 +8,5 @@ export { default as MobileMenu } from "./MobileMenu";
 export { default as LotusDivider } from "./LotusDivider";
 export * from "./types";
 export * from "./constants";
+export { default as MobileSolutionsDrawer } from "./MobileSolutionsDrawer";
 

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import {
-  Sparkles,
+  Flame,
   ChevronRight,
   MapPin,
   Clock,
@@ -100,7 +100,7 @@ export default function ContactHero() {
 
         {/* Sacred Peeth Top Badge */}
         <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-black/60 border border-[#d89b18] shadow-[0_2px_12px_rgba(0,0,0,0.5)] backdrop-blur-md mb-1.5 sm:mb-2">
-          <Sparkles className="w-3.5 h-3.5 text-[#f4d58d] animate-pulse flex-shrink-0" />
+          <Flame className="w-3.5 h-3.5 text-[#f4d58d] flex-shrink-0" />
           <span className="font-serif text-[#fbe9b9] text-xs sm:text-[0.82rem] tracking-wide font-semibold">
             {t.contact.heroBadge}
           </span>

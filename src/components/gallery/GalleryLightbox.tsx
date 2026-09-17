@@ -7,7 +7,7 @@ import {
   ChevronLeft,
   ChevronRight,
   MapPin,
-  Sparkles,
+  Flame,
 } from "lucide-react";
 import { GalleryItem } from "./types";
 import { useLanguage } from "@/context/LanguageContext";
@@ -162,7 +162,7 @@ export default function GalleryLightbox({
           <div className="w-full min-w-0">
             {currentItem.mantra && (
               <div className="flex items-center gap-1.5 text-[0.72rem] sm:text-xs font-serif text-[#ffd700] font-semibold mb-1 italic">
-                <Sparkles className="w-3.5 h-3.5 flex-shrink-0 text-[#ffd700]" />
+                <Flame className="w-3.5 h-3.5 flex-shrink-0 text-[#ffd700]" />
                 <span className="truncate">{currentItem.mantra}</span>
               </div>
             )}

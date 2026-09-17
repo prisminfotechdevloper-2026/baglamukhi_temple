@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Image from "next/image";
 import {
-  Sparkles,
   ShieldCheck,
   Flame,
   Award,
@@ -135,7 +134,7 @@ export default function GurujiGallerySection() {
         {/* 1. SECTION HEADER */}
         <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#faedd2] border border-[#d89b18]/80 shadow-[0_2px_8px_rgba(216,155,24,0.16)] mb-2.5 sm:mb-3">
-            <Sparkles className="w-3.5 h-3.5 text-[#b77900] animate-pulse" />
+            <Flame className="w-3.5 h-3.5 text-[#b77900]" />
             <span className="font-serif text-[#78350f] text-xs sm:text-sm font-bold tracking-wide">
               {t.gallery.gurujiBadge}
             </span>
@@ -178,7 +177,7 @@ export default function GurujiGallerySection() {
 
                 <div className="absolute top-2.5 left-2.5 z-10">
                   <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#3d080e]/90 border border-[#ffd700]/70 text-[#ffd700] text-[10px] sm:text-xs font-serif font-bold shadow-md backdrop-blur-md">
-                    <Sparkles className="w-3 h-3 text-[#ffd700]" />
+                    <Award className="w-3 h-3 text-[#ffd700]" />
                     <span>{photo.badge}</span>
                   </span>
                 </div>
@@ -305,7 +304,7 @@ export default function GurujiGallerySection() {
             <div className="w-full md:w-1/2 p-5 sm:p-6 md:p-8 flex flex-col justify-between text-[#fff8e7]">
               <div>
                 <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#4a0810] border border-[#d89b18] text-[#ffd700] text-xs font-serif font-bold mb-3">
-                  <Sparkles className="w-3.5 h-3.5 text-[#ffd700]" />
+                  <Award className="w-3.5 h-3.5 text-[#ffd700]" />
                   <span>{GURUJI_PHOTOS[activePhotoIndex].badge}</span>
                 </div>
 

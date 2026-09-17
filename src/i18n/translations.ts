@@ -4,6 +4,8 @@ export const translations: Record<"hi" | "en", Translations> = {
   hi: {
     nav: {
       home: "मुख्य पृष्ठ",
+      solutions: "समाधान",
+      allSolutions: "सभी समाधान देखें",
       services: "विशेष अनुष्ठान",
       gallery: "चित्र दीर्घा",
       mandir: "मंदिर धाम",
@@ -398,6 +400,8 @@ export const translations: Record<"hi" | "en", Translations> = {
   en: {
     nav: {
       home: "Home",
+      solutions: "Solutions",
+      allSolutions: "View All Solutions",
       services: "Sacred Services",
       gallery: "Gallery",
       mandir: "Temple Dham",

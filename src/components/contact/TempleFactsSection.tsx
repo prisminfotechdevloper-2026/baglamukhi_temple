@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Sparkles, Flame, BookOpen } from "lucide-react";
+import { Flame, BookOpen } from "lucide-react";
 import LotusDivider from "@/components/common/navbarcompo/LotusDivider";
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -118,7 +118,7 @@ export default function TempleFactsSection() {
                 {/* Top Tag */}
                 <div className="absolute top-3 left-3 z-10">
                   <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[#240307]/90 border border-[#ffd700]/70 text-[#ffd700] text-[11px] font-serif font-bold shadow-md">
-                    <Sparkles className="w-3 h-3 text-[#ffd700]" />
+                    <Flame className="w-3 h-3 text-[#ffd700]" />
                     <span>{fact.tag}</span>
                   </span>
                 </div>

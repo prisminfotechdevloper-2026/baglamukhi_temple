@@ -9,18 +9,19 @@ import {
   Moon,
   Flame,
   Building2,
-  PhoneCall,
   Sparkles,
 } from "lucide-react";
-import LotusDivider from "@/components/common/navbarcompo/LotusDivider";
 import { DEFAULT_CONTACT } from "@/components/common/navbarcompo/constants";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function ContactFormAndMapSection() {
+  const { t, language } = useLanguage();
+
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
     city: "",
-    service: "बगलामुखी महाहवन एवं संकल्प",
+    service: language === "hi" ? "बगलामुखी महाहवन एवं संकल्प" : "Baglamukhi Maha Hawan & Sankalp",
     date: "",
     message: "",
   });
@@ -32,24 +33,31 @@ export default function ContactFormAndMapSection() {
     if (!formData.name || !formData.phone) return;
 
     // Generate WhatsApp Sankalp Message URL
+    const greeting = language === "hi" ? "जय माँ बगलामुखी! पूज्य गुरुजी (पंडित शुभम शर्मा जी),\n" : "Jai Maa Bagalamukhi! Pujya Guruji (Pt. Shubham Sharma Ji),\n";
+    const labelName = language === "hi" ? "मेरा नाम:" : "My Name:";
+    const labelPhone = language === "hi" ? "मोबाइल नंबर:" : "Mobile No:";
+    const labelCity = language === "hi" ? "स्थान / शहर:" : "Location / City:";
+    const labelService = language === "hi" ? "अनुष्ठान / सेवा:" : "Anushthan / Service:";
+    const labelDate = language === "hi" ? "इच्छित तिथि:" : "Preferred Date:";
+    const labelMsg = language === "hi" ? "विशेष संदेश:" : "Message / Note:";
+
     const text = encodeURIComponent(
-      `जय माँ बगलामुखी! पूज्य गुरुजी (पंडित शुभम शर्मा जी),\n` +
-      `मेरा नाम: ${formData.name}\n` +
-      `मोबाइल नंबर: ${formData.phone}\n` +
-      `स्थान / शहर: ${formData.city || "नलखेड़ा धाम"}\n` +
-      `अनुष्ठान / सेवा: ${formData.service}\n` +
-      `इच्छित तिथि: ${formData.date || "यथाशीघ्र"}\n` +
-      `विशेष संदेश: ${formData.message || "मार्गदर्शन एवं संकल्प हेतु संपर्क"}`
+      `${greeting}` +
+      `${labelName} ${formData.name}\n` +
+      `${labelPhone} ${formData.phone}\n` +
+      `${labelCity} ${formData.city || (language === "hi" ? "नलखेड़ा धाम" : "Nalkheda Dham")}\n` +
+      `${labelService} ${formData.service}\n` +
+      `${labelDate} ${formData.date || (language === "hi" ? "यथाशीघ्र" : "As soon as possible")}\n` +
+      `${labelMsg} ${formData.message || (language === "hi" ? "मार्गदर्शन एवं संकल्प हेतु संपर्क" : "Contact for guidance and booking")}`
     );
 
     setIsSubmitted(true);
 
-    // Open WhatsApp in new tab
     const url = `https://wa.me/${DEFAULT_CONTACT.phone.replace(/[^0-9]/g, "")}?text=${text}`;
     window.open(url, "_blank");
   };
 
-  const PUJA_SERVICES = [
+  const PUJA_SERVICES = language === "hi" ? [
     "बगलामुखी महाहवन एवं संकल्प",
     "सर्व शत्रु स्तम्भन एवं रक्षा कवच",
     "सवा लाख महामंत्र जाप अनुष्ठान",
@@ -59,6 +67,16 @@ export default function ContactFormAndMapSection() {
     "कालसर्प, पितृ व नवग्रह शांति",
     "जन्मकुंडली विश्लेषण एवं तंत्र परामर्श",
     "मंदिर दर्शन, धर्मशाला व अन्य जानकारी",
+  ] : [
+    "Baglamukhi Maha Hawan & Sankalp",
+    "Enemy Immobilization & Protective Armor",
+    "125,000 Maha Mantra Japa Anushthan",
+    "Court Case & Political Victory Anushthan",
+    "Mahalakshmi Sadhana & Business Growth",
+    "Health Recovery & Chronic Illness Cure",
+    "Kaal Sarp, Pitra & Navgraha Shanti",
+    "Kundali Analysis & Tantra Consultation",
+    "Darshan, Accommodations & Travel Info",
   ];
 
   return (
@@ -70,23 +88,20 @@ export default function ContactFormAndMapSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
           
-          {/* ============================================================
-              LEFT COLUMN: SACRED DEVOTEE CONSULTATION FORM (7 Cols)
-              ============================================================ */}
+          {/* LEFT COLUMN: SACRED DEVOTEE CONSULTATION FORM (7 Cols) */}
           <div className="lg:col-span-7 bg-white rounded-2xl sm:rounded-3xl border border-[#ebd9b8] border-l-[5px] border-l-[#c2841f] shadow-[0_10px_35px_rgba(74,38,24,0.08)] p-6 sm:p-8 relative overflow-hidden">
-            {/* Top Accent Line */}
             <div className="absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-[#d89b18] via-[#ffd700] to-[#d89b18]" />
 
             <div className="mb-6">
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#faedd2] border border-[#d89b18]/60 text-xs font-serif font-bold text-[#8b0000] mb-2">
                 <Sparkles className="w-3.5 h-3.5 text-[#b77900]" />
-                <span>निःशुल्क वैदिक परामर्श एवं संकल्प</span>
+                <span>{t.contact.formBadge}</span>
               </div>
               <h3 className="text-xl sm:text-2xl font-serif font-bold text-[#420a10]">
-                पूजन, अनुष्ठान एवं दर्शन सम्बन्धी परामर्श
+                {t.contact.formTitle}
               </h3>
               <p className="text-xs sm:text-sm text-[#6d4330] font-serif mt-1">
-                अपनी समस्या या अनुष्ठान का विवरण भरें। पूज्य गुरुजी (पंडित शुभम शर्मा जी) द्वारा आपको व्यक्तिगत मार्गदर्शन प्रदान किया जाएगा।
+                {t.contact.formSubtitle}
               </p>
             </div>
 
@@ -96,17 +111,17 @@ export default function ContactFormAndMapSection() {
                   <CheckCircle2 className="w-6 h-6" />
                 </div>
                 <h4 className="text-lg font-serif font-bold text-[#14532d]">
-                  आपका संदेश सफलतापूर्वक प्रेषित कर दिया गया है!
+                  {t.contact.formSuccessTitle}
                 </h4>
                 <p className="text-xs sm:text-sm text-[#166534] font-serif">
-                  माँ बगलामुखी की कृपा से आपका कल्याण हो। पूज्य गुरुजी शीघ्र ही आपसे संपर्क करेंगे।
+                  {t.contact.formSuccessDesc}
                 </p>
                 <button
                   type="button"
                   onClick={() => setIsSubmitted(false)}
                   className="mt-2 inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#15803d] text-white text-xs font-serif font-bold hover:bg-[#166534] transition-colors"
                 >
-                  पुनः नया संदेश भेजें
+                  {t.contact.formSuccessBtn}
                 </button>
               </div>
             ) : (
@@ -115,12 +130,12 @@ export default function ContactFormAndMapSection() {
                   {/* Name */}
                   <div>
                     <label className="block text-xs font-serif font-bold text-[#420a10] mb-1">
-                      पूरा नाम (Full Name) <span className="text-red-600">*</span>
+                      {t.contact.labelName} <span className="text-red-600">*</span>
                     </label>
                     <input
                       type="text"
                       required
-                      placeholder="उदा. अमित शर्मा"
+                      placeholder={t.contact.placeholderName}
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       className="w-full px-3.5 py-2.5 rounded-xl border border-[#d89b18]/40 bg-[#fffdfa] text-sm text-[#4a2618] focus:outline-none focus:ring-2 focus:ring-[#d89b18] focus:border-transparent font-serif"
@@ -130,12 +145,12 @@ export default function ContactFormAndMapSection() {
                   {/* Phone */}
                   <div>
                     <label className="block text-xs font-serif font-bold text-[#420a10] mb-1">
-                      मोबाइल / व्हाट्सएप नंबर (Phone) <span className="text-red-600">*</span>
+                      {t.contact.labelPhone} <span className="text-red-600">*</span>
                     </label>
                     <input
                       type="tel"
                       required
-                      placeholder="उदा. +91 98765 43210"
+                      placeholder={t.contact.placeholderPhone}
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       className="w-full px-3.5 py-2.5 rounded-xl border border-[#d89b18]/40 bg-[#fffdfa] text-sm text-[#4a2618] focus:outline-none focus:ring-2 focus:ring-[#d89b18] focus:border-transparent font-serif"
@@ -147,11 +162,11 @@ export default function ContactFormAndMapSection() {
                   {/* City / State */}
                   <div>
                     <label className="block text-xs font-serif font-bold text-[#420a10] mb-1">
-                      आपका शहर / राज्य (City / State)
+                      {t.contact.labelCity}
                     </label>
                     <input
                       type="text"
-                      placeholder="उदा. इंदौर / नई दिल्ली"
+                      placeholder={t.contact.placeholderCity}
                       value={formData.city}
                       onChange={(e) => setFormData({ ...formData, city: e.target.value })}
                       className="w-full px-3.5 py-2.5 rounded-xl border border-[#d89b18]/40 bg-[#fffdfa] text-sm text-[#4a2618] focus:outline-none focus:ring-2 focus:ring-[#d89b18] focus:border-transparent font-serif"
@@ -161,7 +176,7 @@ export default function ContactFormAndMapSection() {
                   {/* Date */}
                   <div>
                     <label className="block text-xs font-serif font-bold text-[#420a10] mb-1">
-                      इच्छित तिथि (Preferred Date)
+                      {t.contact.labelDate}
                     </label>
                     <input
                       type="date"
@@ -175,7 +190,7 @@ export default function ContactFormAndMapSection() {
                 {/* Service Selection */}
                 <div>
                   <label className="block text-xs font-serif font-bold text-[#420a10] mb-1">
-                    इच्छित पूजन / अनुष्ठान सेवा चुनें (Select Service)
+                    {t.contact.labelService}
                   </label>
                   <select
                     value={formData.service}
@@ -193,11 +208,11 @@ export default function ContactFormAndMapSection() {
                 {/* Message */}
                 <div>
                   <label className="block text-xs font-serif font-bold text-[#420a10] mb-1">
-                    समस्या अथवा विशेष विवरण (Problem / Note)
+                    {t.contact.labelMessage}
                   </label>
                   <textarea
                     rows={3}
-                    placeholder="अपनी समस्या, गोत्र अथवा अनुष्ठान से सम्बन्धित विशेष विवरण यहाँ लिखें..."
+                    placeholder={t.contact.placeholderMessage}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     className="w-full px-3.5 py-2.5 rounded-xl border border-[#d89b18]/40 bg-[#fffdfa] text-sm text-[#4a2618] focus:outline-none focus:ring-2 focus:ring-[#d89b18] focus:border-transparent font-serif resize-none"
@@ -208,22 +223,20 @@ export default function ContactFormAndMapSection() {
                 <div className="pt-2">
                   <button
                     type="submit"
-                    className="w-full py-3.5 px-6 rounded-full bg-gradient-to-r from-[#d89b18] via-[#e5b338] to-[#b8800b] text-[#2b1708] font-serif font-extrabold text-sm sm:text-base shadow-[0_4px_18px_rgba(216,155,24,0.45)] hover:shadow-[0_6px_25px_rgba(216,155,24,0.65)] hover:scale-[1.01] active:scale-95 transition-all duration-200 border border-[#ffe8a3] flex items-center justify-center gap-2"
+                    className="w-full py-3.5 px-6 rounded-full bg-gradient-to-r from-[#d89b18] via-[#e5b338] to-[#b8800b] text-[#2b1708] font-serif font-extrabold text-sm sm:text-base shadow-[0_4px_18px_rgba(216,155,24,0.45)] hover:shadow-[0_6px_25px_rgba(216,155,24,0.65)] hover:scale-[1.01] active:scale-95 transition-all duration-200 border border-[#ffe8a3] flex items-center justify-center gap-2 cursor-pointer"
                   >
                     <Send className="w-4 h-4" />
-                    <span>परामर्श एवं संकल्प हेतु संदेश भेजें (WhatsApp Connect)</span>
+                    <span>{t.contact.btnSubmit}</span>
                   </button>
                   <p className="text-[11px] text-center text-[#78350f] font-serif mt-2">
-                    🔒 आपकी संपूर्ण जानकारी 100% गोपनीय एवं शास्त्रोक्त मर्यादा में सुरक्षित रखी जाती है।
+                    {t.contact.privacyNotice}
                   </p>
                 </div>
               </form>
             )}
           </div>
 
-          {/* ============================================================
-              RIGHT COLUMN: LIVE GOOGLE MAP + TEMPLE TIMINGS (5 Cols)
-              ============================================================ */}
+          {/* RIGHT COLUMN: LIVE GOOGLE MAP + TEMPLE TIMINGS (5 Cols) */}
           <div className="lg:col-span-5 space-y-6">
             {/* 1. Google Maps Card */}
             <div className="rounded-2xl sm:rounded-3xl bg-white border border-[#ebd9b8] border-l-[5px] border-l-[#c2841f] shadow-lg overflow-hidden">
@@ -234,10 +247,10 @@ export default function ContactFormAndMapSection() {
                   </div>
                   <div>
                     <h4 className="font-serif font-bold text-sm text-[#ffd700] leading-none">
-                      माँ बगलामुखी मंदिर लाइव मैप
+                      {t.contact.mapTitle}
                     </h4>
                     <p className="text-[11px] text-[#faebd0]/80 font-serif mt-0.5">
-                      लखुंदर नदी तट, नलखेड़ा धाम
+                      {t.contact.mapSubtitle}
                     </p>
                   </div>
                 </div>
@@ -268,7 +281,7 @@ export default function ContactFormAndMapSection() {
                 <div className="flex items-center gap-2">
                   <Clock className="w-5 h-5 text-[#ffd700]" />
                   <h4 className="font-serif font-bold text-base sm:text-lg text-[#ffd778]">
-                    मंदिर दर्शन एवं आरती समय
+                    {t.contact.timingsTitle}
                   </h4>
                 </div>
                 <span className="text-xs font-serif font-bold text-[#ffd700]">॥ ॐ ॥</span>
@@ -279,10 +292,10 @@ export default function ContactFormAndMapSection() {
                 <div className="p-3 rounded-2xl bg-[#3d080e]/80 border border-[#d89b18]/30">
                   <div className="flex items-center gap-1.5 text-xs text-[#ffd778] font-bold mb-1">
                     <Sun className="w-3.5 h-3.5 text-amber-400" />
-                    <span>प्रातः दर्शन व पूजन</span>
+                    <span>{t.contact.morningAarti}</span>
                   </div>
                   <p className="text-xs sm:text-sm font-semibold text-white">
-                    05:30 AM - 12:30 PM
+                    {t.contact.morningTime}
                   </p>
                 </div>
 
@@ -290,10 +303,10 @@ export default function ContactFormAndMapSection() {
                 <div className="p-3 rounded-2xl bg-[#3d080e]/80 border border-[#d89b18]/30">
                   <div className="flex items-center gap-1.5 text-xs text-[#ffd778] font-bold mb-1">
                     <Moon className="w-3.5 h-3.5 text-amber-300" />
-                    <span>संध्या महाआरती</span>
+                    <span>{t.contact.eveningAarti}</span>
                   </div>
                   <p className="text-xs sm:text-sm font-semibold text-white">
-                    06:30 PM - 09:30 PM
+                    {t.contact.eveningTime}
                   </p>
                 </div>
               </div>
@@ -302,11 +315,11 @@ export default function ContactFormAndMapSection() {
               <div className="pt-2 border-t border-[#d89b18]/25 space-y-2 text-xs font-serif text-[#e4c9a8]">
                 <div className="flex items-center gap-2 text-[#ffd778]">
                   <Flame className="w-4 h-4 text-amber-400 flex-shrink-0" />
-                  <span>अखंड महाहवन: दैनिक प्रातः 07:00 AM से संकल्प मुहूर्त अनुसार</span>
+                  <span>{t.contact.hawanInfo}</span>
                 </div>
                 <div className="flex items-center gap-2 text-[#e4c9a8]">
                   <Building2 className="w-4 h-4 text-amber-300 flex-shrink-0" />
-                  <span>धर्मशाला व विश्राम: मंदिर परिसर के समीप उत्तम आवास सुविधा उपलब्ध</span>
+                  <span>{t.contact.stayInfo}</span>
                 </div>
               </div>
             </div>

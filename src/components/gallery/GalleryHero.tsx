@@ -15,13 +15,17 @@ import {
   Camera,
 } from "lucide-react";
 import LotusDivider from "@/components/common/navbarcompo/LotusDivider";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface HeroSlide {
   id: number;
   image: string;
-  title: string;
-  subtitle: string;
-  badge: string;
+  titleHi: string;
+  titleEn: string;
+  subtitleHi: string;
+  subtitleEn: string;
+  badgeHi: string;
+  badgeEn: string;
   alt: string;
 }
 
@@ -29,52 +33,68 @@ const HERO_SLIDES: HeroSlide[] = [
   {
     id: 1,
     image: "/mandir/mandir-complex-panoramic.jpg",
-    title: "नलखेड़ा धाम विहंगम परिसर",
-    subtitle: "सिद्ध शक्तिपीठ माँ बगलामुखी का भव्य व पावन प्रांगण",
-    badge: "महाशक्तिपीठ परिसर",
-    alt: "माँ बगलामुखी मंदिर नलखेड़ा धाम विहंगम दृश्य",
+    titleHi: "नलखेड़ा धाम विहंगम परिसर",
+    titleEn: "Nalkheda Dham Panoramic Complex",
+    subtitleHi: "सिद्ध शक्तिपीठ माँ बगलामुखी का भव्य व पावन प्रांगण",
+    subtitleEn: "Grand, auspicious courtyard of Siddha Shaktipeeth",
+    badgeHi: "महाशक्तिपीठ परिसर",
+    badgeEn: "Maha Shaktipeeth Courtyard",
+    alt: "Maa Baglamukhi Mandir Nalkheda Panoramic Darshan",
   },
   {
     id: 2,
     image: "/mandir/baglamukhi-divine-darshan.jpg",
-    title: "पावन गर्भगृह दिव्य दर्शन",
-    subtitle: "स्वर्ण मुकुट, त्रिशक्ति विग्रह व दिव्य पीताम्बरा स्वरूप",
-    badge: "साक्षात दिव्य दर्शन",
-    alt: "माँ बगलामुखी गर्भगृह पावन दर्शन",
+    titleHi: "पावन गर्भगृह दिव्य दर्शन",
+    titleEn: "Sacred Sanctum Sanctorum",
+    subtitleHi: "स्वर्ण मुकुट, त्रिशक्ति विग्रह व दिव्य पीताम्बरा स्वरूप",
+    subtitleEn: "Golden crown, Tri-Shakti deity & divine Pitambara form",
+    badgeHi: "साक्षात दिव्य दर्शन",
+    badgeEn: "Direct Divine Darshan",
+    alt: "Maa Baglamukhi Garbhagriha Darshan",
   },
   {
     id: 3,
     image: "/mandir/mandir-night-darshan.jpg",
-    title: "रात्रि महाआरती एवं दीप प्रभा",
-    subtitle: "दिव्य स्वर्णिम आभा, दीप प्रकाश एवं अखंड ज्योति दर्शन",
-    badge: "रात्रि दीप दर्शन",
-    alt: "माँ बगलामुखी मंदिर रात्रि दीप दर्शन",
+    titleHi: "रात्रि महाआरती एवं दीप प्रभा",
+    titleEn: "Night Illumination & Maha Aarti",
+    subtitleHi: "दिव्य स्वर्णिम आभा, दीप प्रकाश एवं अखंड ज्योति दर्शन",
+    subtitleEn: "Golden aura, sacred oil lamps & eternal flame",
+    badgeHi: "रात्रि दीप दर्शन",
+    badgeEn: "Night Lamp Darshan",
+    alt: "Maa Baglamukhi Temple Night Deep Darshan",
   },
   {
     id: 4,
     image: "/mandir/mandir-main-facade.jpg",
-    title: "प्राचीन मंदिर मुख्य शिखर",
-    subtitle: "महाभारत कालीन पावन ध्वजा, स्वर्ण कलश एवं वास्तुकला",
-    badge: "प्राचीन शिखर दर्शन",
-    alt: "माँ बगलामुखी मंदिर मुख्य शिखर व कलश",
+    titleHi: "प्राचीन मंदिर मुख्य शिखर",
+    titleEn: "Ancient Temple Main Shikhara",
+    subtitleHi: "महाभारत कालीन पावन ध्वजा, स्वर्ण कलश एवं वास्तुकला",
+    subtitleEn: "Mahabharata era flag, golden pinnacle & architecture",
+    badgeHi: "प्राचीन शिखर दर्शन",
+    badgeEn: "Ancient Shikhara",
+    alt: "Maa Baglamukhi Temple Main Shikhara",
   },
   {
     id: 5,
     image: "/mandir/temple-view-front.jpg",
-    title: "सिद्ध प्रांगण एवं यज्ञशाला",
-    subtitle: "लखुंदर नदी तट पर स्थित जागृत महायज्ञ तपोभूमि",
-    badge: "अखंड तपोभूमि",
-    alt: "माँ बगलामुखी मंदिर प्रांगण व यज्ञशाला",
+    titleHi: "सिद्ध प्रांगण एवं यज्ञशाला",
+    titleEn: "Sacred Courtyard & Yajnashala",
+    subtitleHi: "लखुंदर नदी तट पर स्थित जागृत महायज्ञ तपोभूमि",
+    subtitleEn: "Energized sacred yajna grounds along Lakhundar river",
+    badgeHi: "अखंड तपोभूमि",
+    badgeEn: "Sacred Tapobhoomi",
+    alt: "Maa Baglamukhi Temple Yajnashala",
   },
 ];
 
-const SLIDE_INTERVAL_MS = 3000; // Continuous 3-second interval
+const SLIDE_INTERVAL_MS = 3000;
 
 export default function GalleryHero() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [progress, setProgress] = useState(0);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
   const progressTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const { t, language } = useLanguage();
 
   const nextSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
@@ -91,9 +111,8 @@ export default function GalleryHero() {
     setProgress(0);
   };
 
-  // Continuous auto-slide every 3 seconds (runs continuously without pausing on mouse hover)
   useEffect(() => {
-    const intervalTime = 50; // update progress every 50ms
+    const intervalTime = 50;
     const totalSteps = SLIDE_INTERVAL_MS / intervalTime;
     let currentStep = 0;
 
@@ -117,11 +136,7 @@ export default function GalleryHero() {
       className="relative isolate w-full overflow-hidden pt-3.5 sm:pt-6 md:pt-8 pb-5 sm:pb-7 md:pb-9 border-b border-[#d89b18]/40"
       aria-label="माँ बगलामुखी दिव्य चित्र दीर्घा"
     >
-      {/* ============================================================
-          1. FULL-WIDTH BACKGROUND SLIDER (PURE NATURAL IMAGES, NO COLOR EFFECT)
-          - 5 Mandir images continuously rotating every 3s
-          - Pure neutral dark gradient overlay for crystal clear text readability
-          ============================================================ */}
+      {/* 1. FULL-WIDTH BACKGROUND SLIDER */}
       <div className="absolute inset-0 w-full h-full z-0 overflow-hidden pointer-events-none">
         {HERO_SLIDES.map((slide, index) => {
           const isActive = index === currentSlide;
@@ -149,18 +164,14 @@ export default function GalleryHero() {
           );
         })}
 
-        {/* Clean Neutral Dark Scrim (Matching ContactHero & LandingHero for crystal clear photo & typography presence) */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/40 to-black/75 z-20 pointer-events-none" />
       </div>
 
-      {/* ============================================================
-          2. MAJESTIC GALLERY HERO CONTENT
-          ============================================================ */}
+      {/* 2. MAJESTIC GALLERY HERO CONTENT */}
       <div className="max-w-6xl mx-auto w-full px-3.5 sm:px-6 md:px-8 relative z-30 flex flex-col items-center text-center">
 
         {/* Top Navigation & Live Slide Indicator */}
         <div className="w-full flex items-center justify-between gap-2 mb-2 sm:mb-2.5">
-          {/* Breadcrumb */}
           <nav
             aria-label="Breadcrumb"
             className="flex items-center gap-1.5 text-xs sm:text-[0.82rem] text-[#f6dd9f]/90 font-serif"
@@ -169,18 +180,19 @@ export default function GalleryHero() {
               href="/"
               className="hover:text-[#ffd700] transition-colors flex items-center gap-1"
             >
-              <span>मुख्य पृष्ठ</span>
+              <span>{t.gallery.breadcrumbHome}</span>
             </Link>
             <ChevronRight className="w-3.5 h-3.5 text-[#d89b18]" />
             <span className="text-[#ffd700] font-semibold">
-              चित्र दीर्घा (Gallery)
+              {t.gallery.breadcrumbGallery}
             </span>
           </nav>
 
-          {/* Active Slide Counter Badge */}
           <div className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-full bg-black/60 border border-[#d89b18]/70 shadow-xs text-[11px] sm:text-xs font-serif text-[#ffd700] backdrop-blur-md">
             <Camera className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#f4d58d]" />
-            <span className="font-bold">दर्शन {currentSlide + 1} / {HERO_SLIDES.length}</span>
+            <span className="font-bold">
+              {t.gallery.slideCounterLabel} {currentSlide + 1} / {HERO_SLIDES.length}
+            </span>
           </div>
         </div>
 
@@ -188,22 +200,21 @@ export default function GalleryHero() {
         <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-black/60 border border-[#d89b18] shadow-[0_2px_12px_rgba(0,0,0,0.5)] backdrop-blur-md mb-1.5 sm:mb-2">
           <Sparkles className="w-3.5 h-3.5 text-[#f4d58d] animate-pulse" />
           <span className="font-serif text-[#fbe9b9] text-xs sm:text-[0.82rem] tracking-wide font-semibold">
-            ॥ ॐ ॥ विश्वप्रसिद्ध सिद्ध शक्तिपीठ • नलखेड़ा धाम (म.प्र.)
+            {t.gallery.heroBadge}
           </span>
         </div>
 
         {/* Main Sacred Gallery Heading */}
         <h1 className="font-serif font-bold text-white tracking-wide text-2xl sm:text-3xl md:text-4xl lg:text-[2.65rem] xl:text-[2.85rem] leading-[1.18] drop-shadow-[0_3px_12px_rgba(0,0,0,0.85)] max-w-4xl">
-          माँ बगलामुखी दिव्य दर्शन{" "}
+          {t.gallery.heroTitle}{" "}
           <span className="bg-gradient-to-r from-[#ffe49e] via-[#f7c85f] to-[#d89b18] bg-clip-text text-transparent drop-shadow-[0_0_18px_rgba(216,155,24,0.5)]">
-            एवं पावन मंदिर चित्र दीर्घा
+            {t.gallery.heroHighlight}
           </span>
         </h1>
 
         {/* Gallery Sub-headline */}
         <p className="font-serif text-[#ffedd5] text-xs sm:text-sm md:text-base mt-1.5 max-w-3xl font-medium drop-shadow-[0_2px_6px_rgba(0,0,0,0.85)] leading-relaxed">
-          महाभारत कालीन स्वयंभू त्रिशक्ति पीठ माँ पीताम्बरा मंदिर के पावन गर्भगृह, 
-          अखंड महाहवन, दिव्य विग्रह एवं ऐतिहासिक वास्तुकला के अलौकिक सजीव दर्शन।
+          {t.gallery.heroSubtitle}
         </p>
 
         {/* Ornate Lotus Divider */}
@@ -211,17 +222,15 @@ export default function GalleryHero() {
           <LotusDivider />
         </div>
 
-        {/* ============================================================
-            3. 4 SACRED HIGHLIGHTS CARDS (2x2 ON MOBILE WITH GOLD LEFT BORDER)
-            ============================================================ */}
+        {/* 3. 4 SACRED HIGHLIGHTS CARDS */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-2.5 w-full max-w-3xl my-2">
           <div className="flex items-center gap-2 p-2 sm:p-2.5 rounded-xl bg-black/55 backdrop-blur-md border border-[#d89b18]/45 border-l-[3.5px] sm:border-l-[4px] border-l-[#d89b18] shadow-md text-left">
             <div className="w-7 h-7 rounded-lg bg-[#3d080e] border border-[#d89b18]/60 flex items-center justify-center text-[#ffd700] flex-shrink-0">
               <Eye className="w-3.5 h-3.5" />
             </div>
             <div className="min-w-0">
-              <p className="text-[10px] text-[#eed6a8] font-serif font-medium leading-none">अलौकिक दर्शन</p>
-              <p className="text-xs font-serif font-bold text-white truncate mt-0.5">18+ पावन चित्र</p>
+              <p className="text-[10px] text-[#eed6a8] font-serif font-medium leading-none">{t.gallery.statDarshan}</p>
+              <p className="text-xs font-serif font-bold text-white truncate mt-0.5">{t.gallery.statDarshanVal}</p>
             </div>
           </div>
 
@@ -230,8 +239,8 @@ export default function GalleryHero() {
               <Flame className="w-3.5 h-3.5" />
             </div>
             <div className="min-w-0">
-              <p className="text-[10px] text-[#eed6a8] font-serif font-medium leading-none">अखंड ज्योति</p>
-              <p className="text-xs font-serif font-bold text-white truncate mt-0.5">महाहवन दर्शन</p>
+              <p className="text-[10px] text-[#eed6a8] font-serif font-medium leading-none">{t.gallery.statJyoti}</p>
+              <p className="text-xs font-serif font-bold text-white truncate mt-0.5">{t.gallery.statJyotiVal}</p>
             </div>
           </div>
 
@@ -240,8 +249,8 @@ export default function GalleryHero() {
               <MapPin className="w-3.5 h-3.5" />
             </div>
             <div className="min-w-0">
-              <p className="text-[10px] text-[#eed6a8] font-serif font-medium leading-none">पवित्र संगम</p>
-              <p className="text-xs font-serif font-bold text-white truncate mt-0.5">लखुंदर नदी तट</p>
+              <p className="text-[10px] text-[#eed6a8] font-serif font-medium leading-none">{t.gallery.statSangam}</p>
+              <p className="text-xs font-serif font-bold text-white truncate mt-0.5">{t.gallery.statSangamVal}</p>
             </div>
           </div>
 
@@ -250,54 +259,49 @@ export default function GalleryHero() {
               <ShieldCheck className="w-3.5 h-3.5" />
             </div>
             <div className="min-w-0">
-              <p className="text-[10px] text-[#eed6a8] font-serif font-medium leading-none">वैदिक अनुष्ठान</p>
-              <p className="text-xs font-serif font-bold text-white truncate mt-0.5">100% शास्त्रोक्त</p>
+              <p className="text-[10px] text-[#eed6a8] font-serif font-medium leading-none">{t.gallery.statVidhi}</p>
+              <p className="text-xs font-serif font-bold text-white truncate mt-0.5">{t.gallery.statVidhiVal}</p>
             </div>
           </div>
         </div>
 
-        {/* Action Button Row */}
+        {/* Action Button */}
         <div className="flex flex-col xs:flex-row items-center justify-center gap-2.5 sm:gap-3.5 w-full xs:w-auto my-2 sm:my-2.5">
-          {/* Button 1: Explore Gallery (Primary Gold Button) */}
           <a
             href="#gallery-grid"
             className="w-full xs:w-auto min-w-[200px] inline-flex items-center justify-center gap-2 px-6 py-2.5 sm:py-3 rounded-full bg-gradient-to-r from-[#d89b18] via-[#e5b338] to-[#c6890c] text-[#3d0309] font-serif font-bold text-xs sm:text-sm md:text-base shadow-[0_4px_18px_rgba(216,155,24,0.45)] hover:shadow-[0_6px_25px_rgba(216,155,24,0.65)] hover:scale-[1.02] active:scale-95 transition-all duration-200 border border-[#ffe8a3]"
           >
-            <span>सम्पूर्ण गैलरी एक्सप्लोर करें</span>
+            <span>{t.gallery.btnExplore}</span>
             <ArrowDown className="w-4 h-4 text-[#3d0309] animate-bounce" />
           </a>
         </div>
 
-        {/* ============================================================
-            4. 5-SEGMENT INTERACTIVE SLIDER BAR
-            ============================================================ */}
+        {/* 4. 5-SEGMENT INTERACTIVE SLIDER BAR */}
         <div className="w-full max-w-4xl mt-3 pt-2.5 border-t border-[#d89b18]/30">
           <div className="flex items-center justify-between gap-2 sm:gap-3">
-            {/* Prev Arrow */}
             <button
               onClick={prevSlide}
-              aria-label="पिछला चित्र"
-              className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-black/60 border border-[#d89b18]/60 text-[#ffd700] hover:border-[#ffd700] hover:bg-black/80 flex items-center justify-center transition-transform hover:scale-110 active:scale-95 flex-shrink-0 shadow-md"
+              aria-label="Previous image"
+              className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-black/60 border border-[#d89b18]/60 text-[#ffd700] hover:border-[#ffd700] hover:bg-black/80 flex items-center justify-center transition-transform hover:scale-110 active:scale-95 flex-shrink-0 shadow-md cursor-pointer"
             >
               <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
 
-            {/* 5 Interactive Thumbnail / Progress Tabs */}
             <div className="grid grid-cols-5 gap-1.5 sm:gap-2 flex-1">
               {HERO_SLIDES.map((slide, index) => {
                 const isActive = index === currentSlide;
+                const slideTitle = language === "hi" ? slide.titleHi : slide.titleEn;
                 return (
                   <button
                     key={slide.id}
                     onClick={() => goToSlide(index)}
-                    className={`group relative text-left rounded-lg overflow-hidden p-1 sm:p-1.5 transition-all duration-200 border ${
+                    className={`group relative text-left rounded-lg overflow-hidden p-1 sm:p-1.5 transition-all duration-200 border cursor-pointer ${
                       isActive
                         ? "bg-black/80 border-[#ffd700] shadow-[0_0_15px_rgba(216,155,24,0.4)]"
                         : "bg-black/50 border-[#d89b18]/30 hover:border-[#ffd700]/60 hover:bg-black/70"
                     }`}
-                    aria-label={`स्लाइड ${index + 1}: ${slide.title}`}
+                    aria-label={`Slide ${index + 1}: ${slideTitle}`}
                   >
-                    {/* Top 3s Animated Filling Progress Line */}
                     <div className="w-full h-1 bg-white/10 rounded-full overflow-hidden mb-1">
                       <div
                         className={`h-full rounded-full ${
@@ -314,12 +318,11 @@ export default function GalleryHero() {
                       />
                     </div>
 
-                    {/* Thumbnail + Title */}
                     <div className="flex items-center gap-1.5">
                       <div className="relative w-6 h-6 sm:w-7 sm:h-7 rounded overflow-hidden flex-shrink-0 border border-[#d89b18]/40 hidden xs:block">
                         <Image
                           src={slide.image}
-                          alt={slide.title}
+                          alt={slideTitle}
                           fill
                           className="object-cover"
                           sizes="30px"
@@ -333,7 +336,7 @@ export default function GalleryHero() {
                               : "text-[#faebd0]/80 font-medium"
                           }`}
                         >
-                          {slide.title}
+                          {slideTitle}
                         </p>
                       </div>
                     </div>
@@ -342,11 +345,10 @@ export default function GalleryHero() {
               })}
             </div>
 
-            {/* Next Arrow */}
             <button
               onClick={nextSlide}
-              aria-label="अगला चित्र"
-              className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-black/60 border border-[#d89b18]/60 text-[#ffd700] hover:border-[#ffd700] hover:bg-black/80 flex items-center justify-center transition-transform hover:scale-110 active:scale-95 flex-shrink-0 shadow-md"
+              aria-label="Next image"
+              className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-black/60 border border-[#d89b18]/60 text-[#ffd700] hover:border-[#ffd700] hover:bg-black/80 flex items-center justify-center transition-transform hover:scale-110 active:scale-95 flex-shrink-0 shadow-md cursor-pointer"
             >
               <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>

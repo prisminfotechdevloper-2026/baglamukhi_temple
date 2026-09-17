@@ -10,6 +10,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import { GalleryItem } from "./types";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface GalleryLightboxProps {
   items: GalleryItem[];
@@ -26,6 +27,7 @@ export default function GalleryLightbox({
   onPrev,
   onNext,
 }: GalleryLightboxProps) {
+  const { t } = useLanguage();
   const isOpen =
     currentIndex !== null && currentIndex >= 0 && currentIndex < items.length;
   const currentItem = isOpen ? items[currentIndex] : null;
@@ -106,8 +108,8 @@ export default function GalleryLightbox({
             {/* Close Button */}
             <button
               onClick={onClose}
-              className="p-2 sm:p-2.5 rounded-full bg-[#4e311e] hover:bg-[#684128] text-[#ffd700] border border-[#d89b18]/60 hover:border-[#ffd700] transition-colors focus:outline-none"
-              aria-label="Close dialog"
+              className="p-2 sm:p-2.5 rounded-full bg-[#4e311e] hover:bg-[#684128] text-[#ffd700] border border-[#d89b18]/60 hover:border-[#ffd700] transition-colors focus:outline-none cursor-pointer"
+              aria-label={t.gallery.lightboxClose}
             >
               <X className="w-5 h-5" />
             </button>
@@ -119,7 +121,7 @@ export default function GalleryLightbox({
           {/* Previous Arrow Button */}
           <button
             onClick={onPrev}
-            className="absolute left-2 sm:left-4 z-20 p-2.5 sm:p-3 rounded-full bg-[#3d2414]/85 hover:bg-[#5a361e] text-[#ffd700] border border-[#d89b18]/70 hover:border-[#ffd700] shadow-xl transition-all hover:scale-110 active:scale-90 focus:outline-none"
+            className="absolute left-2 sm:left-4 z-20 p-2.5 sm:p-3 rounded-full bg-[#3d2414]/85 hover:bg-[#5a361e] text-[#ffd700] border border-[#d89b18]/70 hover:border-[#ffd700] shadow-xl transition-all hover:scale-110 active:scale-90 focus:outline-none cursor-pointer"
             aria-label="Previous image"
           >
             <ChevronLeft className="w-6 h-6" />
@@ -128,7 +130,7 @@ export default function GalleryLightbox({
           {/* Next Arrow Button */}
           <button
             onClick={onNext}
-            className="absolute right-2 sm:right-4 z-20 p-2.5 sm:p-3 rounded-full bg-[#3d2414]/85 hover:bg-[#5a361e] text-[#ffd700] border border-[#d89b18]/70 hover:border-[#ffd700] shadow-xl transition-all hover:scale-110 active:scale-90 focus:outline-none"
+            className="absolute right-2 sm:right-4 z-20 p-2.5 sm:p-3 rounded-full bg-[#3d2414]/85 hover:bg-[#5a361e] text-[#ffd700] border border-[#d89b18]/70 hover:border-[#ffd700] shadow-xl transition-all hover:scale-110 active:scale-90 focus:outline-none cursor-pointer"
             aria-label="Next image"
           >
             <ChevronRight className="w-6 h-6" />

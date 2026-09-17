@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Home, Flame, Landmark, Images, PhoneCall } from "lucide-react";
 import { NavLinkItem, ContactInfo } from "./types";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface MobileBottomNavProps {
   links?: NavLinkItem[];
@@ -14,7 +15,7 @@ interface MobileBottomNavProps {
 
 /**
  * MobileBottomNav - Client Component for Fixed Mobile Navigation Dock.
- * Aligns primary temple links at the bottom of mobile screens (Home, Services, Gallery, Mandir, Contact),
+ * Displays multilingual labels (Home, Services, Gallery, Mandir, Contact),
  * delivering an ultra-fast, native-app feel with gold & crimson sacred accents.
  */
 export default function MobileBottomNav({
@@ -22,6 +23,7 @@ export default function MobileBottomNav({
 }: MobileBottomNavProps) {
   const pathname = usePathname();
   const [activeHash, setActiveHash] = useState<string>("");
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleHashChange = () => {
@@ -47,32 +49,27 @@ export default function MobileBottomNav({
   // 5 Balanced Sacred Tabs for Mobile Bottom Navigation
   const navTabs = [
     {
-      label: "Home",
-      subLabel: "Home",
+      label: t.nav.home,
       href: "/",
       icon: Home,
     },
     {
-      label: "Services",
-      subLabel: "Services",
+      label: t.nav.services,
       href: "/#services",
       icon: Flame,
     },
     {
-      label: "Gallery",
-      subLabel: "Gallery",
+      label: t.nav.gallery,
       href: "/gallery",
       icon: Images,
     },
     {
-      label: "Mandir",
-      subLabel: "Mandir",
+      label: t.nav.mandir,
       href: "/#mandir",
       icon: Landmark,
     },
     {
-      label: "Contact",
-      subLabel: "Contact",
+      label: t.nav.contact,
       href: "/contact",
       icon: PhoneCall,
     },
@@ -103,7 +100,7 @@ export default function MobileBottomNav({
 
           return (
             <Link
-              key={tab.label}
+              key={tab.href}
               href={tab.href}
               onClick={() => handleNavClick(tab.href)}
               className={`group flex flex-col items-center justify-center w-full py-0.5 text-center transition-all duration-150 active:scale-90 focus:outline-none ${
@@ -129,7 +126,7 @@ export default function MobileBottomNav({
 
               {/* Label */}
               <span
-                className={`font-serif text-[0.62rem] xs:text-[0.66rem] mt-0.5 leading-none transition-colors truncate max-w-full px-0.5 ${
+                className={`font-serif text-[0.60rem] xs:text-[0.66rem] mt-0.5 leading-none transition-colors truncate max-w-full px-0.5 ${
                   isActive
                     ? "font-bold text-[#8b0000]"
                     : "font-medium text-[#5c3e32]"

@@ -1,51 +1,65 @@
+"use client";
+
 import { Train, Car, Plane, MapPin, Navigation, Compass, ExternalLink } from "lucide-react";
 import LotusDivider from "@/components/common/navbarcompo/LotusDivider";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function HowToReachSection() {
+  const { t, language } = useLanguage();
+
   const REACH_MODES = [
     {
       id: "train",
-      title: "ट्रेन द्वारा (By Train)",
-      subtitle: "निकटतम प्रमुख रेलवे जंक्शंस",
+      title: t.contact.trainTitle,
+      subtitle: t.contact.trainSubtitle,
       icon: Train,
-      tag: "रेलवे मार्ग",
-      distances: [
+      tag: t.contact.trainTag,
+      distances: language === "hi" ? [
         { place: "शाजापुर रेलवे स्टेशन", dist: "58 किमी", time: "लगभग 1.2 घंटे" },
         { place: "उज्जैन जंक्शन (UJN)", dist: "98 किमी", time: "लगभग 2 घंटे" },
         { place: "नागदा जंक्शन (NAD)", dist: "85 किमी", time: "लगभग 1.8 घंटे" },
+      ] : [
+        { place: "Shajapur Railway Station", dist: "58 km", time: "Approx 1.2 hrs" },
+        { place: "Ujjain Junction (UJN)", dist: "98 km", time: "Approx 2.0 hrs" },
+        { place: "Nagda Junction (NAD)", dist: "85 km", time: "Approx 1.8 hrs" },
       ],
-      description:
-        "उज्जैन एवं नागदा जंक्शन देश के सभी प्रमुख महानगरों जैसे दिल्ली, मुम्बई, हैदराबाद, अहमदाबाद, कोलकाता, जयपुर और बैंगलोर से सुपरफास्ट व एक्सप्रेस ट्रेनों द्वारा सीधे जुड़े हैं। स्टेशन से नलखेड़ा हेतु नियमित बस व टैक्सी उपलब्ध हैं।",
+      description: t.contact.trainDesc,
       badgeColor: "bg-amber-100 text-amber-900 border-amber-300",
     },
     {
       id: "road",
-      title: "सड़क के द्वारा (By Road)",
-      subtitle: "हाईवे एवं बस/टैक्सी कनेक्टिविटी",
+      title: t.contact.roadTitle,
+      subtitle: t.contact.roadSubtitle,
       icon: Car,
-      tag: "सड़क मार्ग",
-      distances: [
+      tag: t.contact.roadTag,
+      distances: language === "hi" ? [
         { place: "उज्जैन (महाकाल धाम)", dist: "98 किमी", time: "2 घंटे" },
         { place: "इंदौर (म.प्र. व्यावसायिक केंद्र)", dist: "156 किमी", time: "3.5 घंटे" },
         { place: "भोपाल (राजधानी)", dist: "182 किमी", time: "4 घंटे" },
         { place: "कोटा (राजस्थान)", dist: "191 किमी", time: "4 घंटे" },
+      ] : [
+        { place: "Ujjain (Mahakal Dham)", dist: "98 km", time: "2.0 hrs" },
+        { place: "Indore (Commercial Hub)", dist: "156 km", time: "3.5 hrs" },
+        { place: "Bhopal (Capital)", dist: "182 km", time: "4.0 hrs" },
+        { place: "Kota (Rajasthan)", dist: "191 km", time: "4.0 hrs" },
       ],
-      description:
-        "नलखेड़ा धाम आगर-मालवा सड़क मार्ग से सुगम रूप से जुड़ा हुआ है। उज्जैन, इंदौर, शाजापुर, सुसनेर एवं भोपाल से नियमित सरकारी व निजी बसें, कैब तथा टैक्सी सेवाएं 24 घंटे उपलब्ध रहती हैं।",
+      description: t.contact.roadDesc,
       badgeColor: "bg-red-100 text-red-900 border-red-300",
     },
     {
       id: "air",
-      title: "वायु मार्ग द्वारा (By Air)",
-      subtitle: "निकटतम घरेलू एवं अंतरराष्ट्रीय एयरपोर्ट",
+      title: t.contact.airTitle,
+      subtitle: t.contact.airSubtitle,
       icon: Plane,
-      tag: "हवाई मार्ग",
-      distances: [
+      tag: t.contact.airTag,
+      distances: language === "hi" ? [
         { place: "देवी अहिल्याबाई होलकर एयरपोर्ट (इंदौर)", dist: "156 किमी", time: "3.5 घंटे" },
         { place: "राजा भोज एयरपोर्ट (भोपाल)", dist: "188 किमी", time: "4 घंटे" },
+      ] : [
+        { place: "Devi Ahilyabai Holkar Airport (Indore)", dist: "156 km", time: "3.5 hrs" },
+        { place: "Raja Bhoj Airport (Bhopal)", dist: "188 km", time: "4.0 hrs" },
       ],
-      description:
-        "इंदौर का देवी अहिल्याबाई होलकर एयरपोर्ट मध्य प्रदेश का प्रमुख हवाई अड्डा है। यह दिल्ली, मुम्बई, बेंगलुरु, हैदराबाद, अहमदाबाद, चेन्नई, कोलकाता व जयपुर से सीधी उड़ानों से जुड़ा है। एयरपोर्ट से नलखेड़ा हेतु प्रीपेड टैक्सी उपलब्ध है।",
+      description: t.contact.airDesc,
       badgeColor: "bg-emerald-100 text-emerald-900 border-emerald-300",
     },
   ];
@@ -62,19 +76,19 @@ export default function HowToReachSection() {
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#faedd2] border border-[#d89b18]/80 shadow-xs mb-3">
             <Compass className="w-3.5 h-3.5 text-[#b77900]" />
             <span className="font-serif text-[#78350f] text-xs sm:text-sm font-bold tracking-wide">
-              ॥ पावन धाम यात्रा मार्गदर्शिका ॥
+              {t.contact.reachBadge}
             </span>
           </div>
 
           <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-[2.5rem] font-serif font-bold text-[#420a10] leading-tight">
-            माँ बगलामुखी मंदिर{" "}
+            {t.contact.reachTitlePart1}{" "}
             <span className="bg-gradient-to-r from-[#800000] via-[#b84724] to-[#d89b18] bg-clip-text text-transparent">
-              नलखेड़ा धाम कैसे पहुंचे?
+              {t.contact.reachTitleHighlight}
             </span>
           </h2>
 
           <p className="mt-2 text-xs sm:text-sm md:text-base text-[#6d4330] font-serif leading-relaxed">
-            देश के किसी भी कोने से सिद्धपीठ नलखेड़ा धाम की सुगम व पावन यात्रा हेतु रेल, सड़क एवं वायु मार्ग का सम्पूर्ण विवरण।
+            {t.contact.reachSubtitle}
           </p>
 
           <div className="w-full max-w-md mx-auto my-3">
@@ -142,19 +156,18 @@ export default function HowToReachSection() {
 
         {/* Global Directions CTA Bar */}
         <div className="rounded-3xl bg-gradient-to-r from-[#240307] via-[#3a060d] to-[#240307] border-2 border-[#d89b18] p-6 sm:p-8 text-center text-white shadow-xl relative overflow-hidden">
-          {/* Subtle Ambient Glow */}
           <div className="absolute top-0 right-0 w-64 h-64 bg-[#ffd700]/10 blur-3xl pointer-events-none rounded-full" />
 
           <div className="relative z-10 max-w-3xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
             <div className="text-center sm:text-left">
               <span className="text-xs uppercase font-serif tracking-widest text-[#ffd700] font-bold block mb-1">
-                ॥ लाइव जीपीएस नेविगेशन ॥
+                {t.contact.gpsBadge}
               </span>
               <h4 className="text-lg sm:text-xl md:text-2xl font-serif font-bold text-white leading-tight">
-                माँ बगलामुखी मंदिर नलखेड़ा धाम का लाइव मार्ग देखें
+                {t.contact.gpsTitle}
               </h4>
               <p className="text-xs sm:text-sm text-[#faebd0]/90 font-serif mt-1">
-                शासकीय मां बगलामुखी मंदिर प्रबंध समिति, लखुंदर नदी तट, नलखेड़ा (म.प्र.)
+                {t.contact.gpsSubtitle}
               </p>
             </div>
 
@@ -165,7 +178,7 @@ export default function HowToReachSection() {
               className="inline-flex items-center justify-center gap-2.5 px-6 sm:px-8 py-3.5 rounded-full bg-gradient-to-r from-[#d89b18] via-[#f7c85f] to-[#c6890c] text-[#3d0309] font-serif font-extrabold text-sm sm:text-base shadow-[0_4px_20px_rgba(216,155,24,0.5)] hover:scale-105 active:scale-95 transition-all flex-shrink-0 border border-[#ffe8a3]"
             >
               <Navigation className="w-4.5 h-4.5 text-[#3d0309] fill-[#3d0309]" />
-              <span>Google Maps पर दिशा-निर्देश लें</span>
+              <span>{t.contact.gpsButton}</span>
               <ExternalLink className="w-4 h-4 text-[#3d0309]" />
             </a>
           </div>

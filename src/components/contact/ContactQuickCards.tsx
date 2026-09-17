@@ -1,30 +1,35 @@
+"use client";
+
 import { Mail, Phone, MapPin, ArrowRight, ExternalLink } from "lucide-react";
 import { DEFAULT_CONTACT } from "@/components/common/navbarcompo/constants";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function ContactQuickCards() {
+  const { t } = useLanguage();
+
   const CONTACT_CARDS = [
     {
       id: "email",
-      title: "ईमेल संपर्क (Email Address)",
+      title: t.contact.cardEmailTitle,
       primaryText: "shubhampandit9340@gmail.com",
       secondaryText: "info@mabaglamukhi.com",
-      badge: "24x7 ऑनलाइन सहायता",
-      description: "पूजन, अनुष्ठान संकल्प एवं पत्र व्यवहार हेतु संपर्क करें।",
+      badge: t.contact.cardEmailBadge,
+      description: t.contact.cardEmailDesc,
       href: "mailto:shubhampandit9340@gmail.com",
-      actionText: "ईमेल भेजें",
+      actionText: t.contact.cardEmailAction,
       icon: Mail,
       iconBg: "from-[#9a3412] to-[#7c2d12]",
       borderColor: "border-[#d89b18]/40 hover:border-[#d89b18]",
     },
     {
       id: "phone",
-      title: "हेल्पलाइन एवं परामर्श (Phone Number)",
+      title: t.contact.cardPhoneTitle,
       primaryText: DEFAULT_CONTACT.displayPhone,
-      secondaryText: "पूज्य पंडित शुभम शर्मा जी (उपासक)",
-      badge: "प्रत्यक्ष वैदिक परामर्श",
-      description: "शत्रु बाधा निवारण, महाहवन व अनुष्ठान मार्गदर्शन हेतु।",
+      secondaryText: t.contact.cardPhoneSubtitle,
+      badge: t.contact.cardPhoneBadge,
+      description: t.contact.cardPhoneDesc,
       href: `tel:${DEFAULT_CONTACT.phone}`,
-      actionText: "सीधे कॉल करें",
+      actionText: t.contact.cardPhoneAction,
       icon: Phone,
       iconBg: "from-[#b91c1c] to-[#991b1b]",
       borderColor: "border-[#d89b18]/60 hover:border-[#ffd700]",
@@ -32,13 +37,13 @@ export default function ContactQuickCards() {
     },
     {
       id: "location",
-      title: "मंदिर स्थल (Dham Location)",
-      primaryText: "सिद्धपीठ माँ बगलामुखी मंदिर",
-      secondaryText: "लखुंदर नदी तट, नलखेड़ा, जिला - आगर मालवा (म.प्र.) - 465445",
-      badge: "प्राचीन महाभारत कालीन शक्तिपीठ",
-      description: "शासकीय मां बगलामुखी मंदिर प्रबंध समिति, नलखेड़ा।",
+      title: t.contact.cardLocationTitle,
+      primaryText: t.contact.cardLocationSubtitle.split(",")[0],
+      secondaryText: t.contact.cardLocationSubtitle,
+      badge: t.contact.cardLocationBadge,
+      description: t.contact.cardLocationDesc,
       href: "https://www.google.com/maps/dir//23.8413611,76.2356389/@23.8392856,76.2303308,16z",
-      actionText: "मैप पर दिशा-निर्देश देखें",
+      actionText: t.contact.cardLocationAction,
       isExternal: true,
       icon: MapPin,
       iconBg: "from-[#854d0e] to-[#713f12]",

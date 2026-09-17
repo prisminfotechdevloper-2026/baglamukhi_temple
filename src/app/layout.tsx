@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import FloatingContactButtons from "@/components/common/FloatingContactButtons";
 import MobileScrollAnimationObserver from "@/components/common/MobileScrollAnimationObserver";
+import { LanguageProvider } from "@/context/LanguageContext";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -39,11 +40,13 @@ export default function RootLayout({
         suppressHydrationWarning
         className="min-h-full flex flex-col bg-[#fff8e7] text-[#4a2618]"
       >
-        {children}
-        {/* Fixed Global Floating Contact Buttons (Call & WhatsApp) */}
-        <FloatingContactButtons />
-        {/* One-time Smooth Mobile Scroll Entrance Observer */}
-        <MobileScrollAnimationObserver />
+        <LanguageProvider>
+          {children}
+          {/* Fixed Global Floating Contact Buttons (Call & WhatsApp) */}
+          <FloatingContactButtons />
+          {/* One-time Smooth Mobile Scroll Entrance Observer */}
+          <MobileScrollAnimationObserver />
+        </LanguageProvider>
       </body>
     </html>
   );

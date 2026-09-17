@@ -4,24 +4,25 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { NavLinkItem } from "./types";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface NavLinksProps {
-  links: NavLinkItem[];
+  links?: NavLinkItem[];
   className?: string;
   onLinkClick?: (link: NavLinkItem) => void;
 }
 
 /**
- * NavLinks - Client Component for Interactive Desktop Navigation Links.
- * Manages active route (/gallery) and hash (#sevayein, #mandir) highlighting.
+ * NavLinks - Interactive Desktop Navigation Links with Multilingual Support.
+ * Manages active route (/gallery) and hash (#services, #mandir) highlighting.
  */
 export default function NavLinks({
-  links,
   className = "",
   onLinkClick,
 }: NavLinksProps) {
   const pathname = usePathname();
   const [activeHash, setActiveHash] = useState<string>("");
+  const { t } = useLanguage();
 
   useEffect(() => {
     const updateHash = () => {
@@ -32,27 +33,34 @@ export default function NavLinks({
     return () => window.removeEventListener("hashchange", updateHash);
   }, []);
 
+  const localizedLinks: NavLinkItem[] = [
+    { label: t.nav.home, href: "/" },
+    { label: t.nav.services, href: "/#services" },
+    { label: t.nav.gallery, href: "/gallery" },
+    { label: t.nav.mandir, href: "/#mandir" },
+    { label: t.nav.contact, href: "/contact" },
+  ];
+
   return (
     <nav
-      className={`flex items-center gap-5 lg:gap-8 ${className}`}
+      className={`flex items-center gap-4 lg:gap-7 ${className}`}
       aria-label="Main Temple Navigation"
       itemScope
       itemType="https://schema.org/SiteNavigationElement"
     >
-      {links.map((link) => {
-        // Active state checking: match exact path OR match hash on homepage
+      {localizedLinks.map((link) => {
         const isExactRoute =
           link.href === pathname ||
-          (link.href === "/" && pathname === "/" && !activeHash);
+          (link.href === "/" && (pathname === "/" || pathname === "/home") && !activeHash);
         const isHashActive =
-          pathname === "/" &&
+          (pathname === "/" || pathname === "/home") &&
           link.href.startsWith("/#") &&
           activeHash === link.href.replace("/", "");
         const isActive = isExactRoute || isHashActive;
 
         return (
           <Link
-            key={link.label}
+            key={link.href}
             href={link.href}
             onClick={() => {
               if (link.href.startsWith("/#")) {
@@ -62,14 +70,12 @@ export default function NavLinks({
               }
               if (onLinkClick) onLinkClick(link);
             }}
-            className={`temple-nav-link text-[1rem] lg:text-[1.05rem] font-serif font-semibold transition-colors duration-200 ${
+            className={`temple-nav-link text-[0.96rem] lg:text-[1.02rem] font-serif font-semibold transition-colors duration-200 ${
               isActive
-                ? "text-[#8b0000] active-nav-link"
+                ? "text-[#8b0000] active-nav-link font-bold"
                 : "text-[#3d2314] hover:text-[#8b0000]"
             }`}
             itemProp="url"
-            target={link.isExternal ? "_blank" : undefined}
-            rel={link.isExternal ? "noopener noreferrer" : undefined}
           >
             <span itemProp="name">{link.label}</span>
           </Link>
@@ -78,4 +84,3 @@ export default function NavLinks({
     </nav>
   );
 }
-

@@ -2,14 +2,15 @@
 
 import { Phone } from "lucide-react";
 import { DEFAULT_CONTACT } from "./navbarcompo/constants";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function FloatingContactButtons() {
+  const { t } = useLanguage();
+
   const whatsappUrl = `https://wa.me/${DEFAULT_CONTACT.phone.replace(
     /[^0-9]/g,
     ""
-  )}?text=${encodeURIComponent(
-    "जय माँ बगलामुखी! पूज्य गुरुजी (पंडित शुभम शर्मा जी), मुझे नलखेड़ा धाम में पूजन, अनुष्ठान एवं व्यक्तिगत परामर्श हेतु संपर्क करना है।"
-  )}`;
+  )}?text=${encodeURIComponent(t.floatingContact.whatsappMessage)}`;
 
   return (
     <aside
@@ -29,7 +30,7 @@ export default function FloatingContactButtons() {
 
         {/* Desktop Tooltip */}
         <span className="hidden md:group-hover:inline-block absolute right-14 top-1/2 -translate-y-1/2 px-2.5 py-1 rounded-lg bg-[#240307]/95 text-[#ffd700] border border-[#d89b18] text-xs font-serif font-bold whitespace-nowrap shadow-xl pointer-events-none transition-all">
-          Call Now: {DEFAULT_CONTACT.displayPhone}
+          {t.floatingContact.callTooltip}
         </span>
       </a>
 
@@ -53,7 +54,7 @@ export default function FloatingContactButtons() {
 
         {/* Desktop Tooltip */}
         <span className="hidden md:group-hover:inline-block absolute right-14 top-1/2 -translate-y-1/2 px-2.5 py-1 rounded-lg bg-[#073d1a]/95 text-[#61e490] border border-[#25D366] text-xs font-serif font-bold whitespace-nowrap shadow-xl pointer-events-none transition-all">
-          WhatsApp
+          {t.floatingContact.whatsappTooltip}
         </span>
       </a>
     </aside>

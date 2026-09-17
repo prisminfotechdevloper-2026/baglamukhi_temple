@@ -1,10 +1,14 @@
+"use client";
+
 import Image from "next/image";
-import Link from "next/link";
-import { Sparkles, ArrowRight, ShieldCheck, Flame, BookOpen } from "lucide-react";
+import { Sparkles, Flame, BookOpen } from "lucide-react";
 import LotusDivider from "@/components/common/navbarcompo/LotusDivider";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function TempleFactsSection() {
-  const TEMPLE_FACTS = [
+  const { t, language } = useLanguage();
+
+  const TEMPLE_FACTS = language === "hi" ? [
     {
       id: "mystery",
       image: "/mandir/baglamukhi-divine-darshan.jpg",
@@ -32,6 +36,34 @@ export default function TempleFactsSection() {
         "विश्व में केवल नलखेड़ा धाम में ही लखुंदर नदी का पावन उत्तरवाहिनी प्रवाह और जागृत श्मशान भूमि का दुर्लभ संगम है, जहाँ की गई वैदिक आहुति तत्काल फलदायी होती है।",
       mantra: "अखंड अग्निहोत्र एवं महाहवन तपोभूमि",
     },
+  ] : [
+    {
+      id: "mystery",
+      image: "/mandir/baglamukhi-divine-darshan.jpg",
+      tag: "Sacred Sadhana Mystery",
+      title: "Mysteries and Sadhana of Goddess Bagalamukhi",
+      description:
+        "The 8th Mahavidya among the Ten Goddesses, Maa Pitambara Bagalamukhi paralyzes all tribulations, acute crises, and hostile energies, blessing the devotee with triumph and fearlessness.",
+      mantra: "Om Hlim Bagalamukhyai Sarvadushtanam Vacham Mukham...",
+    },
+    {
+      id: "origin",
+      image: "/mandir/mandir-main-facade.jpg",
+      tag: "Mahabharata History",
+      title: "Origins of Nalkheda Siddhapeeth & Vedic Antiquity",
+      description:
+        "Prior to the epic Kurukshetra battle, Lord Krishna directed Dharmaraj Yudhishthira to worship Maa Bagalamukhi at Nalkheda to obtain infallible victory.",
+      mantra: "Ancient Dvapara Era Swayambhu Peeth",
+    },
+    {
+      id: "mahavidyas",
+      image: "/mandir/mandir-night-darshan.jpg",
+      tag: "Sacred Confluence",
+      title: "Lakhundar River Confluence & Eternal Flame",
+      description:
+        "Nalkheda is singularly sacred where the northward-flowing Lakhundar River meets energized cremation grounds, rendering every consecrated oblation instantly potent.",
+      mantra: "Akhand Agnihotra & Hawan Tapobhoomi",
+    },
   ];
 
   return (
@@ -45,19 +77,19 @@ export default function TempleFactsSection() {
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#faedd2] border border-[#d89b18]/80 shadow-xs mb-3">
             <BookOpen className="w-3.5 h-3.5 text-[#b77900]" />
             <span className="font-serif text-[#78350f] text-xs sm:text-sm font-bold tracking-wide">
-              ॥ आध्यात्मिक रहस्य एवं इतिहास ॥
+              {t.contact.factsBadge}
             </span>
           </div>
 
           <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-[2.5rem] font-serif font-bold text-[#420a10] leading-tight">
-            माँ बगलामुखी नलखेड़ा धाम{" "}
+            {t.contact.factsTitle}{" "}
             <span className="bg-gradient-to-r from-[#800000] via-[#b84724] to-[#d89b18] bg-clip-text text-transparent">
-              रोचक तथ्य एवं साधना महिमा
+              {t.contact.factsHighlight}
             </span>
           </h2>
 
           <p className="mt-2 text-xs sm:text-sm md:text-base text-[#6d4330] font-serif leading-relaxed">
-            विश्वविख्यात शक्तिपीठ माँ बगलामुखी नलखेड़ा के पावन इतिहास, वैदिक तंत्र साधना एवं पौराणिक महत्व के प्रामाणिक तथ्य।
+            {t.contact.factsSubtitle}
           </p>
 
           <div className="w-full max-w-md mx-auto my-3">
@@ -118,10 +150,10 @@ export default function TempleFactsSection() {
         {/* Bottom Sanskrit Mantra Banner */}
         <div className="mt-10 py-5 px-4 rounded-2xl bg-[#faedd2]/70 border border-[#d89b18]/40 text-center">
           <p className="font-serif font-bold text-xs sm:text-sm md:text-base text-[#800000]">
-            ॥ वादी मूकति रंकति क्षितिपतिर्वैश्वानरः शीतति क्रोधी शाम्यति दुर्जनः सुजनति क्षिप्रानुगः खंजति ॥
+            {t.contact.factsMantraBanner}
           </p>
           <p className="font-serif text-[11px] sm:text-xs text-[#78350f] mt-1">
-            श्री माँ बगलामुखी महामंत्र के प्रभाव से असंभव कार्य भी सिद्ध हो जाते हैं।
+            {t.contact.factsMantraSub}
           </p>
         </div>
       </div>

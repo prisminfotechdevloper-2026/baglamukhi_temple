@@ -2,50 +2,14 @@
 
 import React from "react";
 import Image from "next/image";
-import { ShieldCheck, Flame, Sparkles, Video, Award, CheckCircle2 } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 import LotusDivider from "@/components/common/navbarcompo/LotusDivider";
 import { DEFAULT_CONTACT } from "@/components/common/navbarcompo/constants";
+import { useLanguage } from "@/context/LanguageContext";
 import gurujiImage from "../../../public/guruji.png";
 
-/**
- * GurujiBioSection Component - Redesigned
- * - Right Side: Circular Guruji portrait (border-radius: 50%) encircled by an infinite 360-degree rotating Vedic Service Wheel (SVG textPath) and orbiting blessing badges
- * - Left Side: Prestigious, authoritative Vedic biography, experience statistics, key anushthan specializations
- * - 100% Mobile & All-Screen Responsive with pure SVG icons and Schema.org SEO Structured Data
- */
 export default function GurujiBioSection() {
-
-  // Schema.org Structured Data for Pujya Pandit Shubham Sharma Ji (SEO)
-  const schemaJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    name: "पंडित शुभम शर्मा जी (गुरुजी)",
-    alternateName: "Pt. Shubham Sharma - Maa Bagalamukhi Upasak",
-    jobTitle: "पंजीकृत वरिष्ठ पुरोहित एवं माँ बगलामुखी मुख्य उपासक",
-    worksFor: {
-      "@type": "HinduTemple",
-      name: "विश्वप्रसिद्ध सिद्धपीठ माँ बगलामुखी मंदिर, नलखेड़ा धाम",
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: "लखुंदर नदी तट, माँ बगलामुखी मंदिर",
-        addressLocality: "Nalkheda",
-        addressRegion: "Madhya Pradesh",
-        postalCode: "465445",
-        addressCountry: "IN",
-      },
-    },
-    telephone: DEFAULT_CONTACT.phone,
-    image: "https://bagalamukhinalkhedadham.com/guruji.png",
-    description:
-      "विश्वप्रसिद्ध सिद्धपीठ माँ बगलामुखी मंदिर नलखेड़ा धाम के समर्पित पंजीकृत वरिष्ठ पुरोहित। शास्त्रोक्त विधि से महाहवन, शत्रु स्तम्भन, सवा लाख जाप, कालसर्प व नवग्रह शांति अनुष्ठान विशेषज्ञ।",
-    knowsAbout: [
-      "Maa Bagalamukhi Tantra & Hawan",
-      "Vedic Rituals & Anushthan",
-      "Shatru Stambhan Sadhana",
-      "Kaal Sarp & Navgraha Shanti",
-      "Vedic Astrology & Kundali Consultation",
-    ],
-  };
+  const { t } = useLanguage();
 
   return (
     <section
@@ -55,12 +19,6 @@ export default function GurujiBioSection() {
       itemScope
       itemType="https://schema.org/Person"
     >
-      {/* Schema.org Structured Data for Google Indexing */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaJsonLd) }}
-      />
-
       {/* Atmospheric Sacred Glow Background */}
       <div className="absolute top-1/4 left-5 w-[380px] h-[380px] bg-[#ffd778]/20 blur-3xl pointer-events-none rounded-full" />
       <div className="absolute bottom-10 right-5 w-[420px] h-[420px] bg-[#fcd57e]/18 blur-3xl pointer-events-none rounded-full" />
@@ -68,9 +26,7 @@ export default function GurujiBioSection() {
       <div className="max-w-7xl mx-auto px-3.5 xs:px-4 sm:px-6 lg:px-8 xl:px-12 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-12 items-center">
 
-          {/* ============================================================
-              LEFT COLUMN: VEDIC AUTHORITY, BIO, STATS & CONTACT ACTIONS (7 cols)
-              ============================================================ */}
+          {/* LEFT COLUMN: VEDIC AUTHORITY, BIO, STATS & CONTACT ACTIONS (7 cols) */}
           <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left">
 
             {/* Sacred Saffron Pill: NALKHEDA DHAM */}
@@ -79,17 +35,17 @@ export default function GurujiBioSection() {
                 <path d="M12 2C11 5 8 8 5 9c3 1 5 3 6 6 1-3 3-5 6-6-3-1-5-4-5-7z M12 14c-1.5 2-4 3.5-7 4 3 .5 5.5 2 7 4 1.5-2 4-3.5 7-4-3-.5-5.5-2-7-4z" />
               </svg>
               <span className="font-serif text-[#78350f] text-[0.72rem] sm:text-xs md:text-[0.80rem] font-bold tracking-[0.14em] uppercase">
-                ॥ विश्वप्रसिद्ध सिद्धपीठ • माँ बगलामुखी धाम नलखेड़ा ॥
+                {t.gurujiBio.peethBadge}
               </span>
             </div>
 
-            {/* Sacred Devanagari Salutation */}
+            {/* Sacred Salutation */}
             <div className="flex items-center gap-2 mb-1 text-[#8b0000]">
-              <span className="text-xs sm:text-sm font-serif font-bold text-[#b77900]">॥ ॐ ॥</span>
+              <span className="text-xs sm:text-sm font-serif font-bold text-[#b77900]">{t.gurujiBio.omDevanagari}</span>
               <h3 className="font-serif font-bold text-xs sm:text-sm md:text-base tracking-widest uppercase">
-                माँ बगलामुखी मुख्य उपासक
+                {t.gurujiBio.titleSalutation}
               </h3>
-              <span className="text-xs sm:text-sm font-serif font-bold text-[#b77900]">॥ ॐ ॥</span>
+              <span className="text-xs sm:text-sm font-serif font-bold text-[#b77900]">{t.gurujiBio.omDevanagari}</span>
             </div>
 
             {/* Main Primary Heading */}
@@ -97,12 +53,12 @@ export default function GurujiBioSection() {
               className="font-serif font-bold text-[#420a10] text-2xl xs:text-3xl sm:text-4xl md:text-[2.65rem] lg:text-[2.85rem] leading-[1.14] tracking-tight mb-1.5 sm:mb-2"
               itemProp="name"
             >
-              पूज्य पंडित शुभम शर्मा जी
+              {t.gurujiBio.name}
             </h2>
 
-            {/* English Authority Subtitle */}
+            {/* Subtitle */}
             <p className="font-serif font-semibold text-[#8b0000] text-sm xs:text-base sm:text-lg mb-2.5 sm:mb-3 leading-snug">
-              Panjikrit Senior Purohit & Tantra Hawan Specialist
+              {t.gurujiBio.subtitle}
             </p>
 
             {/* Enriched Vedic Description */}
@@ -110,47 +66,42 @@ export default function GurujiBioSection() {
               className="font-serif text-[#523220] text-xs sm:text-sm md:text-[0.94rem] leading-relaxed mb-4 sm:mb-5 max-w-2xl"
               itemProp="description"
             >
-              विश्वप्रसिद्ध <strong className="text-[#420a10] font-bold">सिद्धपीठ माँ बगलामुखी मंदिर (नलखेड़ा धाम, आगर मालवा, म.प्र.)</strong> के समर्पित पंजीकृत पुरोहित। शास्त्रोक्त वैदिक पद्धति द्वारा माँ बगलामुखी महाहवन, शत्रु स्तम्भन, कोर्ट-कचहरी विजय, सवा लाख महामंत्र जाप, कालसर्प व नवग्रह शांति अनुष्ठान पूर्ण श्रद्धा, संकल्प और वैदिक मर्यादा के साथ संपन्न कराए जाते हैं।
+              {t.gurujiBio.bioText}
             </p>
 
-            {/* 3 Prestigious Authority Stats Pillars */}
+            {/* 3 Authority Stats Pillars */}
             <div className="grid grid-cols-3 gap-2 sm:gap-3.5 w-full max-w-lg mb-4 sm:mb-5">
               <div className="flex flex-col items-center justify-center p-2 sm:p-2.5 rounded-xl bg-white border border-[#ebd9b8] border-l-[3.5px] sm:border-l-[4px] border-l-[#c2841f] shadow-xs">
                 <span className="font-serif font-extrabold text-[#700913] text-base xs:text-lg sm:text-2xl leading-none mb-0.5">
-                  15+ वर्ष
+                  {t.gurujiBio.stat1Num}
                 </span>
                 <span className="font-serif text-[#78350f] text-[0.62rem] sm:text-xs font-semibold text-center leading-tight">
-                  अखंड साधना व अनुभव
+                  {t.gurujiBio.stat1Label}
                 </span>
               </div>
 
               <div className="flex flex-col items-center justify-center p-2 sm:p-2.5 rounded-xl bg-white border border-[#ebd9b8] border-l-[3.5px] sm:border-l-[4px] border-l-[#c2841f] shadow-xs">
                 <span className="font-serif font-extrabold text-[#700913] text-base xs:text-lg sm:text-2xl leading-none mb-0.5">
-                  51,000+
+                  {t.gurujiBio.stat2Num}
                 </span>
                 <span className="font-serif text-[#78350f] text-[0.62rem] sm:text-xs font-semibold text-center leading-tight">
-                  सफल यजमान संकल्प
+                  {t.gurujiBio.stat2Label}
                 </span>
               </div>
 
               <div className="flex flex-col items-center justify-center p-2 sm:p-2.5 rounded-xl bg-white border border-[#ebd9b8] border-l-[3.5px] sm:border-l-[4px] border-l-[#c2841f] shadow-xs">
                 <span className="font-serif font-extrabold text-[#700913] text-base xs:text-lg sm:text-2xl leading-none mb-0.5">
-                  100%
+                  {t.gurujiBio.stat3Num}
                 </span>
                 <span className="font-serif text-[#78350f] text-[0.62rem] sm:text-xs font-semibold text-center leading-tight">
-                  शास्त्रोक्त विधान
+                  {t.gurujiBio.stat3Label}
                 </span>
               </div>
             </div>
 
             {/* Key Service Features List */}
             <div className="grid grid-cols-1 xs:grid-cols-2 gap-1.5 sm:gap-2 w-full max-w-lg mb-5 text-left">
-              {[
-                "प्रत्यक्ष व ऑनलाइन लाइव संकल्प सुविधा",
-                "योग्य वैदिक ब्राह्मणों द्वारा सवा लाख जाप",
-                "गोत्र-नाम सहित शास्त्रोक्त अखंड आहुति",
-                "सिद्ध अभिमंत्रित रक्षा कवच व प्रसाद प्रेषण",
-              ].map((feat, idx) => (
+              {t.gurujiBio.features.map((feat, idx) => (
                 <div key={idx} className="flex items-center gap-1.5 text-[0.74rem] sm:text-[0.82rem] text-[#523220] font-medium">
                   <CheckCircle2 className="w-3.5 h-3.5 text-[#15803d] flex-shrink-0" />
                   <span>{feat}</span>
@@ -165,33 +116,29 @@ export default function GurujiBioSection() {
 
           </div>
 
-          {/* ============================================================
-              RIGHT COLUMN: CIRCULAR GURUJI PORTRAIT & 360° INFINITE ROTATING SERVICE WHEEL (5 cols)
-              ============================================================ */}
+          {/* RIGHT COLUMN: CIRCULAR GURUJI PORTRAIT & 360° INFINITE ROTATING SERVICE WHEEL (5 cols) */}
           <div className="lg:col-span-5 flex flex-col items-center justify-center relative mt-4 lg:mt-0 select-none">
 
-            {/* Circular Orbit & Rotating Wheel Container (Enlarged for Mobile & Desktop) */}
+            {/* Circular Orbit & Rotating Wheel Container */}
             <div className="relative w-[330px] h-[330px] xs:w-[365px] xs:h-[365px] sm:w-[440px] sm:h-[440px] md:w-[480px] md:h-[480px] lg:w-[520px] lg:h-[520px] flex items-center justify-center group my-2 sm:my-0">
 
-              {/* 1. Concentric Golden Atmospheric Glow Rings */}
+              {/* Concentric Golden Glow Rings */}
               <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#ffd778]/30 via-[#fde3ab]/20 to-[#d89b18]/30 blur-2xl pointer-events-none animate-aura-pulse" />
               <div className="absolute inset-1 sm:inset-2 rounded-full border border-[#d89b18]/40 border-dashed pointer-events-none" />
               <div className="absolute inset-4 sm:inset-6 rounded-full border border-[#deb881]/45 pointer-events-none" />
 
-              {/* 2. 360-DEGREE INFINITE ROTATING VEDIC SERVICE TEXT WHEEL (SVG textPath - Left to Right Reverse Rotation) */}
+              {/* 360-DEGREE ROTATING SERVICE TEXT WHEEL */}
               <svg
                 className="absolute inset-0 w-full h-full animate-spin-reverse-slow group-hover:[animation-play-state:paused] transition-all duration-300 pointer-events-none"
                 viewBox="0 0 600 600"
               >
                 <defs>
-                  {/* Circular path around the center with radius = 232 (circumference = 1457.7px) */}
                   <path
                     id="serviceTextCircle"
                     d="M 300, 300 m -232, 0 a 232,232 0 1,1 464,0 a 232,232 0 1,1 -464,0"
                   />
                 </defs>
 
-                {/* Dashed Text Guide Orbit Track */}
                 <circle
                   cx="300"
                   cy="300"
@@ -203,7 +150,6 @@ export default function GurujiBioSection() {
                   opacity="0.35"
                 />
 
-                {/* Outer Boundary Ring (Clearance from text) */}
                 <circle
                   cx="300"
                   cy="300"
@@ -214,50 +160,43 @@ export default function GurujiBioSection() {
                   opacity="0.4"
                 />
 
-                {/* Rotating Sanskrit & Hindi Service Names with Distinct Spacing & Sacred ॐ Separators */}
                 <text
                   xmlSpace="preserve"
                   className="font-serif font-bold text-[13px] sm:text-[14px] fill-[#700913] tracking-wide"
                 >
                   <textPath href="#serviceTextCircle" startOffset="0%">
-                    {"\u00A0\u00A0॥ ॐ ॥\u00A0\u00A0 माँ बगलामुखी महाहवन \u00A0\u00A0॥ ॐ ॥\u00A0\u00A0 शत्रु स्तम्भन अनुष्ठान \u00A0\u00A0॥ ॐ ॥\u00A0\u00A0 कोर्ट-कचहरी विजय \u00A0\u00A0॥ ॐ ॥\u00A0\u00A0 सवा लाख महामंत्र जाप \u00A0\u00A0॥ ॐ ॥\u00A0\u00A0 कालसर्प दोष शांति \u00A0\u00A0॥ ॐ ॥\u00A0\u00A0 व्यापार वृद्धि अनुष्ठान \u00A0\u00A0॥ ॐ ॥\u00A0\u00A0 नवग्रह बाधा निवारण \u00A0\u00A0॥ ॐ ॥\u00A0\u00A0 पितृ दोष शांति \u00A0\u00A0"}
+                    {t.gurujiBio.rotatingWheelText}
                   </textPath>
                 </text>
               </svg>
 
-              {/* 3. Cardinal Sacred ॐ Motifs on Outermost Orbit (Placed cleanly on outer perimeter with zero text overlap) */}
-              {/* TOP CARDINAL OM */}
+              {/* Cardinal Sacred ॐ Motifs */}
               <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 flex items-center justify-center">
                 <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-gradient-to-b from-[#ffe7a3] via-[#d89b18] to-[#8f5d00] border border-white shadow-[0_2px_8px_rgba(216,155,24,0.6)] flex items-center justify-center">
                   <span className="font-serif font-extrabold text-white text-[0.65rem] sm:text-xs drop-shadow-sm">ॐ</span>
                 </div>
               </div>
 
-              {/* RIGHT CARDINAL OM */}
               <div className="absolute top-1/2 right-0 translate-x-1/2 -translate-y-1/2 z-20 flex items-center justify-center">
                 <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-gradient-to-b from-[#ffe7a3] via-[#d89b18] to-[#8f5d00] border border-white shadow-[0_2px_8px_rgba(216,155,24,0.6)] flex items-center justify-center">
                   <span className="font-serif font-extrabold text-white text-[0.65rem] sm:text-xs drop-shadow-sm">ॐ</span>
                 </div>
               </div>
 
-              {/* BOTTOM CARDINAL OM */}
               <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 z-20 flex items-center justify-center">
                 <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-gradient-to-b from-[#ffe7a3] via-[#d89b18] to-[#8f5d00] border border-white shadow-[0_2px_8px_rgba(216,155,24,0.6)] flex items-center justify-center">
                   <span className="font-serif font-extrabold text-white text-[0.65rem] sm:text-xs drop-shadow-sm">ॐ</span>
                 </div>
               </div>
 
-              {/* LEFT CARDINAL OM */}
               <div className="absolute top-1/2 left-0 -translate-x-1/2 -translate-y-1/2 z-20 flex items-center justify-center">
                 <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-gradient-to-b from-[#ffe7a3] via-[#d89b18] to-[#8f5d00] border border-white shadow-[0_2px_8px_rgba(216,155,24,0.6)] flex items-center justify-center">
                   <span className="font-serif font-extrabold text-white text-[0.65rem] sm:text-xs drop-shadow-sm">ॐ</span>
                 </div>
               </div>
 
-              {/* 4. THE 50% BORDER RADIUS CIRCULAR GURUJI PORTRAIT (ENLARGED ON MOBILE & DESKTOP) */}
+              {/* 50% BORDER RADIUS CIRCULAR GURUJI PORTRAIT */}
               <div className="relative w-[215px] h-[215px] xs:w-[245px] xs:h-[245px] sm:w-[295px] sm:h-[295px] md:w-[325px] md:h-[325px] lg:w-[355px] lg:h-[355px] rounded-full overflow-hidden p-2 sm:p-2.5 bg-gradient-to-b from-[#fae29c] via-[#d89b18] to-[#8a5900] shadow-[0_18px_45px_rgba(139,0,0,0.3),0_0_40px_rgba(216,155,24,0.38)] ring-4 ring-[#fff6dc] ring-offset-3 ring-offset-[#fff8e7] z-10 group-hover:scale-[1.02] transition-transform duration-500">
-
-                {/* Inner Circular Image Container */}
                 <div className="relative w-full h-full rounded-full overflow-hidden bg-[#240307]">
                   <Image
                     src={gurujiImage}
@@ -271,30 +210,26 @@ export default function GurujiBioSection() {
                     className="object-cover object-[center_10%] scale-105 group-hover:scale-110 transition-transform duration-700 ease-out"
                   />
 
-                  {/* Subtle Inner Glow Vignette */}
                   <div className="absolute inset-0 bg-gradient-to-t from-[#1a0204]/85 via-transparent via-55% to-[#1a0204]/20 pointer-events-none" />
 
-                  {/* Bottom Ribbon on the circular portrait */}
                   <div className="absolute bottom-2.5 sm:bottom-3 inset-x-3 sm:inset-x-6 py-1 px-2.5 text-center bg-gradient-to-r from-[#4a0000]/95 via-[#850811]/95 to-[#4a0000]/95 rounded-full border border-[#f4d58d]/80 shadow-md backdrop-blur-sm">
                     <p className="font-serif font-bold text-white text-[0.62rem] xs:text-[0.70rem] sm:text-[0.80rem] tracking-wider drop-shadow-sm truncate">
-                      ॥ श्री बगलामुखी देव्यै नमः ॥
+                      {t.gurujiBio.circleRibbon}
                     </p>
                   </div>
                 </div>
-
               </div>
 
             </div>
 
-            {/* Live Puja & Darshan Badge below the circle on all devices */}
+            {/* Live Puja & Darshan Badge */}
             <div className="mt-3 sm:mt-4 inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full bg-[#faebd0]/90 border border-[#d89b18]/70 shadow-sm backdrop-blur-sm">
-               <span className="font-serif text-[#700913] text-[0.70rem] sm:text-xs font-bold tracking-wide">
-                प्रत्यक्ष मंदिर व ऑनलाइन लाइव वीडियो अनुष्ठान उपलब्ध
+              <span className="font-serif text-[#700913] text-[0.70rem] sm:text-xs font-bold tracking-wide">
+                {t.gurujiBio.liveBadge}
               </span>
             </div>
 
           </div>
-
 
         </div>
       </div>

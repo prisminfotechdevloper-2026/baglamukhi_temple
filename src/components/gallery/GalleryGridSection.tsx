@@ -8,9 +8,11 @@ import {
 } from "lucide-react";
 import { GALLERY_ITEMS } from "./galleryData";
 import GalleryLightbox from "./GalleryLightbox";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function GalleryGridSection() {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const { t } = useLanguage();
 
   const openLightbox = (index: number) => {
     setLightboxIndex(index);
@@ -45,9 +47,7 @@ export default function GalleryGridSection() {
       <div className="absolute bottom-1/4 -right-32 w-80 h-80 bg-[#8b0000]/8 rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
-        {/* ============================================================
-            EQUAL 3-COLUMN GALLERY GRID (CLEAN & UNCLUTTERED)
-            ============================================================ */}
+        {/* EQUAL 3-COLUMN GALLERY GRID */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 md:gap-7 auto-rows-[330px] sm:auto-rows-[360px]">
           {GALLERY_ITEMS.map((item, index) => {
             return (
@@ -69,11 +69,11 @@ export default function GalleryGridSection() {
                     className="object-cover object-center group-hover:scale-110 transition-transform duration-700 ease-out"
                   />
 
-                  {/* Gradient Overlay for Readability - Warm Golden Brown */}
+                  {/* Gradient Overlay for Readability */}
                   <div className="absolute inset-0 bg-gradient-to-t from-[#180e07] via-[#24140a]/45 to-transparent opacity-90 group-hover:opacity-80 transition-opacity" />
                 </div>
 
-                {/* Top Badge Pill - Clean, UI-Friendly Glassmorphic Tag */}
+                {/* Top Badge Pill */}
                 {item.badge && (
                   <div className="absolute top-4 left-4 z-20">
                     <span className="inline-block px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-[#fff8e7] text-[11px] sm:text-xs font-serif font-semibold tracking-wide shadow-sm">
@@ -82,11 +82,11 @@ export default function GalleryGridSection() {
                   </div>
                 )}
 
-                {/* Center Hover Indicator - View Darshan Button */}
+                {/* Center Hover Indicator - Dynamic Translated Button */}
                 <div className="absolute inset-0 z-20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none">
                   <div className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#8b5a1b] via-[#b87c24] to-[#6d4310] border-2 border-[#ffd700] text-[#fffdf8] font-serif font-bold text-xs sm:text-sm shadow-[0_8px_25px_rgba(216,155,24,0.45)] transform scale-90 group-hover:scale-100 transition-transform">
                     <Maximize2 className="w-4 h-4 text-[#ffd700]" />
-                    <span>View Darshan</span>
+                    <span>{t.gallery.viewDarshanBtn}</span>
                   </div>
                 </div>
 

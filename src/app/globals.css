@@ -407,3 +407,32 @@ body {
 .animate-pulse-slow {
   animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
+
+/* ============================================================
+   MOBILE CARD ONE-TIME SMOOTH SCROLL REVEAL (ENTIRE APP)
+   Ultra-lightweight 60fps/120fps GPU-accelerated bottom-to-top fluid transition
+   ============================================================ */
+
+@media (max-width: 767px) {
+  .reveal-card-mobile {
+    opacity: 0;
+    transform: translate3d(0, 16px, 0);
+    transition: opacity 0.42s cubic-bezier(0.25, 1, 0.5, 1), transform 0.42s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  .reveal-card-mobile.is-revealed {
+    opacity: 1 !important;
+    transform: translate3d(0, 0, 0) !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .reveal-card-mobile {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

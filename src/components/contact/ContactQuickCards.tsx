@@ -60,7 +60,7 @@ export default function ContactQuickCards() {
               href={card.href}
               target={card.isExternal ? "_blank" : undefined}
               rel={card.isExternal ? "noopener noreferrer" : undefined}
-              className="group relative rounded-2xl p-5 sm:p-6 bg-white hover:bg-[#fffdf8] border border-[#ebd9b8] border-l-[5px] border-l-[#c2841f] hover:border-l-[#d89b18] shadow-[0_6px_25px_rgba(74,38,24,0.06)] hover:shadow-[0_16px_40px_rgba(194,132,31,0.2)] transition-all duration-300 flex flex-col justify-between transform hover:-translate-y-1"
+              className="group relative rounded-2xl p-5 sm:p-6 bg-white hover:bg-[#fffdf8] border border-[#ebd9b8] border-l-[5px] border-l-[#c2841f] hover:border-l-[#d89b18] shadow-[0_6px_25px_rgba(74,38,24,0.06)] hover:shadow-[0_16px_40px_rgba(194,132,31,0.2)] transition-all duration-300 flex flex-col justify-between transform hover:-translate-y-1 reveal-card-mobile"
             >
               {/* Top Row: Icon + Badge */}
               <div className="flex items-center justify-between mb-4">

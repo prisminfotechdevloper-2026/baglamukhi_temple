@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import FloatingContactButtons from "@/components/common/FloatingContactButtons";
+import MobileScrollAnimationObserver from "@/components/common/MobileScrollAnimationObserver";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -41,6 +42,8 @@ export default function RootLayout({
         {children}
         {/* Fixed Global Floating Contact Buttons (Call & WhatsApp) */}
         <FloatingContactButtons />
+        {/* One-time Smooth Mobile Scroll Entrance Observer */}
+        <MobileScrollAnimationObserver />
       </body>
     </html>
   );

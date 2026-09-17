@@ -89,7 +89,7 @@ export default function HowToReachSection() {
             return (
               <div
                 key={mode.id}
-                className="group relative rounded-2xl sm:rounded-3xl bg-white hover:bg-[#fffdf8] border border-[#ebd9b8] border-l-[5px] border-l-[#c2841f] hover:border-l-[#d89b18] shadow-[0_6px_25px_rgba(74,38,24,0.06)] hover:shadow-[0_16px_40px_rgba(194,132,31,0.18)] transition-all duration-300 p-6 flex flex-col justify-between"
+                className="group relative rounded-2xl sm:rounded-3xl bg-white hover:bg-[#fffdf8] border border-[#ebd9b8] border-l-[5px] border-l-[#c2841f] hover:border-l-[#d89b18] shadow-[0_6px_25px_rgba(74,38,24,0.06)] hover:shadow-[0_16px_40px_rgba(194,132,31,0.18)] transition-all duration-300 p-6 flex flex-col justify-between reveal-card-mobile"
               >
                 <div>
                   {/* Top Header */}

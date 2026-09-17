@@ -9,8 +9,8 @@ import maaDarshanImg from "../../../public/image.png";
  * LandingHero Component
  * - Background Image: hero.png (/hero/hero.png) with sacred royal temple sanctum aura overlay
  * - Left Side: Maa Bagalamukhi authentic Beej Mantra, Vedic Anushthan benefits, and direct Contact CTA buttons
- * - Right Side: maaDarshanImg (Trishakti Bagalamukhi Divya Darshan) enlarged on lg screens with sacred glowing golden aura
- * - Responsive: Adaptive height & padding ensuring all CTA buttons and sacred elements fit perfectly in view
+ * - Right Side: maaDarshanImg (Trishakti Bagalamukhi Divya Darshan) with sacred glowing golden aura
+ * - Responsive: Symmetrical height & padding matching GalleryHero
  */
 export default function LandingHero() {
   const whatsappUrl = `https://wa.me/${DEFAULT_CONTACT.phone.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(
@@ -20,13 +20,11 @@ export default function LandingHero() {
   return (
     <section
       id="mandir"
-      className="relative isolate w-full overflow-hidden pt-2 sm:pt-2.5 lg:pt-3.5 pb-6 sm:pb-8 lg:pb-10"
+      className="relative isolate w-full overflow-hidden pt-2 sm:pt-2.5 lg:pt-3 pb-5 sm:pb-6 lg:pb-8 border-b border-[#d89b18]/40"
       aria-label="माँ बगलामुखी नलखेड़ा धाम - मुख्य पृष्ठ"
     >
       {/* ============================================================
           1. BACKGROUND IMAGE & ATMOSPHERIC SACRED OVERLAYS
-          - Mobile screens (< md): Uses /hero/mobile-hero.png
-          - Large/Desktop screens (>= md): Uses /hero/hero.png
           ============================================================ */}
       <div className="absolute inset-0 w-full h-full z-0 overflow-hidden pointer-events-none">
         {/* Mobile Background Image (Phone Viewport: visible on < md screens) */}
@@ -40,7 +38,6 @@ export default function LandingHero() {
             sizes="100vw"
             className="object-cover object-top select-none"
           />
-          {/* Transparent soft radial/vignette overlay allowing mobile-hero.png to shine vividly */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-transparent via-50% to-black/45 pointer-events-none" />
         </div>
 
@@ -66,8 +63,8 @@ export default function LandingHero() {
       {/* ============================================================
           2. HERO CONTENT GRID (Left: Mantra & CTA | Right: Maa Darshan)
           ============================================================ */}
-      <div className="max-w-7xl mx-auto w-full py-3 px-4 sm:px-6 md:px-8 lg:px-12 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 xl:gap-10 items-center">
+      <div className="max-w-7xl mx-auto w-full py-2 sm:py-2.5 px-4 sm:px-6 md:px-8 lg:px-12 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-7 xl:gap-8 items-center">
 
           {/* ------------------------------------------------------------
               LEFT COLUMN: SACRED MANTRA, PEETH INFO & CONTACT BUTTONS
@@ -83,7 +80,7 @@ export default function LandingHero() {
             </div>
 
             {/* Main Sacred Heading */}
-            <h1 className="font-serif font-bold text-white tracking-wide text-2xl sm:text-3xl md:text-4xl lg:text-[2.65rem] xl:text-[2.9rem] leading-[1.18] drop-shadow-[0_3px_12px_rgba(0,0,0,0.85)]">
+            <h1 className="font-serif font-bold text-white tracking-wide text-2xl sm:text-3xl md:text-4xl lg:text-[2.65rem] xl:text-[2.85rem] leading-[1.18] drop-shadow-[0_3px_12px_rgba(0,0,0,0.85)]">
               माँ बगलामुखी{" "}
               <span className="bg-gradient-to-r from-[#ffe49e] via-[#f7c85f] to-[#d89b18] bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(216,155,24,0.5)]">
                 नलखेड़ा धाम
@@ -91,7 +88,7 @@ export default function LandingHero() {
             </h1>
 
             {/* Sub-headline / Blessing promise */}
-            <p className="font-serif text-[#ffedd5] text-sm sm:text-base md:text-lg mt-1 sm:mt-1.5 max-w-xl font-medium drop-shadow-[0_2px_6px_rgba(0,0,0,0.85)]">
+            <p className="font-serif text-[#ffedd5] text-xs sm:text-sm md:text-base mt-1 max-w-xl font-medium drop-shadow-[0_2px_6px_rgba(0,0,0,0.85)]">
               समस्त शत्रु बाधा, रोग-दोष निवारण एवं मनोकामना सिद्धि हेतु अखंड प्रत्यक्ष वैदिक अनुष्ठान
             </p>
 
@@ -101,64 +98,58 @@ export default function LandingHero() {
             </div>
 
             {/* Sacred Mantra Box */}
-            <div className="w-full max-w-xl bg-gradient-to-br from-[#2a0408]/95 via-[#1a0204]/98 to-[#2a0408]/95 border border-[#d89b18]/60 rounded-2xl p-4 sm:p-5 shadow-[0_12px_35px_rgba(0,0,0,0.65),inset_0_1px_1px_rgba(255,255,255,0.15)] backdrop-blur-md mb-3.5 sm:mb-4 text-left relative overflow-hidden group">
+            <div className="w-full max-w-xl bg-gradient-to-br from-[#2a0408]/95 via-[#1a0204]/98 to-[#2a0408]/95 border border-[#d89b18]/60 rounded-2xl p-3.5 sm:p-4 shadow-[0_10px_30px_rgba(0,0,0,0.65),inset_0_1px_1px_rgba(255,255,255,0.15)] backdrop-blur-md mb-3 sm:mb-3.5 text-left relative overflow-hidden group">
               {/* Subtle radiant golden accent top line */}
               <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-[#d89b18] to-transparent opacity-90" />
 
               {/* Mantra Title with sacred diya icon */}
-              <div className="flex items-center gap-2 mb-2">
-                <Flame className="w-4 h-4 text-[#f7c85f] flex-shrink-0" />
+              <div className="flex items-center gap-2 mb-1.5">
+                <Flame className="w-3.5 h-3.5 text-[#f7c85f] flex-shrink-0" />
                 <span className="font-serif text-[#f4d58d] text-xs sm:text-sm font-semibold tracking-wide">
                   ॥ माँ बगलामुखी महामन्त्र (शत्रु स्तम्भन एवं रक्षा कवच) ॥
                 </span>
               </div>
 
               {/* The Sacred Sanskrit Mantra in prominent glowing Devanagari */}
-              <p className="font-serif text-[1.05rem] sm:text-xl md:text-[1.28rem] font-bold leading-relaxed tracking-wide text-center sm:text-left py-1 text-transparent bg-clip-text bg-gradient-to-r from-[#fff7d6] via-[#fce293] to-[#f4d58d] drop-shadow-[0_2px_8px_rgba(216,155,24,0.4)]">
+              <p className="font-serif text-[1rem] sm:text-[1.15rem] md:text-[1.25rem] font-bold leading-relaxed tracking-wide text-center sm:text-left py-0.5 text-transparent bg-clip-text bg-gradient-to-r from-[#fff7d6] via-[#fce293] to-[#f4d58d] drop-shadow-[0_2px_8px_rgba(216,155,24,0.4)]">
                 ॐ ह्लीं बगलामुखि सर्वदुष्टानां वाचं मुखं पदं स्तम्भय जिह्वां कीलय बुद्धिं विनाशय ह्लीं ॐ स्वाहा॥
               </p>
 
               {/* Key Anushthan tags */}
-              <div className="mt-3 pt-2.5 border-t border-[#d89b18]/30 flex flex-wrap items-center gap-2 sm:gap-2.5 text-xs text-[#eed6a8]">
-                <span className="inline-flex items-center gap-1 bg-[#42080f]/80 px-2.5 py-0.5 rounded-full border border-[#d89b18]/35 font-medium">
+              <div className="mt-2.5 pt-2 border-t border-[#d89b18]/30 flex flex-wrap items-center gap-1.5 sm:gap-2 text-xs text-[#eed6a8]">
+                <span className="inline-flex items-center gap-1 bg-[#42080f]/80 px-2.5 py-0.5 rounded-full border border-[#d89b18]/35 font-medium text-[11px] sm:text-xs">
                   <ShieldCheck className="w-3 h-3 text-[#f7c85f]" /> शत्रु स्तम्भन
                 </span>
-                <span className="inline-flex items-center gap-1 bg-[#42080f]/80 px-2.5 py-0.5 rounded-full border border-[#d89b18]/35 font-medium">
+                <span className="inline-flex items-center gap-1 bg-[#42080f]/80 px-2.5 py-0.5 rounded-full border border-[#d89b18]/35 font-medium text-[11px] sm:text-xs">
                   • कोर्ट-कचहरी विजय
                 </span>
-                <span className="inline-flex items-center gap-1 bg-[#42080f]/80 px-2.5 py-0.5 rounded-full border border-[#d89b18]/35 font-medium">
+                <span className="inline-flex items-center gap-1 bg-[#42080f]/80 px-2.5 py-0.5 rounded-full border border-[#d89b18]/35 font-medium text-[11px] sm:text-xs">
                   • व्यापार वृद्धि
                 </span>
-                <span className="inline-flex items-center gap-1 bg-[#42080f]/80 px-2.5 py-0.5 rounded-full border border-[#d89b18]/35 font-medium">
+                <span className="inline-flex items-center gap-1 bg-[#42080f]/80 px-2.5 py-0.5 rounded-full border border-[#d89b18]/35 font-medium text-[11px] sm:text-xs">
                   • गृह शांति
                 </span>
               </div>
             </div>
 
             {/* ============================================================
-                CONTACT ACTION BUTTONS (CALL & WHATSAPP) - MATCHING USER DESIGN
-                With Left-to-Right Moving Color Sheen ONLY on Hover & Click
+                CONTACT ACTION BUTTONS (CALL & WHATSAPP)
                 ============================================================ */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto">
 
               {/* Button 1: Call Now (Red Gradient Pill with Handset Icon) */}
               <a
                 href={`tel:${DEFAULT_CONTACT.phone}`}
-                className="relative overflow-hidden w-full sm:w-auto min-w-[210px] sm:min-w-[235px] inline-flex items-center gap-3 px-6 py-2.5 sm:py-3 rounded-full bg-gradient-to-r from-[#ba1616] via-[#8c0608] to-[#4e0204] text-white shadow-[0_4px_16px_rgba(139,0,0,0.38)] hover:brightness-110 hover:scale-[1.02] active:scale-[0.97] transition-all duration-200 group"
+                className="relative overflow-hidden w-full sm:w-auto min-w-[200px] sm:min-w-[225px] inline-flex items-center gap-3 px-5 sm:px-6 py-2.5 sm:py-3 rounded-full bg-gradient-to-r from-[#ba1616] via-[#8c0608] to-[#4e0204] text-white shadow-[0_4px_16px_rgba(139,0,0,0.38)] hover:brightness-110 hover:scale-[1.02] active:scale-[0.97] transition-all duration-200 group"
                 aria-label={`Call Now - ${DEFAULT_CONTACT.displayPhone}`}
               >
-                {/* Left-to-Right Moving Color Sheen (Only on Hover & Click) */}
                 <div className="absolute inset-0 w-1/2 h-full bg-gradient-to-r from-transparent via-white/35 to-transparent button-sheen-sweep" />
-
-                {/* Phone Handset Icon: White Outline, Terracotta Interior */}
-                <Phone className="relative z-10 w-5 h-5 text-white fill-[#b84724] stroke-[2.2] transform -rotate-12 flex-shrink-0" />
-
-                {/* Text: Call Now & Number */}
+                <Phone className="relative z-10 w-4.5 h-4.5 text-white fill-[#b84724] stroke-[2.2] transform -rotate-12 flex-shrink-0" />
                 <div className="relative z-10 flex flex-col text-left">
-                  <span className="text-white font-serif font-bold text-base sm:text-[1.08rem] leading-tight tracking-wide">
+                  <span className="text-white font-serif font-bold text-sm sm:text-base leading-tight tracking-wide">
                     Call Now
                   </span>
-                  <span className="text-white/90 text-xs sm:text-[0.82rem] font-medium tracking-wide leading-tight mt-0.5">
+                  <span className="text-white/90 text-xs font-medium tracking-wide leading-tight mt-0.5">
                     {DEFAULT_CONTACT.displayPhone}
                   </span>
                 </div>
@@ -169,15 +160,12 @@ export default function LandingHero() {
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="relative overflow-hidden w-full sm:w-auto min-w-[210px] sm:min-w-[235px] inline-flex items-center gap-3 px-6 py-2.5 sm:py-3 rounded-full bg-[#fffcf7] hover:bg-white text-[#38040b] border border-[#ead6b3] shadow-[0_4px_14px_rgba(0,0,0,0.06)] hover:border-[#dfc38c] hover:scale-[1.02] active:scale-[0.97] transition-all duration-200 group"
+                className="relative overflow-hidden w-full sm:w-auto min-w-[200px] sm:min-w-[225px] inline-flex items-center gap-3 px-5 sm:px-6 py-2.5 sm:py-3 rounded-full bg-[#fffcf7] hover:bg-white text-[#38040b] border border-[#ead6b3] shadow-[0_4px_14px_rgba(0,0,0,0.06)] hover:border-[#dfc38c] hover:scale-[1.02] active:scale-[0.97] transition-all duration-200 group"
                 aria-label="WhatsApp - Chat with Us"
               >
-                {/* Left-to-Right Moving Color Sheen (Only on Hover & Click) */}
                 <div className="absolute inset-0 w-1/2 h-full bg-gradient-to-r from-transparent via-[#25D366]/25 to-transparent button-sheen-sweep" />
-
-                {/* WhatsApp Green Outline Logo */}
                 <svg
-                  className="relative z-10 w-6 h-6 flex-shrink-0 text-[#25D366]"
+                  className="relative z-10 w-5 h-5 flex-shrink-0 text-[#25D366]"
                   viewBox="0 0 24 24"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -194,13 +182,11 @@ export default function LandingHero() {
                     fill="#25D366"
                   />
                 </svg>
-
-                {/* Text: WhatsApp & Chat with Us */}
                 <div className="relative z-10 flex flex-col text-left">
-                  <span className="text-[#38040b] font-serif font-bold text-base sm:text-[1.08rem] leading-tight tracking-wide">
+                  <span className="text-[#38040b] font-serif font-bold text-sm sm:text-base leading-tight tracking-wide">
                     WhatsApp
                   </span>
-                  <span className="text-[#6b5247] text-xs sm:text-[0.82rem] font-medium leading-tight mt-0.5">
+                  <span className="text-[#6b5247] text-xs font-medium leading-tight mt-0.5">
                     Chat with Us
                   </span>
                 </div>
@@ -209,7 +195,7 @@ export default function LandingHero() {
             </div>
 
             {/* Pandit Ji Trust Guarantee */}
-            <p className="text-[#f4d58d] text-xs sm:text-sm mt-3.5 font-serif flex items-center justify-center lg:justify-start gap-2 drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]">
+            <p className="text-[#f4d58d] text-xs mt-3 font-serif flex items-center justify-center lg:justify-start gap-1.5 drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]">
               <CheckCircle2 className="w-4 h-4 text-[#f7c85f] flex-shrink-0" />
               <span>पूज्य पंडित शुभम शर्मा जी के सानिध्य में 100% शास्त्रोक्त तंत्र विधि</span>
             </p>
@@ -217,19 +203,16 @@ export default function LandingHero() {
 
           {/* ------------------------------------------------------------
               RIGHT COLUMN: ROYAL SANCTUM DARSHAN (माँ बगलामुखी दिव्य दर्शन)
-              - Scaled up on lg / xl breakpoints for majestic prominence
-              - Soft glowing golden halo aura and holy depth drop-shadows
               ------------------------------------------------------------ */}
           <div className="lg:col-span-5 flex justify-center items-center relative mt-4 lg:mt-0">
-            {/* Sized container: noticeably increased on lg & xl */}
-            <div className="relative w-[300px] sm:w-[380px] md:w-[440px] lg:w-[490px] xl:w-[540px] 2xl:w-[580px] aspect-square flex items-center justify-center group">
+            <div className="relative w-[280px] sm:w-[340px] md:w-[380px] lg:w-[430px] xl:w-[460px] aspect-square flex items-center justify-center group">
               
               {/* Divine Multi-Layer Golden Glow / Aura */}
               <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#d89b18]/30 via-[#f4d58d]/25 to-[#e59a17]/15 blur-2xl lg:blur-3xl animate-aura-pulse pointer-events-none" />
-              <div className="absolute inset-6 rounded-full bg-amber-500/20 blur-xl pointer-events-none" />
+              <div className="absolute inset-4 rounded-full bg-amber-500/20 blur-xl pointer-events-none" />
 
               {/* The High-Definition Divine Deity Image with Floating Sanctum Effect */}
-              <div className="relative z-10 w-full h-full transition-transform duration-700 ease-out group-hover:scale-105  ">
+              <div className="relative z-10 w-full h-full transition-transform duration-700 ease-out group-hover:scale-105">
                 <Image
                   src={maaDarshanImg}
                   alt="माँ बगलामुखी नलखेड़ा धाम - दिव्य पीताम्बरा स्वरूप दर्शन"
@@ -247,4 +230,3 @@ export default function LandingHero() {
     </section>
   );
 }
-

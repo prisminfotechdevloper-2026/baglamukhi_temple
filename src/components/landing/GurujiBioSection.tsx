@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import { Phone, ArrowRight, ShieldCheck, Flame, Sparkles, Video, Award, CheckCircle2 } from "lucide-react";
+import { ShieldCheck, Flame, Sparkles, Video, Award, CheckCircle2 } from "lucide-react";
 import LotusDivider from "@/components/common/navbarcompo/LotusDivider";
 import { DEFAULT_CONTACT } from "@/components/common/navbarcompo/constants";
 import gurujiImage from "../../../public/guruji.png";
@@ -10,13 +10,10 @@ import gurujiImage from "../../../public/guruji.png";
 /**
  * GurujiBioSection Component - Redesigned
  * - Right Side: Circular Guruji portrait (border-radius: 50%) encircled by an infinite 360-degree rotating Vedic Service Wheel (SVG textPath) and orbiting blessing badges
- * - Left Side: Prestigious, authoritative Vedic biography, experience statistics, key anushthan specializations, and luxury CTA buttons
+ * - Left Side: Prestigious, authoritative Vedic biography, experience statistics, key anushthan specializations
  * - 100% Mobile & All-Screen Responsive with pure SVG icons and Schema.org SEO Structured Data
  */
 export default function GurujiBioSection() {
-  const whatsappUrl = `https://wa.me/${DEFAULT_CONTACT.phone.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(
-    "जय माँ बगलामुखी! पूज्य गुरुजी (पंडित शुभम शर्मा जी), मुझे सिद्धपीठ नलखेड़ा धाम में पूजन एवं अनुष्ठान संकल्प बुक करना है।"
-  )}`;
 
   // Schema.org Structured Data for Pujya Pandit Shubham Sharma Ji (SEO)
   const schemaJsonLd = {
@@ -161,49 +158,8 @@ export default function GurujiBioSection() {
               ))}
             </div>
 
-            {/* Two High-Impact Direct Action Buttons */}
-            <div className="flex flex-col xs:flex-row items-stretch xs:items-center gap-3 w-full xs:w-auto mb-5">
-              {/* WhatsApp Button (Red Gradient Pill with sheen) */}
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative overflow-hidden inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3 rounded-full bg-gradient-to-r from-[#880e1a] via-[#a31222] to-[#700913] text-white font-serif font-bold text-xs xs:text-sm sm:text-base shadow-[0_4px_16px_rgba(139,0,0,0.32)] border border-[#ffd778]/60 hover:shadow-[0_6px_22px_rgba(139,0,0,0.45)] active:scale-95 transition-all duration-200"
-                aria-label="Book puja on WhatsApp with Pandit Ji"
-              >
-                {/* Sheen sweep animation */}
-                <div className="absolute inset-0 w-1/2 h-full bg-gradient-to-r from-transparent via-white/25 to-transparent button-sheen-sweep pointer-events-none" />
-
-                {/* WhatsApp official SVG icon */}
-                <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-[#25D366] flex items-center justify-center flex-shrink-0 shadow-sm">
-                  <svg className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-white" viewBox="0 0 24 24">
-                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-                  </svg>
-                </div>
-                <span>WhatsApp Par Sankalp Book Karein</span>
-                <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#ffd778] group-hover:translate-x-1 transition-transform flex-shrink-0" />
-              </a>
-
-              {/* Call Button (Warm Ivory Pill with Gold Rim) */}
-              <a
-                href={`tel:${DEFAULT_CONTACT.phone}`}
-                className="group relative overflow-hidden inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3 rounded-full bg-[#fffcf5] text-[#420a10] font-serif font-bold text-xs xs:text-sm sm:text-base border-2 border-[#d89b18] shadow-[0_2px_10px_rgba(216,155,24,0.18)] hover:bg-[#faebd0] hover:text-[#8b0000] active:scale-95 transition-all duration-200"
-                aria-label={`Call Guruji at ${DEFAULT_CONTACT.displayPhone}`}
-                itemProp="telephone"
-              >
-                {/* Sheen sweep animation */}
-                <div className="absolute inset-0 w-1/2 h-full bg-gradient-to-r from-transparent via-[#d89b18]/15 to-transparent button-sheen-sweep pointer-events-none" />
-
-                <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-[#8b0000]/10 border border-[#8b0000]/20 flex items-center justify-center flex-shrink-0">
-                  <Phone className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#8b0000]" />
-                </div>
-                <span>Guruji Se Direct Baat Karein</span>
-                <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#8b0000] group-hover:translate-x-1 transition-transform flex-shrink-0" />
-              </a>
-            </div>
-
             {/* Lotus Divider */}
-            <div className="w-full max-w-sm">
+            <div className="w-full max-w-sm mt-1">
               <LotusDivider />
             </div>
 

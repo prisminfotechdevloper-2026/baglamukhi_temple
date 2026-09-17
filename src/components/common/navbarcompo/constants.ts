@@ -5,7 +5,7 @@ export const DEFAULT_NAV_LINKS: NavLinkItem[] = [
   { label: "Gallery", href: "/gallery" },
   { label: "Mandir", href: "/#mandir" },
   { label: "FAQ", href: "/#faq" },
-  { label: "Contact", href: "/#contact" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export const DEFAULT_CONTACT: ContactInfo = {

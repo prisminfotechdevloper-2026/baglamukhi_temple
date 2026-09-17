@@ -3,22 +3,21 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, Flame, Landmark, Images, Phone } from "lucide-react";
+import { Home, Flame, Landmark, Images } from "lucide-react";
 import { NavLinkItem, ContactInfo } from "./types";
 
 interface MobileBottomNavProps {
   links?: NavLinkItem[];
-  contact: ContactInfo;
+  contact?: ContactInfo;
   className?: string;
 }
 
 /**
  * MobileBottomNav - Client Component for Fixed Mobile Navigation Dock.
- * Aligns primary temple links & direct Call CTA at the bottom of mobile screens,
+ * Aligns primary temple links at the bottom of mobile screens,
  * delivering an ultra-fast, native-app feel with gold & crimson sacred accents.
  */
 export default function MobileBottomNav({
-  contact,
   className = "",
 }: MobileBottomNavProps) {
   const pathname = usePathname();
@@ -45,42 +44,31 @@ export default function MobileBottomNav({
     }
   };
 
-  // 5 Balanced Sacred Tabs for Mobile Bottom Navigation
+  // 4 Balanced Sacred Tabs for Mobile Bottom Navigation
   const navTabs = [
     {
       label: "Home",
       subLabel: "Home",
       href: "/",
       icon: Home,
-      isAction: false,
     },
     {
       label: "Gallery",
       subLabel: "Gallery",
       href: "/gallery",
       icon: Images,
-      isAction: false,
-    },
-    {
-      label: "Call",
-      subLabel: "Call",
-      href: `tel:${contact.phone}`,
-      icon: Phone,
-      isAction: true, // Center Elevated Primary CTA
     },
     {
       label: "Services",
       subLabel: "Services",
       href: "/#services",
       icon: Flame,
-      isAction: false,
     },
     {
       label: "Mandir",
       subLabel: "Mandir",
       href: "/#mandir",
       icon: Landmark,
-      isAction: false,
     },
   ];
 
@@ -93,7 +81,7 @@ export default function MobileBottomNav({
       {/* Top micro gold line accent */}
       <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-[#d89b18] to-transparent opacity-80" />
 
-      <div className="grid grid-cols-5 items-end justify-items-center max-w-md mx-auto">
+      <div className="grid grid-cols-4 items-center justify-items-center max-w-md mx-auto">
         {navTabs.map((tab) => {
           const Icon = tab.icon;
           const isExactRoute =
@@ -104,28 +92,6 @@ export default function MobileBottomNav({
             tab.href.startsWith("/#") &&
             activeHash === tab.href.replace("/", "");
           const isActive = isExactRoute || isHashActive;
-
-          if (tab.isAction) {
-            // Elevated Center Direct Call Button
-            return (
-              <a
-                key={tab.label}
-                href={tab.href}
-                className="group relative -top-3 flex flex-col items-center justify-center focus:outline-none"
-                aria-label={`Call Pandit Ji at ${contact.displayPhone}`}
-              >
-                {/* Center Action Circle */}
-                <div className="relative w-12 h-12 rounded-full bg-gradient-to-br from-[#c31b1b] via-[#a30b15] to-[#750000] text-white flex items-center justify-center shadow-[0_4px_16px_rgba(139,0,0,0.45)] border-2 border-[#f6dd9f] active:scale-90 group-hover:scale-105 transition-all duration-200">
-                  {/* Subtle animated pulse ring */}
-                  <span className="absolute -inset-1 rounded-full bg-[#c31b1b]/30 animate-ping opacity-60 pointer-events-none" />
-                  <Icon className="w-5 h-5 fill-white flex-shrink-0" />
-                </div>
-                <span className="font-serif font-bold text-[0.64rem] text-[#8b0000] mt-1 leading-none tracking-tight">
-                  {tab.label}
-                </span>
-              </a>
-            );
-          }
 
           return (
             <Link

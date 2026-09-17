@@ -1,153 +1,326 @@
 "use client";
 
+import { useState, useEffect, useCallback, useRef } from "react";
 import Link from "next/link";
-import { Sparkles, Phone, MessageCircle, ChevronRight, Eye, ShieldCheck, Flame, Compass } from "lucide-react";
+import Image from "next/image";
+import {
+  Sparkles,
+  ChevronRight,
+  ChevronLeft,
+  Eye,
+  ShieldCheck,
+  Flame,
+  MapPin,
+  ArrowDown,
+  Camera,
+} from "lucide-react";
+import LotusDivider from "@/components/common/navbarcompo/LotusDivider";
+
+interface HeroSlide {
+  id: number;
+  image: string;
+  title: string;
+  subtitle: string;
+  badge: string;
+  alt: string;
+}
+
+const HERO_SLIDES: HeroSlide[] = [
+  {
+    id: 1,
+    image: "/mandir/mandir-complex-panoramic.jpg",
+    title: "नलखेड़ा धाम विहंगम परिसर",
+    subtitle: "सिद्ध शक्तिपीठ माँ बगलामुखी का भव्य व पावन प्रांगण",
+    badge: "महाशक्तिपीठ परिसर",
+    alt: "माँ बगलामुखी मंदिर नलखेड़ा धाम विहंगम दृश्य",
+  },
+  {
+    id: 2,
+    image: "/mandir/baglamukhi-divine-darshan.jpg",
+    title: "पावन गर्भगृह दिव्य दर्शन",
+    subtitle: "स्वर्ण मुकुट, त्रिशक्ति विग्रह व दिव्य पीताम्बरा स्वरूप",
+    badge: "साक्षात दिव्य दर्शन",
+    alt: "माँ बगलामुखी गर्भगृह पावन दर्शन",
+  },
+  {
+    id: 3,
+    image: "/mandir/mandir-night-darshan.jpg",
+    title: "रात्रि महाआरती एवं दीप प्रभा",
+    subtitle: "दिव्य स्वर्णिम आभा, दीप प्रकाश एवं अखंड ज्योति दर्शन",
+    badge: "रात्रि दीप दर्शन",
+    alt: "माँ बगलामुखी मंदिर रात्रि दीप दर्शन",
+  },
+  {
+    id: 4,
+    image: "/mandir/mandir-main-facade.jpg",
+    title: "प्राचीन मंदिर मुख्य शिखर",
+    subtitle: "महाभारत कालीन पावन ध्वजा, स्वर्ण कलश एवं वास्तुकला",
+    badge: "प्राचीन शिखर दर्शन",
+    alt: "माँ बगलामुखी मंदिर मुख्य शिखर व कलश",
+  },
+  {
+    id: 5,
+    image: "/mandir/temple-view-front.jpg",
+    title: "सिद्ध प्रांगण एवं यज्ञशाला",
+    subtitle: "लखुंदर नदी तट पर स्थित जागृत महायज्ञ तपोभूमि",
+    badge: "अखंड तपोभूमि",
+    alt: "माँ बगलामुखी मंदिर प्रांगण व यज्ञशाला",
+  },
+];
+
+const SLIDE_INTERVAL_MS = 3000; // Continuous 3-second interval
 
 export default function GalleryHero() {
-  const whatsappUrl =
-    "https://wa.me/919340605235?text=" +
-    encodeURIComponent("जय माँ बगलामुखी! पंडित जी, मुझे नलखेड़ा धाम दर्शन एवं पूजा अनुष्ठान के संबंध में जानकारी चाहिए।");
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [progress, setProgress] = useState(0);
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
+  const progressTimerRef = useRef<NodeJS.Timeout | null>(null);
+
+  const nextSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
+    setProgress(0);
+  }, []);
+
+  const prevSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev - 1 + HERO_SLIDES.length) % HERO_SLIDES.length);
+    setProgress(0);
+  }, []);
+
+  const goToSlide = (index: number) => {
+    setCurrentSlide(index);
+    setProgress(0);
+  };
+
+  // Continuous auto-slide every 3 seconds (runs continuously without pausing on mouse hover)
+  useEffect(() => {
+    const intervalTime = 50; // update progress every 50ms
+    const totalSteps = SLIDE_INTERVAL_MS / intervalTime;
+    let currentStep = 0;
+
+    progressTimerRef.current = setInterval(() => {
+      currentStep += 1;
+      setProgress(Math.min((currentStep / totalSteps) * 100, 100));
+    }, intervalTime);
+
+    timerRef.current = setInterval(() => {
+      nextSlide();
+    }, SLIDE_INTERVAL_MS);
+
+    return () => {
+      if (timerRef.current) clearInterval(timerRef.current);
+      if (progressTimerRef.current) clearInterval(progressTimerRef.current);
+    };
+  }, [currentSlide, nextSlide]);
 
   return (
-    <section className="relative w-full overflow-hidden bg-gradient-to-b from-[#38040b] via-[#4d0711] to-[#2a0207] text-[#fff8e7] pt-8 sm:pt-12 md:pt-16 pb-12 sm:pb-16 lg:pb-20 border-b border-[#ebdcb9]/30">
-      {/* Background Divine Radial Glows */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] sm:w-[900px] h-[350px] sm:h-[450px] bg-gradient-to-b from-[#d89b18]/20 via-[#c31b1b]/15 to-transparent rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute top-1/4 left-10 w-72 h-72 bg-[#d89b18]/10 rounded-full blur-2xl pointer-events-none" />
-      <div className="absolute bottom-5 right-10 w-80 h-80 bg-[#c31b1b]/20 rounded-full blur-2xl pointer-events-none" />
+    <section
+      className="relative isolate w-full overflow-hidden pt-2 sm:pt-2.5 lg:pt-3 pb-5 sm:pb-6 lg:pb-8 border-b border-[#d89b18]/40"
+      aria-label="माँ बगलामुखी दिव्य चित्र दीर्घा"
+    >
+      {/* ============================================================
+          1. FULL-WIDTH BACKGROUND SLIDER (PURE NATURAL IMAGES, NO COLOR EFFECT)
+          - 5 Mandir images continuously rotating every 3s
+          - Pure neutral dark gradient overlay for crystal clear text readability
+          ============================================================ */}
+      <div className="absolute inset-0 w-full h-full z-0 overflow-hidden pointer-events-none">
+        {HERO_SLIDES.map((slide, index) => {
+          const isActive = index === currentSlide;
+          return (
+            <div
+              key={slide.id}
+              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                isActive ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
+              }`}
+              style={{
+                transition: "opacity 1s cubic-bezier(0.4, 0, 0.2, 1), transform 4s ease-out",
+                transform: isActive ? "scale(1.02)" : "scale(1.06)",
+              }}
+            >
+              <Image
+                src={slide.image}
+                alt={slide.alt}
+                fill
+                priority={index === 0}
+                quality={95}
+                sizes="100vw"
+                className="object-cover object-center select-none"
+              />
+            </div>
+          );
+        })}
 
-      {/* Decorative Traditional Geometric Grid Lines */}
-      <div
-        className="absolute inset-0 opacity-[0.04] pointer-events-none"
-        style={{
-          backgroundImage: `radial-gradient(#f6dd9f 1px, transparent 1px)`,
-          backgroundSize: "28px 28px",
-        }}
-      />
+        {/* Clean Neutral Dark Scrim (No Colored Tint, Pure Photo Visibility) */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/40 to-black/75 z-20 pointer-events-none" />
+      </div>
 
-      <div className="relative max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Breadcrumb Navigation */}
-        <nav
-          aria-label="Breadcrumb"
-          className="flex items-center gap-2 text-xs sm:text-sm text-[#f6dd9f]/80 mb-6 sm:mb-8 font-serif"
-        >
-          <Link
-            href="/"
-            className="hover:text-[#ffd700] transition-colors flex items-center gap-1.5"
+      {/* ============================================================
+          2. MAJESTIC GALLERY HERO CONTENT
+          ============================================================ */}
+      <div className="max-w-6xl mx-auto w-full py-2 sm:py-2.5 px-4 sm:px-6 md:px-8 relative z-30 flex flex-col items-center text-center">
+
+        {/* Top Navigation & Live Slide Indicator */}
+        <div className="w-full flex flex-wrap items-center justify-between gap-2 mb-2 sm:mb-2.5">
+          {/* Breadcrumb */}
+          <nav
+            aria-label="Breadcrumb"
+            className="flex items-center gap-1.5 text-xs sm:text-[0.82rem] text-[#f6dd9f]/90 font-serif"
           >
-            <span>मुख्य पृष्ठ</span>
-          </Link>
-          <ChevronRight className="w-3.5 h-3.5 text-[#d89b18]" />
-          <span className="text-[#ffd700] font-semibold">
-            दिव्य चित्र दीर्घा (Gallery)
-          </span>
-        </nav>
-
-        {/* Top Sacred OM Badge */}
-        <div className="inline-flex items-center gap-2.5 px-4 sm:px-5 py-1.5 rounded-full bg-[#5a0b16]/80 border border-[#d89b18]/60 shadow-[0_4px_18px_rgba(216,155,24,0.25)] backdrop-blur-md mb-4 sm:mb-6">
-          <span className="text-[#ffd700] text-sm sm:text-base font-serif font-bold">
-            ॥ ॐ ॥
-          </span>
-          <span className="text-xs sm:text-sm font-serif font-medium tracking-wide text-[#fff3d6]">
-            विश्व विख्यात सिद्ध पीठ • नलखेड़ा धाम (म.प्र.)
-          </span>
-          <Sparkles className="w-3.5 h-3.5 text-[#ffd700] animate-pulse" />
-        </div>
-
-        {/* Hero Main Heading & Subtitle */}
-        <div className="max-w-4xl">
-          <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-[#fff7e6] via-[#ffd983] to-[#f4be47] leading-[1.2] drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)]">
-            माँ बगलामुखी दिव्य दर्शन <br className="hidden sm:block" />
-            <span className="text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#fce8b3]">
-              एवं पावन मंदिर चित्र दीर्घा
+            <Link
+              href="/"
+              className="hover:text-[#ffd700] transition-colors flex items-center gap-1"
+            >
+              <span>मुख्य पृष्ठ</span>
+            </Link>
+            <ChevronRight className="w-3.5 h-3.5 text-[#d89b18]" />
+            <span className="text-[#ffd700] font-semibold">
+              चित्र दीर्घा (Gallery)
             </span>
-          </h1>
+          </nav>
 
-          <p className="mt-4 sm:mt-5 text-sm sm:text-base md:text-lg text-[#faebd0]/90 font-serif leading-relaxed max-w-3xl">
-            महाभारत कालीन स्वयंभू त्रिशक्ति पीठ माँ पीताम्बरा बगलामुखी मंदिर के पावन गर्भगृह, 
-            दिव्य विग्रह, प्राचीन वास्तुकला, अखंड महाहवन एवं विशेष तांत्रिक अनुष्ठानों के अलौकिक दर्शन 
-            का सजीव अनुभव प्राप्त करें।
-          </p>
+          {/* Active Live Slide Badge */}
+          
         </div>
 
-        {/* Vedic Key Highlights & Quick Stats */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mt-8 sm:mt-10 max-w-4xl">
-          <div className="p-3 sm:p-4 rounded-xl bg-gradient-to-br from-[#530c17]/70 to-[#3b060e]/80 border border-[#d89b18]/40 backdrop-blur-md shadow-sm flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-[#d89b18]/20 flex items-center justify-center flex-shrink-0 border border-[#f6dd9f]/50 text-[#ffd700]">
-              <Eye className="w-5 h-5" />
-            </div>
-            <div>
-              <div className="text-lg sm:text-xl font-bold font-serif text-[#ffd700] leading-none">
-                18+
-              </div>
-              <div className="text-[0.72rem] sm:text-xs text-[#faebd0]/80 font-serif mt-0.5">
-                दिव्य पावन दर्शन
-              </div>
-            </div>
-          </div>
-
-          <div className="p-3 sm:p-4 rounded-xl bg-gradient-to-br from-[#530c17]/70 to-[#3b060e]/80 border border-[#d89b18]/40 backdrop-blur-md shadow-sm flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-[#d89b18]/20 flex items-center justify-center flex-shrink-0 border border-[#f6dd9f]/50 text-[#ffd700]">
-              <Flame className="w-5 h-5" />
-            </div>
-            <div>
-              <div className="text-lg sm:text-xl font-bold font-serif text-[#ffd700] leading-none">
-                अखंड
-              </div>
-              <div className="text-[0.72rem] sm:text-xs text-[#faebd0]/80 font-serif mt-0.5">
-                महाहवन व अनुष्ठान
-              </div>
-            </div>
-          </div>
-
-          <div className="p-3 sm:p-4 rounded-xl bg-gradient-to-br from-[#530c17]/70 to-[#3b060e]/80 border border-[#d89b18]/40 backdrop-blur-md shadow-sm flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-[#d89b18]/20 flex items-center justify-center flex-shrink-0 border border-[#f6dd9f]/50 text-[#ffd700]">
-              <Compass className="w-5 h-5" />
-            </div>
-            <div>
-              <div className="text-lg sm:text-xl font-bold font-serif text-[#ffd700] leading-none">
-                नलखेड़ा
-              </div>
-              <div className="text-[0.72rem] sm:text-xs text-[#faebd0]/80 font-serif mt-0.5">
-                लखुंदर नदी तट
-              </div>
-            </div>
-          </div>
-
-          <div className="p-3 sm:p-4 rounded-xl bg-gradient-to-br from-[#530c17]/70 to-[#3b060e]/80 border border-[#d89b18]/40 backdrop-blur-md shadow-sm flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-[#d89b18]/20 flex items-center justify-center flex-shrink-0 border border-[#f6dd9f]/50 text-[#ffd700]">
-              <ShieldCheck className="w-5 h-5" />
-            </div>
-            <div>
-              <div className="text-lg sm:text-xl font-bold font-serif text-[#ffd700] leading-none">
-                100%
-              </div>
-              <div className="text-[0.72rem] sm:text-xs text-[#faebd0]/80 font-serif mt-0.5">
-                शास्त्रोक्त विधान
-              </div>
-            </div>
-          </div>
+        {/* Sacred Peeth Top Badge */}
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/60 border border-[#d89b18] shadow-[0_2px_12px_rgba(0,0,0,0.5)] backdrop-blur-md mb-2 sm:mb-2.5">
+          <Sparkles className="w-3.5 h-3.5 text-[#f4d58d] animate-pulse" />
+          <span className="font-serif text-[#fbe9b9] text-xs sm:text-[0.82rem] tracking-wide font-semibold">
+            ॥ ॐ ॥ विश्वप्रसिद्ध सिद्ध शक्तिपीठ • नलखेड़ा धाम (म.प्र.)
+          </span>
         </div>
 
-        {/* Action Quick Links for Devotees */}
-        <div className="flex flex-wrap items-center gap-3.5 sm:gap-5 mt-7 sm:mt-9">
-          <a
-            href="tel:+919340605235"
-            className="inline-flex items-center justify-center gap-2.5 px-6 sm:px-7 py-3 rounded-full bg-gradient-to-r from-[#d89b18] via-[#e5b338] to-[#c6890c] text-[#3d0309] font-serif font-bold text-sm sm:text-base shadow-[0_6px_22px_rgba(216,155,24,0.4)] hover:shadow-[0_8px_30px_rgba(216,155,24,0.6)] hover:scale-[1.03] active:scale-95 transition-all duration-200 border border-[#ffe8a3]"
-          >
-            <Phone className="w-4.5 h-4.5 fill-[#3d0309]" />
-            <span>पूजा व अनुष्ठान संकल्प कराएं</span>
-          </a>
+        {/* Main Sacred Gallery Heading */}
+        <h1 className="font-serif font-bold text-white tracking-wide text-2xl sm:text-3xl md:text-4xl lg:text-[2.65rem] xl:text-[2.85rem] leading-[1.18] drop-shadow-[0_3px_12px_rgba(0,0,0,0.85)] max-w-4xl">
+          माँ बगलामुखी दिव्य दर्शन{" "}
+          <span className="bg-gradient-to-r from-[#ffe49e] via-[#f7c85f] to-[#d89b18] bg-clip-text text-transparent drop-shadow-[0_0_18px_rgba(216,155,24,0.5)]">
+            एवं पावन मंदिर चित्र दीर्घा
+          </span>
+        </h1>
 
+        {/* Gallery Sub-headline */}
+        <p className="font-serif text-[#ffedd5] text-xs sm:text-sm md:text-base mt-1.5 max-w-3xl font-medium drop-shadow-[0_2px_6px_rgba(0,0,0,0.85)] leading-relaxed">
+          महाभारत कालीन स्वयंभू त्रिशक्ति पीठ माँ पीताम्बरा मंदिर के पावन गर्भगृह, 
+          अखंड महाहवन, दिव्य विग्रह एवं ऐतिहासिक वास्तुकला के अलौकिक सजीव दर्शन।
+        </p>
+
+        {/* Ornate Lotus Divider */}
+        <div className="w-full max-w-md my-2 sm:my-2.5">
+          <LotusDivider />
+        </div>
+
+        {/* 4 Sacred Highlights Pills */}
+        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5 max-w-3xl my-2">
+          <span className="inline-flex items-center gap-1.5 bg-black/60 border border-[#d89b18]/45 px-3 py-1 rounded-full text-xs font-serif text-[#ffd700] shadow-xs backdrop-blur-md">
+            <Eye className="w-3.5 h-3.5 text-[#ffd700]" /> 18+ पावन चित्र दर्शन
+          </span>
+          <span className="inline-flex items-center gap-1.5 bg-black/60 border border-[#d89b18]/45 px-3 py-1 rounded-full text-xs font-serif text-[#ffd700] shadow-xs backdrop-blur-md">
+            <Flame className="w-3.5 h-3.5 text-[#ffd700]" /> अखंड महाहवन व अनुष्ठान
+          </span>
+          <span className="inline-flex items-center gap-1.5 bg-black/60 border border-[#d89b18]/45 px-3 py-1 rounded-full text-xs font-serif text-[#ffd700] shadow-xs backdrop-blur-md">
+            <MapPin className="w-3.5 h-3.5 text-[#ffd700]" /> लखुंदर नदी तट, नलखेड़ा
+          </span>
+          <span className="inline-flex items-center gap-1.5 bg-black/60 border border-[#d89b18]/45 px-3 py-1 rounded-full text-xs font-serif text-[#ffd700] shadow-xs backdrop-blur-md">
+            <ShieldCheck className="w-3.5 h-3.5 text-[#ffd700]" /> 100% शास्त्रोक्त विधान
+          </span>
+        </div>
+
+        {/* Action Button Row */}
+        <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 my-2.5 sm:my-3">
+          {/* Button 1: Explore Gallery (Primary Gold Button) */}
           <a
-            href={whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2.5 px-6 sm:px-7 py-3 rounded-full bg-[#25D366]/20 text-[#60e38e] border border-[#25D366]/60 hover:bg-[#25D366]/30 hover:text-white font-serif font-semibold text-sm sm:text-base shadow-sm hover:scale-[1.03] active:scale-95 transition-all duration-200"
+            href="#gallery-grid"
+            className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-2.5 sm:py-3 rounded-full bg-gradient-to-r from-[#d89b18] via-[#e5b338] to-[#c6890c] text-[#3d0309] font-serif font-bold text-xs sm:text-sm md:text-base shadow-[0_4px_18px_rgba(216,155,24,0.45)] hover:shadow-[0_6px_25px_rgba(216,155,24,0.65)] hover:scale-[1.02] active:scale-95 transition-all duration-200 border border-[#ffe8a3]"
           >
-            <MessageCircle className="w-4.5 h-4.5" />
-            <span>WhatsApp परामर्श</span>
+            <span>सम्पूर्ण गैलरी एक्सप्लोर करें</span>
+            <ArrowDown className="w-4 h-4 text-[#3d0309] animate-bounce" />
           </a>
         </div>
+
+        {/* ============================================================
+            3. 5-SEGMENT INTERACTIVE SLIDER BAR
+            ============================================================ */}
+        <div className="w-full max-w-4xl mt-3 sm:mt-4 pt-3 border-t border-[#d89b18]/30">
+          <div className="flex items-center justify-between gap-2 sm:gap-3">
+            {/* Prev Arrow */}
+            <button
+              onClick={prevSlide}
+              aria-label="पिछला चित्र"
+              className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-black/60 border border-[#d89b18]/60 text-[#ffd700] hover:border-[#ffd700] hover:bg-black/80 flex items-center justify-center transition-transform hover:scale-110 active:scale-95 flex-shrink-0 shadow-md"
+            >
+              <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
+            </button>
+
+            {/* 5 Interactive Thumbnail / Progress Tabs */}
+            <div className="grid grid-cols-5 gap-1.5 sm:gap-2 flex-1">
+              {HERO_SLIDES.map((slide, index) => {
+                const isActive = index === currentSlide;
+                return (
+                  <button
+                    key={slide.id}
+                    onClick={() => goToSlide(index)}
+                    className={`group relative text-left rounded-lg overflow-hidden p-1 sm:p-1.5 transition-all duration-200 border ${
+                      isActive
+                        ? "bg-black/80 border-[#ffd700] shadow-[0_0_15px_rgba(216,155,24,0.4)]"
+                        : "bg-black/50 border-[#d89b18]/30 hover:border-[#ffd700]/60 hover:bg-black/70"
+                    }`}
+                    aria-label={`स्लाइड ${index + 1}: ${slide.title}`}
+                  >
+                    {/* Top 3s Animated Filling Progress Line */}
+                    <div className="w-full h-1 bg-white/10 rounded-full overflow-hidden mb-1">
+                      <div
+                        className={`h-full rounded-full ${
+                          isActive
+                            ? "bg-gradient-to-r from-[#ffd700] via-[#f59e0b] to-[#d89b18]"
+                            : index < currentSlide
+                            ? "bg-[#d89b18]/60"
+                            : "bg-transparent"
+                        }`}
+                        style={{
+                          width: isActive ? `${progress}%` : index < currentSlide ? "100%" : "0%",
+                          transition: isActive ? "width 50ms linear" : "none",
+                        }}
+                      />
+                    </div>
+
+                    {/* Thumbnail + Title */}
+                    <div className="flex items-center gap-1.5">
+                      <div className="relative w-6 h-6 sm:w-7 sm:h-7 rounded overflow-hidden flex-shrink-0 border border-[#d89b18]/40 hidden xs:block">
+                        <Image
+                          src={slide.image}
+                          alt={slide.title}
+                          fill
+                          className="object-cover"
+                          sizes="30px"
+                        />
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <p
+                          className={`text-[9px] sm:text-[11px] font-serif truncate ${
+                            isActive
+                              ? "text-[#ffd700] font-bold"
+                              : "text-[#faebd0]/80 font-medium"
+                          }`}
+                        >
+                          {slide.title}
+                        </p>
+                      </div>
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Next Arrow */}
+            <button
+              onClick={nextSlide}
+              aria-label="अगला चित्र"
+              className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-black/60 border border-[#d89b18]/60 text-[#ffd700] hover:border-[#ffd700] hover:bg-black/80 flex items-center justify-center transition-transform hover:scale-110 active:scale-95 flex-shrink-0 shadow-md"
+            >
+              <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
+            </button>
+          </div>
+        </div>
+
       </div>
     </section>
   );

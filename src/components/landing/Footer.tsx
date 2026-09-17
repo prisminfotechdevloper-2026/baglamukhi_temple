@@ -2,20 +2,16 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
-  Phone,
-  MessageCircle,
   MapPin,
   Clock,
   Flame,
   ShieldCheck,
-  Sparkles,
   Train,
   Plane,
   Car,
   ChevronRight,
   Sun,
   Moon,
-  ExternalLink,
 } from "lucide-react";
 import LotusDivider from "@/components/common/navbarcompo/LotusDivider";
 import { DEFAULT_CONTACT } from "@/components/common/navbarcompo/constants";
@@ -30,10 +26,6 @@ import { DEFAULT_CONTACT } from "@/components/common/navbarcompo/constants";
  * - Full SEO Schema.org HinduTemple, PostalAddress, Person, and LocalBusiness microdata.
  */
 export default function Footer() {
-  const whatsappUrl = `https://wa.me/${DEFAULT_CONTACT.phone.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(
-    "जय माँ बगलामुखी! मुझे सिद्धपीठ नलखेड़ा धाम में पूजन, अनुष्ठान एवं दर्शन सम्बन्धी जानकारी प्राप्त करनी है।"
-  )}`;
-
   const currentYear = new Date().getFullYear();
 
   // Structured Data for Temple Location & Priest Contact (SEO Schema.org)
@@ -252,28 +244,6 @@ export default function Footer() {
                   <span>इंदौर व उज्जैन से नियमित बस व टैक्सी सेवा</span>
                 </div>
               </div>
-
-              {/* Direct Call & WhatsApp Quick Buttons for Mobile & Desktop */}
-              <div className="grid grid-cols-2 gap-2 pt-2 border-t border-[#d89b18]/25 w-full">
-                <a
-                  href={`tel:${DEFAULT_CONTACT.phone}`}
-                  className="flex items-center justify-center gap-1.5 py-2 px-2.5 rounded-lg bg-gradient-to-r from-[#c31b1b] to-[#880000] text-white font-serif font-bold text-[0.72rem] shadow-sm active:scale-95 transition-transform"
-                  aria-label="Direct Phone Call"
-                >
-                  <Phone className="w-3 h-3 fill-white" />
-                  <span>कॉल करें</span>
-                </a>
-                <a
-                  href={whatsappUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-1.5 py-2 px-2.5 rounded-lg bg-gradient-to-r from-[#16a34a] to-[#14532d] text-white font-serif font-bold text-[0.72rem] shadow-sm active:scale-95 transition-transform"
-                  aria-label="WhatsApp Consultation"
-                >
-                  <MessageCircle className="w-3 h-3 fill-white" />
-                  <span>WhatsApp</span>
-                </a>
-              </div>
             </div>
           </div>
 
@@ -312,9 +282,9 @@ export default function Footer() {
               धाम दर्शन
             </Link>
             <span>•</span>
-            <a href={`tel:${DEFAULT_CONTACT.phone}`} className="hover:text-[#ffd778] transition-colors">
+            <Link href="#contact" className="hover:text-[#ffd778] transition-colors">
               संपर्क
-            </a>
+            </Link>
           </div>
         </div>
 

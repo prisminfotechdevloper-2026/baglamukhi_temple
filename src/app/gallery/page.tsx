@@ -1,12 +1,17 @@
 import type { Metadata } from "next";
 import Navbar from "@/components/common/navbarcompo";
-import { GalleryHero, GalleryGridSection, GALLERY_ITEMS } from "@/components/gallery";
+import {
+  GalleryHero,
+  GurujiGallerySection,
+  GalleryGridSection,
+  GALLERY_ITEMS,
+} from "@/components/gallery";
 import Footer from "@/components/landing/Footer";
 
 export const metadata: Metadata = {
   title: "दिव्य दर्शन एवं चित्र दीर्घा (Gallery) | माँ बगलामुखी मंदिर नलखेड़ा धाम",
   description:
-    "माँ बगलामुखी मंदिर नलखेड़ा धाम की पावन चित्र दीर्घा। गर्भगृह दिव्य दर्शन, स्वर्ण कलश, प्राचीन शिखर, वैदिक महाहवन, विशेष अनुष्ठान एवं रात्रि दीप प्रकाश के सजीव दर्शन।",
+    "माँ बगलामुखी मंदिर नलखेड़ा धाम की पावन चित्र दीर्घा। गर्भगृह दिव्य दर्शन, स्वर्ण कलश, प्राचीन शिखर, वैदिक महाहवन, विशेष अनुष्ठान, पूज्य गुरुजी सान्निध्य एवं रात्रि दीप प्रकाश के सजीव दर्शन।",
   keywords: [
     "माँ बगलामुखी फोटो",
     "बगलामुखी मंदिर गैलरी",
@@ -16,11 +21,12 @@ export const metadata: Metadata = {
     "नलखेड़ा धाम दर्शन",
     "बगलामुखी हवन चित्र",
     "पंडित शुभम शर्मा नलखेड़ा",
+    "गुरुजी पंडित शुभम शर्मा",
   ],
   openGraph: {
     title: "दिव्य दर्शन एवं चित्र दीर्घा | माँ बगलामुखी मंदिर नलखेड़ा धाम",
     description:
-      "विश्व विख्यात माँ बगलामुखी शक्तिपीठ नलखेड़ा धाम के पावन गर्भगृह, अखंड महाहवन एवं दिव्य स्वरूप के अलौकिक दर्शन।",
+      "विश्व विख्यात माँ बगलामुखी शक्तिपीठ नलखेड़ा धाम के पावन गर्भगृह, अखंड महाहवन, पूज्य गुरुजी सान्निध्य एवं दिव्य स्वरूप के अलौकिक दर्शन।",
     images: [
       {
         url: "/mandir/mandir-complex-panoramic.jpg",
@@ -39,41 +45,42 @@ export default function GalleryPage() {
     "@graph": [
       {
         "@type": "BreadcrumbList",
-        "itemListElement": [
+        itemListElement: [
           {
             "@type": "ListItem",
-            "position": 1,
-            "name": "मुख्य पृष्ठ",
-            "item": "https://mabaglamukhi.org/",
+            position: 1,
+            name: "मुख्य पृष्ठ",
+            item: "https://mabaglamukhi.org/",
           },
           {
             "@type": "ListItem",
-            "position": 2,
-            "name": "चित्र दीर्घा (Gallery)",
-            "item": "https://mabaglamukhi.org/gallery",
+            position: 2,
+            name: "चित्र दीर्घा (Gallery)",
+            item: "https://mabaglamukhi.org/gallery",
           },
         ],
       },
       {
         "@type": "ImageGallery",
-        "name": "माँ बगलामुखी मंदिर नलखेड़ा दिव्य चित्र दीर्घा",
-        "description": "माँ बगलामुखी मंदिर नलखेड़ा धाम की पवित्र छवियां, गर्भगृह, महाहवन एवं अनुष्ठान दर्शन।",
-        "publisher": {
+        name: "माँ बगलामुखी मंदिर नलखेड़ा दिव्य चित्र दीर्घा",
+        description:
+          "माँ बगलामुखी मंदिर नलखेड़ा धाम की पवित्र छवियां, गर्भगृह, महाहवन, पूज्य गुरुजी एवं अनुष्ठान दर्शन।",
+        publisher: {
           "@type": "Place",
-          "name": "माँ बगलामुखी मंदिर नलखेड़ा धाम",
-          "telephone": "+919340605235",
-          "address": {
+          name: "माँ बगलामुखी मंदिर नलखेड़ा धाम",
+          telephone: "+919340605235",
+          address: {
             "@type": "PostalAddress",
-            "addressLocality": "Nalkheda",
-            "addressRegion": "Madhya Pradesh",
-            "addressCountry": "IN",
+            addressLocality: "Nalkheda",
+            addressRegion: "Madhya Pradesh",
+            addressCountry: "IN",
           },
         },
-        "image": GALLERY_ITEMS.map((item) => ({
+        image: GALLERY_ITEMS.map((item) => ({
           "@type": "ImageObject",
-          "contentUrl": `https://mabaglamukhi.org${item.image}`,
-          "name": item.title,
-          "description": item.caption,
+          contentUrl: `https://mabaglamukhi.org${item.image}`,
+          name: item.title,
+          description: item.caption,
         })),
       },
     ],
@@ -90,8 +97,11 @@ export default function GalleryPage() {
       {/* Global Navbar */}
       <Navbar />
 
-      {/* Gallery Majestic Hero Section */}
+      {/* Gallery Majestic Hero Section (Full-Bleed 3s Auto-Slider) */}
       <GalleryHero />
+
+      {/* Pujya Guruji Pandit Shubham Sharma Ji Gallery & Guidance Section */}
+      <GurujiGallerySection />
 
       {/* Gallery Interactive Filter & Masonry Grid Section */}
       <GalleryGridSection />

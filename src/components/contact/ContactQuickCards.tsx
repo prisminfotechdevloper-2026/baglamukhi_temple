@@ -48,7 +48,7 @@ export default function ContactQuickCards() {
 
   return (
     <section
-      className="relative -mt-6 sm:-mt-8 z-30 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+      className="relative mt-4 sm:mt-6 md:mt-8 z-30 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
       aria-label="त्वरित संपर्क माध्यम"
     >
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
@@ -60,7 +60,7 @@ export default function ContactQuickCards() {
               href={card.href}
               target={card.isExternal ? "_blank" : undefined}
               rel={card.isExternal ? "noopener noreferrer" : undefined}
-              className={`group relative rounded-2xl p-5 sm:p-6 bg-gradient-to-b from-[#fffefc] via-white to-[#fffaf0] border ${card.borderColor} shadow-[0_8px_30px_rgba(74,38,24,0.08)] hover:shadow-[0_16px_40px_rgba(216,155,24,0.22)] transition-all duration-300 flex flex-col justify-between transform hover:-translate-y-1`}
+              className="group relative rounded-2xl p-5 sm:p-6 bg-white hover:bg-[#fffdf8] border border-[#ebd9b8] border-l-[5px] border-l-[#c2841f] hover:border-l-[#d89b18] shadow-[0_6px_25px_rgba(74,38,24,0.06)] hover:shadow-[0_16px_40px_rgba(194,132,31,0.2)] transition-all duration-300 flex flex-col justify-between transform hover:-translate-y-1"
             >
               {/* Top Row: Icon + Badge */}
               <div className="flex items-center justify-between mb-4">

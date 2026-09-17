@@ -354,7 +354,7 @@ export default function GurujiServicesGrid() {
                 href={cardWhatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative flex flex-col justify-between p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-white hover:bg-[#fffdfa] border border-[#ebd9b8]/90 hover:border-[#d89b18] shadow-[0_2px_10px_rgba(216,155,24,0.06)] hover:shadow-[0_8px_22px_rgba(139,0,0,0.12)] active:scale-[0.99] transition-all duration-300 overflow-hidden"
+                className="group relative flex flex-col justify-between p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-white hover:bg-[#fffdf8] border border-[#ebd9b8] border-l-[4px] sm:border-l-[5px] border-l-[#c2841f] hover:border-l-[#d89b18] shadow-[0_2px_12px_rgba(74,38,24,0.05)] hover:shadow-[0_10px_28px_rgba(194,132,31,0.18)] active:scale-[0.99] transition-all duration-300 overflow-hidden"
                 aria-label={`${service.title} - ${service.hindiTitle}`}
                 itemProp="itemListElement"
                 itemScope
@@ -391,16 +391,17 @@ export default function GurujiServicesGrid() {
                   {service.description}
                 </p>
 
-                {/* Bottom Row: Sanskrit Tag & Action Arrow Circle */}
-                <div className="flex items-center justify-between pt-2 border-t border-[#ebd9b8]/50 mt-auto">
+                {/* Bottom Row: Sanskrit Tag & Action Read Link with Arrow */}
+                <div className="flex items-center justify-between pt-2 border-t border-[#ebd9b8]/60 mt-auto">
                   <span className="font-serif text-[0.66rem] text-[#9a6e3a] font-medium tracking-wide">
                     शास्त्रोक्त विधि
                   </span>
 
-                  {/* Action Arrow Button */}
-                  <div className="w-6 h-6 rounded-full bg-[#fbf0dc] group-hover:bg-[#8b0000] border border-[#e2cca4] group-hover:border-[#8b0000] flex items-center justify-center transition-all duration-200">
-                    <ArrowRight className="w-3.5 h-3.5 text-[#6e4e2a] group-hover:text-white transition-colors duration-200" />
-                  </div>
+                  {/* Action Read Guide Link (Matching Screenshot Style) */}
+                  <span className="inline-flex items-center gap-1 font-serif text-xs font-bold text-[#c2841f] group-hover:text-[#8b0000] transition-colors">
+                    <span>परामर्श व संकल्प</span>
+                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                  </span>
                 </div>
               </a>
             );
@@ -410,7 +411,7 @@ export default function GurujiServicesGrid() {
         {/* ============================================================
             4. TRUST BAR (Mobile-First 4 Sacred Guarantees)
             ============================================================ */}
-        <div className="w-full bg-[#fffbf2]/95 border border-[#e8d7b8] rounded-xl sm:rounded-2xl p-3.5 sm:p-4 shadow-sm mb-6 sm:mb-8">
+        <div className="w-full bg-[#fffbf2]/95 border border-[#ebd9b8] border-l-[4px] sm:border-l-[5px] border-l-[#c2841f] rounded-xl sm:rounded-2xl p-3.5 sm:p-4 shadow-sm mb-6 sm:mb-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-2 items-center md:divide-x md:divide-[#deb881]/50">
             {TRUST_PILLARS.map((pillar, idx) => (
               <div key={idx} className="flex items-center gap-2.5 text-left px-1 sm:px-2">

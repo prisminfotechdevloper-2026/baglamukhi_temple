@@ -20,7 +20,7 @@ export default function LandingHero() {
   return (
     <section
       id="mandir"
-      className="relative isolate w-full overflow-hidden pt-2 sm:pt-2.5 lg:pt-3 pb-5 sm:pb-6 lg:pb-8 border-b border-[#d89b18]/40"
+      className="relative isolate w-full overflow-hidden pt-3 sm:pt-5 md:pt-6 lg:pt-8 pb-4 sm:pb-6 md:pb-7 lg:pb-8 border-b border-[#d89b18]/40"
       aria-label="माँ बगलामुखी नलखेड़ा धाम - मुख्य पृष्ठ"
     >
       {/* ============================================================
@@ -63,8 +63,8 @@ export default function LandingHero() {
       {/* ============================================================
           2. HERO CONTENT GRID (Left: Mantra & CTA | Right: Maa Darshan)
           ============================================================ */}
-      <div className="max-w-7xl mx-auto w-full py-2 sm:py-2.5 px-4 sm:px-6 md:px-8 lg:px-12 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-7 xl:gap-8 items-center">
+      <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 md:px-8 lg:px-12 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 lg:gap-8 items-center">
 
           {/* ------------------------------------------------------------
               LEFT COLUMN: SACRED MANTRA, PEETH INFO & CONTACT BUTTONS
@@ -72,7 +72,7 @@ export default function LandingHero() {
           <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left">
 
             {/* Sacred Peeth Top Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#4a0000]/90 border border-[#d89b18] shadow-[0_2px_12px_rgba(216,155,24,0.35)] backdrop-blur-md mb-2 sm:mb-2.5">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#4a0000]/90 border border-[#d89b18] shadow-[0_2px_12px_rgba(216,155,24,0.35)] backdrop-blur-md mb-1.5 sm:mb-2">
               <Sparkles className="w-3.5 h-3.5 text-[#f4d58d] animate-pulse" />
               <span className="font-serif text-[#fbe9b9] text-xs sm:text-[0.82rem] tracking-wide font-semibold">
                 ॥ ॐ ह्लीं पीताम्बरायै नमः ॥ विश्वप्रसिद्ध सिद्धपीठ • नलखेड़ा धाम
@@ -93,17 +93,17 @@ export default function LandingHero() {
             </p>
 
             {/* Ornate Lotus Divider */}
-            <div className="w-full max-w-md my-2 sm:my-2.5">
+            <div className="w-full max-w-md my-1.5 sm:my-2">
               <LotusDivider />
             </div>
 
             {/* Sacred Mantra Box */}
-            <div className="w-full max-w-xl bg-gradient-to-br from-[#2a0408]/95 via-[#1a0204]/98 to-[#2a0408]/95 border border-[#d89b18]/60 rounded-2xl p-3.5 sm:p-4 shadow-[0_10px_30px_rgba(0,0,0,0.65),inset_0_1px_1px_rgba(255,255,255,0.15)] backdrop-blur-md mb-3 sm:mb-3.5 text-left relative overflow-hidden group">
+            <div className="w-full max-w-xl bg-gradient-to-br from-[#2a0408]/95 via-[#1a0204]/98 to-[#2a0408]/95 border border-[#d89b18]/60 rounded-2xl p-3 sm:p-3.5 shadow-[0_10px_30px_rgba(0,0,0,0.65),inset_0_1px_1px_rgba(255,255,255,0.15)] backdrop-blur-md mb-2.5 sm:mb-3 text-left relative overflow-hidden group">
               {/* Subtle radiant golden accent top line */}
               <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-[#d89b18] to-transparent opacity-90" />
 
               {/* Mantra Title with sacred diya icon */}
-              <div className="flex items-center gap-2 mb-1.5">
+              <div className="flex items-center gap-2 mb-1">
                 <Flame className="w-3.5 h-3.5 text-[#f7c85f] flex-shrink-0" />
                 <span className="font-serif text-[#f4d58d] text-xs sm:text-sm font-semibold tracking-wide">
                   ॥ माँ बगलामुखी महामन्त्र (शत्रु स्तम्भन एवं रक्षा कवच) ॥
@@ -111,12 +111,12 @@ export default function LandingHero() {
               </div>
 
               {/* The Sacred Sanskrit Mantra in prominent glowing Devanagari */}
-              <p className="font-serif text-[1rem] sm:text-[1.15rem] md:text-[1.25rem] font-bold leading-relaxed tracking-wide text-center sm:text-left py-0.5 text-transparent bg-clip-text bg-gradient-to-r from-[#fff7d6] via-[#fce293] to-[#f4d58d] drop-shadow-[0_2px_8px_rgba(216,155,24,0.4)]">
+              <p className="font-serif text-[0.98rem] sm:text-[1.12rem] md:text-[1.2rem] font-bold leading-relaxed tracking-wide text-center sm:text-left py-0.5 text-transparent bg-clip-text bg-gradient-to-r from-[#fff7d6] via-[#fce293] to-[#f4d58d] drop-shadow-[0_2px_8px_rgba(216,155,24,0.4)]">
                 ॐ ह्लीं बगलामुखि सर्वदुष्टानां वाचं मुखं पदं स्तम्भय जिह्वां कीलय बुद्धिं विनाशय ह्लीं ॐ स्वाहा॥
               </p>
 
               {/* Key Anushthan tags */}
-              <div className="mt-2.5 pt-2 border-t border-[#d89b18]/30 flex flex-wrap items-center gap-1.5 sm:gap-2 text-xs text-[#eed6a8]">
+              <div className="mt-2 pt-1.5 border-t border-[#d89b18]/30 flex flex-wrap items-center gap-1.5 sm:gap-2 text-xs text-[#eed6a8]">
                 <span className="inline-flex items-center gap-1 bg-[#42080f]/80 px-2.5 py-0.5 rounded-full border border-[#d89b18]/35 font-medium text-[11px] sm:text-xs">
                   <ShieldCheck className="w-3 h-3 text-[#f7c85f]" /> शत्रु स्तम्भन
                 </span>
@@ -135,12 +135,12 @@ export default function LandingHero() {
             {/* ============================================================
                 CONTACT ACTION BUTTONS (CALL & WHATSAPP)
                 ============================================================ */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3.5 w-full sm:w-auto">
 
               {/* Button 1: Call Now (Red Gradient Pill with Handset Icon) */}
               <a
                 href={`tel:${DEFAULT_CONTACT.phone}`}
-                className="relative overflow-hidden w-full sm:w-auto min-w-[200px] sm:min-w-[225px] inline-flex items-center gap-3 px-5 sm:px-6 py-2.5 sm:py-3 rounded-full bg-gradient-to-r from-[#ba1616] via-[#8c0608] to-[#4e0204] text-white shadow-[0_4px_16px_rgba(139,0,0,0.38)] hover:brightness-110 hover:scale-[1.02] active:scale-[0.97] transition-all duration-200 group"
+                className="relative overflow-hidden w-full sm:w-auto min-w-[190px] sm:min-w-[215px] inline-flex items-center gap-3 px-5 sm:px-6 py-2.5 rounded-full bg-gradient-to-r from-[#ba1616] via-[#8c0608] to-[#4e0204] text-white shadow-[0_4px_16px_rgba(139,0,0,0.38)] hover:brightness-110 hover:scale-[1.02] active:scale-[0.97] transition-all duration-200 group"
                 aria-label={`Call Now - ${DEFAULT_CONTACT.displayPhone}`}
               >
                 <div className="absolute inset-0 w-1/2 h-full bg-gradient-to-r from-transparent via-white/35 to-transparent button-sheen-sweep" />
@@ -160,7 +160,7 @@ export default function LandingHero() {
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="relative overflow-hidden w-full sm:w-auto min-w-[200px] sm:min-w-[225px] inline-flex items-center gap-3 px-5 sm:px-6 py-2.5 sm:py-3 rounded-full bg-[#fffcf7] hover:bg-white text-[#38040b] border border-[#ead6b3] shadow-[0_4px_14px_rgba(0,0,0,0.06)] hover:border-[#dfc38c] hover:scale-[1.02] active:scale-[0.97] transition-all duration-200 group"
+                className="relative overflow-hidden w-full sm:w-auto min-w-[190px] sm:min-w-[215px] inline-flex items-center gap-3 px-5 sm:px-6 py-2.5 rounded-full bg-[#fffcf7] hover:bg-white text-[#38040b] border border-[#ead6b3] shadow-[0_4px_14px_rgba(0,0,0,0.06)] hover:border-[#dfc38c] hover:scale-[1.02] active:scale-[0.97] transition-all duration-200 group"
                 aria-label="WhatsApp - Chat with Us"
               >
                 <div className="absolute inset-0 w-1/2 h-full bg-gradient-to-r from-transparent via-[#25D366]/25 to-transparent button-sheen-sweep" />
@@ -195,7 +195,7 @@ export default function LandingHero() {
             </div>
 
             {/* Pandit Ji Trust Guarantee */}
-            <p className="text-[#f4d58d] text-xs mt-3 font-serif flex items-center justify-center lg:justify-start gap-1.5 drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]">
+            <p className="text-[#f4d58d] text-xs mt-2.5 font-serif flex items-center justify-center lg:justify-start gap-1.5 drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]">
               <CheckCircle2 className="w-4 h-4 text-[#f7c85f] flex-shrink-0" />
               <span>पूज्य पंडित शुभम शर्मा जी के सानिध्य में 100% शास्त्रोक्त तंत्र विधि</span>
             </p>
@@ -204,8 +204,8 @@ export default function LandingHero() {
           {/* ------------------------------------------------------------
               RIGHT COLUMN: ROYAL SANCTUM DARSHAN (माँ बगलामुखी दिव्य दर्शन)
               ------------------------------------------------------------ */}
-          <div className="lg:col-span-5 flex justify-center items-center relative mt-4 lg:mt-0">
-            <div className="relative w-[280px] sm:w-[340px] md:w-[380px] lg:w-[430px] xl:w-[460px] aspect-square flex items-center justify-center group">
+          <div className="lg:col-span-5 flex justify-center items-center relative mt-3 lg:mt-0">
+            <div className="relative w-[250px] sm:w-[310px] md:w-[350px] lg:w-[390px] xl:w-[420px] aspect-square flex items-center justify-center group">
               
               {/* Divine Multi-Layer Golden Glow / Aura */}
               <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#d89b18]/30 via-[#f4d58d]/25 to-[#e59a17]/15 blur-2xl lg:blur-3xl animate-aura-pulse pointer-events-none" />

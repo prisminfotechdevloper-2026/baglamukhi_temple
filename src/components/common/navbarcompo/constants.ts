@@ -1,6 +1,7 @@
 import { NavLinkItem, ContactInfo } from "./types";
 
 export const DEFAULT_NAV_LINKS: NavLinkItem[] = [
+  { label: "Home", href: "/" },
   { label: "Services", href: "/#services" },
   { label: "Gallery", href: "/gallery" },
   { label: "Mandir", href: "/#mandir" },

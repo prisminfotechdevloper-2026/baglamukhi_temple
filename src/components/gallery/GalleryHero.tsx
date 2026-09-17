@@ -114,7 +114,7 @@ export default function GalleryHero() {
 
   return (
     <section
-      className="relative isolate w-full overflow-hidden pt-2 sm:pt-2.5 lg:pt-3 pb-5 sm:pb-6 lg:pb-8 border-b border-[#d89b18]/40"
+      className="relative isolate w-full overflow-hidden pt-3 sm:pt-5 md:pt-6 lg:pt-8 pb-4 sm:pb-6 md:pb-7 lg:pb-8 border-b border-[#d89b18]/40"
       aria-label="माँ बगलामुखी दिव्य चित्र दीर्घा"
     >
       {/* ============================================================
@@ -156,10 +156,10 @@ export default function GalleryHero() {
       {/* ============================================================
           2. MAJESTIC GALLERY HERO CONTENT
           ============================================================ */}
-      <div className="max-w-6xl mx-auto w-full py-2 sm:py-2.5 px-4 sm:px-6 md:px-8 relative z-30 flex flex-col items-center text-center">
+      <div className="max-w-6xl mx-auto w-full px-4 sm:px-6 md:px-8 relative z-30 flex flex-col items-center text-center">
 
         {/* Top Navigation & Live Slide Indicator */}
-        <div className="w-full flex flex-wrap items-center justify-between gap-2 mb-2 sm:mb-2.5">
+        <div className="w-full flex flex-wrap items-center justify-between gap-2 mb-1.5 sm:mb-2">
           {/* Breadcrumb */}
           <nav
             aria-label="Breadcrumb"
@@ -176,13 +176,10 @@ export default function GalleryHero() {
               चित्र दीर्घा (Gallery)
             </span>
           </nav>
-
-          {/* Active Live Slide Badge */}
-          
         </div>
 
         {/* Sacred Peeth Top Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/60 border border-[#d89b18] shadow-[0_2px_12px_rgba(0,0,0,0.5)] backdrop-blur-md mb-2 sm:mb-2.5">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-black/60 border border-[#d89b18] shadow-[0_2px_12px_rgba(0,0,0,0.5)] backdrop-blur-md mb-1.5 sm:mb-2">
           <Sparkles className="w-3.5 h-3.5 text-[#f4d58d] animate-pulse" />
           <span className="font-serif text-[#fbe9b9] text-xs sm:text-[0.82rem] tracking-wide font-semibold">
             ॥ ॐ ॥ विश्वप्रसिद्ध सिद्ध शक्तिपीठ • नलखेड़ा धाम (म.प्र.)
@@ -198,18 +195,18 @@ export default function GalleryHero() {
         </h1>
 
         {/* Gallery Sub-headline */}
-        <p className="font-serif text-[#ffedd5] text-xs sm:text-sm md:text-base mt-1.5 max-w-3xl font-medium drop-shadow-[0_2px_6px_rgba(0,0,0,0.85)] leading-relaxed">
+        <p className="font-serif text-[#ffedd5] text-xs sm:text-sm md:text-base mt-1 max-w-3xl font-medium drop-shadow-[0_2px_6px_rgba(0,0,0,0.85)] leading-relaxed">
           महाभारत कालीन स्वयंभू त्रिशक्ति पीठ माँ पीताम्बरा मंदिर के पावन गर्भगृह, 
           अखंड महाहवन, दिव्य विग्रह एवं ऐतिहासिक वास्तुकला के अलौकिक सजीव दर्शन।
         </p>
 
         {/* Ornate Lotus Divider */}
-        <div className="w-full max-w-md my-2 sm:my-2.5">
+        <div className="w-full max-w-md my-1.5 sm:my-2">
           <LotusDivider />
         </div>
 
         {/* 4 Sacred Highlights Pills */}
-        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5 max-w-3xl my-2">
+        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5 max-w-3xl my-1.5 sm:my-2">
           <span className="inline-flex items-center gap-1.5 bg-black/60 border border-[#d89b18]/45 px-3 py-1 rounded-full text-xs font-serif text-[#ffd700] shadow-xs backdrop-blur-md">
             <Eye className="w-3.5 h-3.5 text-[#ffd700]" /> 18+ पावन चित्र दर्शन
           </span>
@@ -225,11 +222,11 @@ export default function GalleryHero() {
         </div>
 
         {/* Action Button Row */}
-        <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 my-2.5 sm:my-3">
+        <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 my-2 sm:my-2.5">
           {/* Button 1: Explore Gallery (Primary Gold Button) */}
           <a
             href="#gallery-grid"
-            className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-2.5 sm:py-3 rounded-full bg-gradient-to-r from-[#d89b18] via-[#e5b338] to-[#c6890c] text-[#3d0309] font-serif font-bold text-xs sm:text-sm md:text-base shadow-[0_4px_18px_rgba(216,155,24,0.45)] hover:shadow-[0_6px_25px_rgba(216,155,24,0.65)] hover:scale-[1.02] active:scale-95 transition-all duration-200 border border-[#ffe8a3]"
+            className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-2.5 rounded-full bg-gradient-to-r from-[#d89b18] via-[#e5b338] to-[#c6890c] text-[#3d0309] font-serif font-bold text-xs sm:text-sm md:text-base shadow-[0_4px_18px_rgba(216,155,24,0.45)] hover:shadow-[0_6px_25px_rgba(216,155,24,0.65)] hover:scale-[1.02] active:scale-95 transition-all duration-200 border border-[#ffe8a3]"
           >
             <span>सम्पूर्ण गैलरी एक्सप्लोर करें</span>
             <ArrowDown className="w-4 h-4 text-[#3d0309] animate-bounce" />
@@ -239,7 +236,7 @@ export default function GalleryHero() {
         {/* ============================================================
             3. 5-SEGMENT INTERACTIVE SLIDER BAR
             ============================================================ */}
-        <div className="w-full max-w-4xl mt-3 sm:mt-4 pt-3 border-t border-[#d89b18]/30">
+        <div className="w-full max-w-4xl mt-2.5 sm:mt-3 pt-2.5 border-t border-[#d89b18]/30">
           <div className="flex items-center justify-between gap-2 sm:gap-3">
             {/* Prev Arrow */}
             <button

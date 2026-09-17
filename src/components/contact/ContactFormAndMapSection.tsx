@@ -73,7 +73,7 @@ export default function ContactFormAndMapSection() {
           {/* ============================================================
               LEFT COLUMN: SACRED DEVOTEE CONSULTATION FORM (7 Cols)
               ============================================================ */}
-          <div className="lg:col-span-7 bg-white rounded-3xl border-2 border-[#d89b18]/60 shadow-[0_10px_35px_rgba(74,38,24,0.08)] p-6 sm:p-8 relative overflow-hidden">
+          <div className="lg:col-span-7 bg-white rounded-2xl sm:rounded-3xl border border-[#ebd9b8] border-l-[5px] border-l-[#c2841f] shadow-[0_10px_35px_rgba(74,38,24,0.08)] p-6 sm:p-8 relative overflow-hidden">
             {/* Top Accent Line */}
             <div className="absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-[#d89b18] via-[#ffd700] to-[#d89b18]" />
 
@@ -144,24 +144,24 @@ export default function ContactFormAndMapSection() {
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {/* City */}
+                  {/* City / State */}
                   <div>
                     <label className="block text-xs font-serif font-bold text-[#420a10] mb-1">
-                      शहर एवं राज्य (City & State)
+                      आपका शहर / राज्य (City / State)
                     </label>
                     <input
                       type="text"
-                      placeholder="उदा. इंदौर, मध्य प्रदेश"
+                      placeholder="उदा. इंदौर / नई दिल्ली"
                       value={formData.city}
                       onChange={(e) => setFormData({ ...formData, city: e.target.value })}
                       className="w-full px-3.5 py-2.5 rounded-xl border border-[#d89b18]/40 bg-[#fffdfa] text-sm text-[#4a2618] focus:outline-none focus:ring-2 focus:ring-[#d89b18] focus:border-transparent font-serif"
                     />
                   </div>
 
-                  {/* Preferred Date */}
+                  {/* Date */}
                   <div>
                     <label className="block text-xs font-serif font-bold text-[#420a10] mb-1">
-                      संकल्प की इच्छित तिथि (Preferred Date)
+                      इच्छित तिथि (Preferred Date)
                     </label>
                     <input
                       type="date"
@@ -172,19 +172,19 @@ export default function ContactFormAndMapSection() {
                   </div>
                 </div>
 
-                {/* Service Selector */}
+                {/* Service Selection */}
                 <div>
                   <label className="block text-xs font-serif font-bold text-[#420a10] mb-1">
-                    अनुष्ठान / सेवा का विषय (Select Puja / Service)
+                    इच्छित पूजन / अनुष्ठान सेवा चुनें (Select Service)
                   </label>
                   <select
                     value={formData.service}
                     onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-[#d89b18]/40 bg-[#fffdfa] text-sm text-[#4a2618] focus:outline-none focus:ring-2 focus:ring-[#d89b18] focus:border-transparent font-serif"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-[#d89b18]/40 bg-[#fffdfa] text-sm text-[#4a2618] focus:outline-none focus:ring-2 focus:ring-[#d89b18] focus:border-transparent font-serif cursor-pointer"
                   >
-                    {PUJA_SERVICES.map((srv, idx) => (
-                      <option key={idx} value={srv}>
-                        {srv}
+                    {PUJA_SERVICES.map((s, idx) => (
+                      <option key={idx} value={s}>
+                        {s}
                       </option>
                     ))}
                   </select>
@@ -193,10 +193,10 @@ export default function ContactFormAndMapSection() {
                 {/* Message */}
                 <div>
                   <label className="block text-xs font-serif font-bold text-[#420a10] mb-1">
-                    अपनी समस्या या विशेष प्रार्थना का विवरण (Message Details)
+                    समस्या अथवा विशेष विवरण (Problem / Note)
                   </label>
                   <textarea
-                    rows={4}
+                    rows={3}
                     placeholder="अपनी समस्या, गोत्र अथवा अनुष्ठान से सम्बन्धित विशेष विवरण यहाँ लिखें..."
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
@@ -226,7 +226,7 @@ export default function ContactFormAndMapSection() {
               ============================================================ */}
           <div className="lg:col-span-5 space-y-6">
             {/* 1. Google Maps Card */}
-            <div className="rounded-3xl bg-white border border-[#ebdcb9] shadow-lg overflow-hidden">
+            <div className="rounded-2xl sm:rounded-3xl bg-white border border-[#ebd9b8] border-l-[5px] border-l-[#c2841f] shadow-lg overflow-hidden">
               <div className="p-4 bg-[#240307] text-white flex items-center justify-between border-b border-[#d89b18]">
                 <div className="flex items-center gap-2">
                   <div className="w-8 h-8 rounded-full bg-[#d89b18] text-[#240307] flex items-center justify-center font-bold font-serif text-sm">
@@ -263,7 +263,7 @@ export default function ContactFormAndMapSection() {
             </div>
 
             {/* 2. Darshan Timings Card */}
-            <div className="rounded-3xl bg-gradient-to-br from-[#240307] via-[#33050a] to-[#1a0205] text-[#f7e7ce] border border-[#d89b18] p-5 sm:p-6 shadow-xl space-y-4">
+            <div className="rounded-2xl sm:rounded-3xl bg-gradient-to-br from-[#240307] via-[#33050a] to-[#1a0205] text-[#f7e7ce] border border-[#d89b18] border-l-[5px] border-l-[#ffd700] p-5 sm:p-6 shadow-xl space-y-4">
               <div className="flex items-center justify-between pb-3 border-b border-[#d89b18]/30">
                 <div className="flex items-center gap-2">
                   <Clock className="w-5 h-5 text-[#ffd700]" />

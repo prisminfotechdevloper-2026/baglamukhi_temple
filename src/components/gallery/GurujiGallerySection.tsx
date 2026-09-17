@@ -140,7 +140,7 @@ export default function GurujiGallerySection() {
             <div
               key={photo.id}
               onClick={() => openLightbox(index)}
-              className="group relative rounded-2xl overflow-hidden bg-white border border-[#ebdcb9] hover:border-[#d89b18] shadow-[0_4px_16px_rgba(0,0,0,0.06)] hover:shadow-[0_12px_30px_rgba(216,155,24,0.22)] transition-all duration-300 flex flex-col cursor-pointer transform hover:-translate-y-1.5"
+              className="group relative rounded-2xl overflow-hidden bg-white border border-[#ebdcb9] border-l-[4px] sm:border-l-[5px] border-l-[#c2841f] hover:border-l-[#d89b18] shadow-[0_4px_16px_rgba(74,38,24,0.06)] hover:shadow-[0_12px_30px_rgba(194,132,31,0.22)] transition-all duration-300 flex flex-col cursor-pointer transform hover:-translate-y-1.5"
             >
               {/* Image Container with Gold Halo Frame */}
               <div className="relative aspect-[4/4.5] w-full bg-gradient-to-b from-[#fbf4e6] to-[#faeed7] overflow-hidden">
@@ -196,7 +196,7 @@ export default function GurujiGallerySection() {
             3. GURUJI'S CREDENTIALS & VEDIC GUARANTEES
             ============================================================ */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 max-w-5xl mx-auto mb-8 sm:mb-10">
-          <div className="p-3.5 sm:p-4 rounded-xl bg-white border border-[#ebdcb9] shadow-xs flex items-center gap-3">
+          <div className="p-3.5 sm:p-4 rounded-xl bg-white border border-[#ebdcb9] border-l-[3.5px] sm:border-l-[4px] border-l-[#c2841f] shadow-xs flex items-center gap-3">
             <div className="w-10 h-10 rounded-full bg-[#faedd2] border border-[#d89b18]/60 flex items-center justify-center flex-shrink-0 text-[#b77900]">
               <Award className="w-5 h-5" />
             </div>
@@ -210,7 +210,7 @@ export default function GurujiGallerySection() {
             </div>
           </div>
 
-          <div className="p-3.5 sm:p-4 rounded-xl bg-white border border-[#ebdcb9] shadow-xs flex items-center gap-3">
+          <div className="p-3.5 sm:p-4 rounded-xl bg-white border border-[#ebdcb9] border-l-[3.5px] sm:border-l-[4px] border-l-[#c2841f] shadow-xs flex items-center gap-3">
             <div className="w-10 h-10 rounded-full bg-[#faedd2] border border-[#d89b18]/60 flex items-center justify-center flex-shrink-0 text-[#b77900]">
               <Flame className="w-5 h-5" />
             </div>
@@ -224,7 +224,7 @@ export default function GurujiGallerySection() {
             </div>
           </div>
 
-          <div className="p-3.5 sm:p-4 rounded-xl bg-white border border-[#ebdcb9] shadow-xs flex items-center gap-3">
+          <div className="p-3.5 sm:p-4 rounded-xl bg-white border border-[#ebdcb9] border-l-[3.5px] sm:border-l-[4px] border-l-[#c2841f] shadow-xs flex items-center gap-3">
             <div className="w-10 h-10 rounded-full bg-[#faedd2] border border-[#d89b18]/60 flex items-center justify-center flex-shrink-0 text-[#b77900]">
               <Video className="w-5 h-5" />
             </div>
@@ -238,7 +238,7 @@ export default function GurujiGallerySection() {
             </div>
           </div>
 
-          <div className="p-3.5 sm:p-4 rounded-xl bg-white border border-[#ebdcb9] shadow-xs flex items-center gap-3">
+          <div className="p-3.5 sm:p-4 rounded-xl bg-white border border-[#ebdcb9] border-l-[3.5px] sm:border-l-[4px] border-l-[#c2841f] shadow-xs flex items-center gap-3">
             <div className="w-10 h-10 rounded-full bg-[#faedd2] border border-[#d89b18]/60 flex items-center justify-center flex-shrink-0 text-[#b77900]">
               <ShieldCheck className="w-5 h-5" />
             </div>

@@ -115,7 +115,7 @@ export default function GurujiBioSection() {
 
             {/* 3 Prestigious Authority Stats Pillars */}
             <div className="grid grid-cols-3 gap-2 sm:gap-3.5 w-full max-w-lg mb-4 sm:mb-5">
-              <div className="flex flex-col items-center justify-center p-2 sm:p-2.5 rounded-xl bg-[#faebd0]/85 border border-[#deb881] shadow-sm">
+              <div className="flex flex-col items-center justify-center p-2 sm:p-2.5 rounded-xl bg-white border border-[#ebd9b8] border-l-[3.5px] sm:border-l-[4px] border-l-[#c2841f] shadow-xs">
                 <span className="font-serif font-extrabold text-[#700913] text-base xs:text-lg sm:text-2xl leading-none mb-0.5">
                   15+ वर्ष
                 </span>
@@ -124,7 +124,7 @@ export default function GurujiBioSection() {
                 </span>
               </div>
 
-              <div className="flex flex-col items-center justify-center p-2 sm:p-2.5 rounded-xl bg-[#faebd0]/85 border border-[#deb881] shadow-sm">
+              <div className="flex flex-col items-center justify-center p-2 sm:p-2.5 rounded-xl bg-white border border-[#ebd9b8] border-l-[3.5px] sm:border-l-[4px] border-l-[#c2841f] shadow-xs">
                 <span className="font-serif font-extrabold text-[#700913] text-base xs:text-lg sm:text-2xl leading-none mb-0.5">
                   51,000+
                 </span>
@@ -133,7 +133,7 @@ export default function GurujiBioSection() {
                 </span>
               </div>
 
-              <div className="flex flex-col items-center justify-center p-2 sm:p-2.5 rounded-xl bg-[#faebd0]/85 border border-[#deb881] shadow-sm">
+              <div className="flex flex-col items-center justify-center p-2 sm:p-2.5 rounded-xl bg-white border border-[#ebd9b8] border-l-[3.5px] sm:border-l-[4px] border-l-[#c2841f] shadow-xs">
                 <span className="font-serif font-extrabold text-[#700913] text-base xs:text-lg sm:text-2xl leading-none mb-0.5">
                   100%
                 </span>

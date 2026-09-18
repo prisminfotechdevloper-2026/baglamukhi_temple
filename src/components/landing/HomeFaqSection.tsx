@@ -30,7 +30,7 @@ export default function HomeFaqSection() {
   return (
     <section
       id="faq"
-      className="relative isolate w-full max-w-full overflow-hidden bg-gradient-to-b from-[#fffaf0] via-[#fff4dc] to-[#fffaef] py-10 sm:py-14 lg:py-16 border-b border-[#ebdcb9] scroll-mt-20"
+      className="relative isolate w-full max-w-full overflow-hidden bg-gradient-to-b from-[#fffaf0] via-[#fff4dc] to-[#fffaef] pt-5 sm:pt-8 md:pt-12 pb-8 sm:pb-12 md:pb-16 border-b border-[#ebdcb9] scroll-mt-20"
       aria-label="माँ बगलामुखी मंदिर नलखेड़ा एवं पंडित शुभम शर्मा प्रश्नोत्तरी"
       itemScope
       itemType="https://schema.org/FAQPage"

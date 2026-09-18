@@ -76,7 +76,7 @@ export default function LandingHero() {
           {/* ------------------------------------------------------------
               LEFT COLUMN: SACRED MANTRA, PEETH INFO & CONTACT BUTTONS
               ------------------------------------------------------------ */}
-          <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left">
+          <div className="lg:col-span-7 xl:col-span-6 flex flex-col items-center lg:items-start text-center lg:text-left">
 
             {/* Sacred Peeth Top Badge */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#4a0000]/90 border border-[#d89b18] shadow-[0_2px_12px_rgba(216,155,24,0.35)] backdrop-blur-md mb-1.5 sm:mb-2">
@@ -207,24 +207,25 @@ export default function LandingHero() {
           </div>
 
           {/* ------------------------------------------------------------
-              RIGHT COLUMN: ROYAL SANCTUM DARSHAN
+              RIGHT COLUMN: ROYAL SANCTUM DARSHAN (PROMINENT SIZE)
               ------------------------------------------------------------ */}
-          <div className="lg:col-span-5 flex justify-center items-center relative mt-3 lg:mt-0">
-            <div className="relative w-[250px] sm:w-[310px] md:w-[350px] lg:w-[390px] xl:w-[420px] aspect-square flex items-center justify-center group">
+          <div className="lg:col-span-5 xl:col-span-6 flex justify-center lg:justify-end items-center relative mt-3 sm:mt-4 lg:mt-0 lg:translate-x-3 xl:translate-x-6">
+            <div className="relative w-[310px] sm:w-[370px] md:w-[410px] lg:w-[460px] xl:w-[500px] 2xl:w-[540px] max-w-[92vw] aspect-square flex items-center justify-center group">
               
               {/* Divine Multi-Layer Golden Glow / Aura */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#d89b18]/30 via-[#f4d58d]/25 to-[#e59a17]/15 blur-2xl lg:blur-3xl animate-aura-pulse pointer-events-none" />
-              <div className="absolute inset-4 rounded-full bg-amber-500/20 blur-xl pointer-events-none" />
+              <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#d89b18]/35 via-[#f4d58d]/30 to-[#e59a17]/20 blur-2xl lg:blur-3xl animate-aura-pulse pointer-events-none" />
+              <div className="absolute inset-3 sm:inset-5 rounded-full bg-amber-500/25 blur-xl pointer-events-none" />
+              <div className="absolute inset-8 rounded-full bg-[#ffeed0]/15 blur-lg pointer-events-none" />
 
               {/* The Divine Deity Image */}
-              <div className="relative z-10 w-full h-full transition-transform duration-700 ease-out group-hover:scale-105">
+              <div className="relative z-10 w-full h-full flex items-center justify-center transition-transform duration-700 ease-out group-hover:scale-105">
                 <Image
                   src={maaDarshanImg}
                   alt={t.hero.darshanAlt}
                   priority
-                  quality={85}
-                  sizes="(max-width: 640px) 250px, (max-width: 768px) 310px, (max-width: 1024px) 350px, 420px"
-                  className="w-full h-full object-contain filter drop-shadow-[0_15px_35px_rgba(0,0,0,0.75)] drop-shadow-[0_0_35px_rgba(216,155,24,0.35)] select-none"
+                  quality={90}
+                  sizes="(max-width: 640px) 320px, (max-width: 768px) 370px, (max-width: 1024px) 460px, (max-width: 1280px) 500px, 540px"
+                  className="w-full h-full object-contain filter drop-shadow-[0_18px_40px_rgba(0,0,0,0.8)] drop-shadow-[0_0_35px_rgba(216,155,24,0.4)] select-none"
                 />
               </div>
 

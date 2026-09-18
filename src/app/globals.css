@@ -397,14 +397,42 @@ body {
 
 .animate-spin-slow {
   animation: spin 26s linear infinite;
+  transform-origin: center center;
+  will-change: transform;
 }
 
 .animate-spin-reverse-slow {
-  animation: spinReverse 34s linear infinite;
+  animation: spinReverse 36s linear infinite;
+  transform-origin: center center;
+  will-change: transform;
 }
 
 .animate-pulse-slow {
   animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* ============================================================
+   LENIS SMOOTH SCROLL INTEGRATION
+   ============================================================ */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
 }
 
 /* ============================================================

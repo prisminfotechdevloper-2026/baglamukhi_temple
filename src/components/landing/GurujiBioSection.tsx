@@ -116,19 +116,19 @@ export default function GurujiBioSection() {
           </div>
 
           {/* RIGHT COLUMN: CIRCULAR GURUJI PORTRAIT & 360° INFINITE ROTATING SERVICE WHEEL (5 cols) */}
-          <div className="lg:col-span-5 flex flex-col items-center justify-center relative mt-4 lg:mt-0 select-none">
+          <div className="lg:col-span-5 flex flex-col items-center justify-center relative mt-3 sm:mt-4 lg:mt-0 select-none">
 
             {/* Circular Orbit & Rotating Wheel Container */}
-            <div className="relative w-[330px] h-[330px] xs:w-[365px] xs:h-[365px] sm:w-[440px] sm:h-[440px] md:w-[480px] md:h-[480px] lg:w-[520px] lg:h-[520px] flex items-center justify-center group my-2 sm:my-0">
+            <div className="relative w-[310px] h-[310px] xs:w-[350px] xs:h-[350px] sm:w-[420px] sm:h-[420px] md:w-[460px] md:h-[460px] lg:w-[500px] lg:h-[500px] max-w-[94vw] flex items-center justify-center group my-1 sm:my-0">
 
               {/* Concentric Golden Glow Rings */}
               <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#ffd778]/30 via-[#fde3ab]/20 to-[#d89b18]/30 blur-2xl pointer-events-none animate-aura-pulse" />
               <div className="absolute inset-1 sm:inset-2 rounded-full border border-[#d89b18]/40 border-dashed pointer-events-none" />
               <div className="absolute inset-4 sm:inset-6 rounded-full border border-[#deb881]/45 pointer-events-none" />
 
-              {/* 360-DEGREE ROTATING SERVICE TEXT WHEEL */}
+              {/* 360-DEGREE ROTATING SERVICE TEXT WHEEL (SEAMLESS 360° LOOP) */}
               <svg
-                className="absolute inset-0 w-full h-full animate-spin-reverse-slow group-hover:[animation-play-state:paused] transition-all duration-300 pointer-events-none"
+                className="absolute inset-0 w-full h-full animate-spin-reverse-slow group-hover:[animation-play-state:paused] transition-all duration-300 pointer-events-none transform-gpu"
                 viewBox="0 0 600 600"
               >
                 <defs>
@@ -161,9 +161,15 @@ export default function GurujiBioSection() {
 
                 <text
                   xmlSpace="preserve"
-                  className="font-serif font-bold text-[13px] sm:text-[14px] fill-[#700913] tracking-wide"
+                  className="font-serif font-bold text-[13px] sm:text-[13.5px] fill-[#700913] tracking-wide"
                 >
-                  <textPath href="#serviceTextCircle" startOffset="0%">
+                  <textPath
+                    href="#serviceTextCircle"
+                    xlinkHref="#serviceTextCircle"
+                    startOffset="0%"
+                    textLength="1457"
+                    lengthAdjust="spacing"
+                  >
                     {t.gurujiBio.rotatingWheelText}
                   </textPath>
                 </text>
@@ -195,7 +201,7 @@ export default function GurujiBioSection() {
               </div>
 
               {/* 50% BORDER RADIUS CIRCULAR GURUJI PORTRAIT */}
-              <div className="relative w-[215px] h-[215px] xs:w-[245px] xs:h-[245px] sm:w-[295px] sm:h-[295px] md:w-[325px] md:h-[325px] lg:w-[355px] lg:h-[355px] rounded-full overflow-hidden p-2 sm:p-2.5 bg-gradient-to-b from-[#fae29c] via-[#d89b18] to-[#8a5900] shadow-[0_18px_45px_rgba(139,0,0,0.3),0_0_40px_rgba(216,155,24,0.38)] ring-4 ring-[#fff6dc] ring-offset-3 ring-offset-[#fff8e7] z-10 group-hover:scale-[1.02] transition-transform duration-500">
+              <div className="relative w-[205px] h-[205px] xs:w-[235px] xs:h-[235px] sm:w-[280px] sm:h-[280px] md:w-[310px] md:h-[310px] lg:w-[340px] lg:h-[340px] rounded-full overflow-hidden p-2 sm:p-2.5 bg-gradient-to-b from-[#fae29c] via-[#d89b18] to-[#8a5900] shadow-[0_18px_45px_rgba(139,0,0,0.3),0_0_40px_rgba(216,155,24,0.38)] ring-4 ring-[#fff6dc] ring-offset-3 ring-offset-[#fff8e7] z-10 group-hover:scale-[1.02] transition-transform duration-500">
                 <div className="relative w-full h-full rounded-full overflow-hidden bg-[#240307]">
                   <Image
                     src={gurujiImage}
@@ -204,7 +210,7 @@ export default function GurujiBioSection() {
                     loading="lazy"
                     quality={85}
                     placeholder="blur"
-                    sizes="(max-width: 640px) 250px, (max-width: 1024px) 380px, 420px"
+                    sizes="(max-width: 640px) 240px, (max-width: 1024px) 340px, 380px"
                     itemProp="image"
                     className="object-cover object-[center_10%] scale-105 group-hover:scale-110 transition-transform duration-700 ease-out"
                   />
@@ -222,7 +228,7 @@ export default function GurujiBioSection() {
             </div>
 
             {/* Live Puja & Darshan Badge */}
-            <div className="mt-3 sm:mt-4 inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full bg-[#faebd0]/90 border border-[#d89b18]/70 shadow-sm backdrop-blur-sm">
+            <div className="mt-2.5 sm:mt-3.5 inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full bg-[#faebd0]/90 border border-[#d89b18]/70 shadow-sm backdrop-blur-sm">
               <span className="font-serif text-[#700913] text-[0.70rem] sm:text-xs font-bold tracking-wide">
                 {t.gurujiBio.liveBadge}
               </span>

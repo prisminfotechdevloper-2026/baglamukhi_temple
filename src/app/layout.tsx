@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Cinzel, Marcellus, Plus_Jakarta_Sans } from "next/font/google";
 import FloatingContactButtons from "@/components/common/FloatingContactButtons";
 import MobileScrollAnimationObserver from "@/components/common/MobileScrollAnimationObserver";
+import SmoothScrollProvider from "@/components/common/SmoothScrollProvider";
 import { LanguageProvider } from "@/context/LanguageContext";
 import "./globals.css";
 
@@ -148,11 +149,13 @@ export default function RootLayout({
         className="min-h-full flex flex-col bg-[#fff8e7] text-[#4a2618]"
       >
         <LanguageProvider>
-          {children}
-          {/* Fixed Global Floating Contact Buttons (Call & WhatsApp) */}
-          <FloatingContactButtons />
-          {/* One-time Smooth Mobile Scroll Entrance Observer */}
-          <MobileScrollAnimationObserver />
+          <SmoothScrollProvider>
+            {children}
+            {/* Fixed Global Floating Contact Buttons (Call & WhatsApp) */}
+            <FloatingContactButtons />
+            {/* One-time Smooth Mobile Scroll Entrance Observer */}
+            <MobileScrollAnimationObserver />
+          </SmoothScrollProvider>
         </LanguageProvider>
       </body>
     </html>

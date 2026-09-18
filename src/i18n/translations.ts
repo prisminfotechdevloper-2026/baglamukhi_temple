@@ -222,7 +222,7 @@ export const translations: Record<"hi" | "en", Translations> = {
         "सिद्ध अभिमंत्रित रक्षा कवच व प्रसाद प्रेषण",
       ],
       rotatingWheelText:
-        "  ॥ ॐ ॥   माँ बगलामुखी महाहवन   ॥ ॐ ॥   शत्रु स्तम्भन अनुष्ठान   ॥ ॐ ॥   कोर्ट-कचहरी विजय   ॥ ॐ ॥   सवा लाख महामंत्र जाप   ॥ ॐ ॥   कालसर्प दोष शांति   ॥ ॐ ॥   व्यापार वृद्धि अनुष्ठान   ॥ ॐ ॥   नवग्रह बाधा निवारण   ॥ ॐ ॥   पितृ दोष शांति  ",
+        "॥ ॐ ॥ माँ बगलामुखी महाहवन ॥ ॐ ॥ शत्रु स्तम्भन अनुष्ठान ॥ ॐ ॥ कोर्ट-कचहरी विजय ॥ ॐ ॥ सवा लाख महामंत्र जाप ॥ ॐ ॥ कालसर्प दोष निवारण ॥ ॐ ॥ व्यापार वृद्धि अनुष्ठान ॥ ॐ ॥ नवग्रह बाधा निवारण ॥ ॐ ॥ पितृ दोष शांति अनुष्ठान ॥ ॐ ॥ रोग-शोक मुक्ति विधान ॥ ॐ ॥ सर्व मनोकामना सिद्धि ॥",
       circleRibbon: "॥ श्री बगलामुखी देव्यै नमः ॥",
       liveBadge: "प्रत्यक्ष मंदिर व ऑनलाइन लाइव वीडियो अनुष्ठान उपलब्ध",
     },
@@ -618,7 +618,7 @@ export const translations: Record<"hi" | "en", Translations> = {
         "Delivery of consecrated Raksha Kavach and sacred Prasad",
       ],
       rotatingWheelText:
-        "  ॥ OM ॥   Maa Bagalamukhi Maha Hawan   ॥ OM ॥   Shatru Stambhan Anushthan   ॥ OM ॥   Court Case Victory   ॥ OM ॥   125,000 Mantra Japa   ॥ OM ॥   Kaal Sarp Dosh Shanti   ॥ OM ॥   Business Growth Anushthan   ॥ OM ॥   Navgraha Peace   ॥ OM ॥   Pitra Dosh Shanti  ",
+        "॥ OM ॥ Maa Bagalamukhi Maha Hawan ॥ OM ॥ Shatru Stambhan Anushthan ॥ OM ॥ Court Case Legal Victory ॥ OM ॥ 125,000 Mantra Japa ॥ OM ॥ Kaal Sarp Dosh Shanti ॥ OM ॥ Business Growth Ritual ॥ OM ॥ Navgraha Peace ॥ OM ॥ Pitra Dosh Nivaran ॥ OM ॥ Health & Prosperity Ritual ॥ OM ॥ Wish Fulfillment Puja ॥",
       circleRibbon: "॥ Shree Bagalamukhi Devyai Namah ॥",
       liveBadge: "Direct Temple Presence & Online Live Video Anushthan Available",
     },

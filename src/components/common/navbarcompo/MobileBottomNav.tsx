@@ -84,12 +84,12 @@ export default function MobileBottomNav({
 
   return (
     <nav
-      className={`fixed bottom-0 inset-x-0 z-50 md:hidden w-full max-w-full overflow-hidden bg-[#fffdf8]/96 backdrop-blur-xl border-t border-[#ebd8b4] shadow-[0_-5px_24px_rgba(74,38,24,0.12)] pb-[max(env(safe-area-inset-bottom),0.4rem)] pt-1 px-1 sm:px-2 transition-all select-none ${className}`}
+      className={`fixed bottom-0 inset-x-0 z-50 md:hidden w-full max-w-full overflow-hidden bg-[#fffdf8]/98 backdrop-blur-xl border-t border-[#ebd8b4] shadow-[0_-6px_28px_rgba(74,38,24,0.15)] pb-[max(env(safe-area-inset-bottom),0.45rem)] pt-1.5 px-1 sm:px-2 transition-all select-none ${className}`}
       aria-label="Mobile Bottom Navigation Bar"
       role="navigation"
     >
       {/* Top micro gold line accent */}
-      <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-[#d89b18] to-transparent opacity-80" />
+      <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-[#d89b18] to-transparent opacity-85" />
 
       <div className="grid grid-cols-5 items-center justify-items-center max-w-lg mx-auto">
         {navTabs.map((tab) => {
@@ -111,33 +111,33 @@ export default function MobileBottomNav({
               key={tab.href}
               href={tab.href}
               onClick={(e) => handleNavClick(e, tab.href)}
-              className={`group flex flex-col items-center justify-center w-full py-0.5 text-center transition-all duration-150 active:scale-90 focus:outline-none ${
+              className={`group flex flex-col items-center justify-center w-full py-1 text-center transition-all duration-150 active:scale-95 focus:outline-none ${
                 isActive
                   ? "text-[#8b0000]"
-                  : "text-[#6c483b] hover:text-[#8b0000]"
+                  : "text-[#5c3e32] hover:text-[#8b0000]"
               }`}
             >
               {/* Tab Icon with subtle active background */}
               <div
-                className={`w-7 h-7 xs:w-8 xs:h-8 rounded-full flex items-center justify-center transition-all duration-200 ${
+                className={`w-7.5 h-7.5 xs:w-8 xs:h-8 rounded-full flex items-center justify-center transition-all duration-200 ${
                   isActive
-                    ? "bg-[#faebd0] text-[#8b0000] scale-105 shadow-xs"
-                    : "group-hover:bg-[#faebd0]/60"
+                    ? "bg-[#faebd0] text-[#8b0000] scale-105 shadow-xs border border-[#d89b18]/40"
+                    : "group-hover:bg-[#faebd0]/60 text-[#6c483b]"
                 }`}
               >
                 <Icon
-                  className={`w-3.5 h-3.5 xs:w-4 xs:h-4 transition-transform ${
-                    isActive ? "stroke-[2.5px]" : "stroke-[1.8px]"
+                  className={`w-4 h-4 xs:w-[18px] xs:h-[18px] transition-transform ${
+                    isActive ? "stroke-[2.4px]" : "stroke-[1.9px]"
                   }`}
                 />
               </div>
 
-              {/* Label */}
+              {/* Readable Hindi / English Label */}
               <span
-                className={`font-serif text-[0.60rem] xs:text-[0.66rem] mt-0.5 leading-none transition-colors truncate max-w-full px-0.5 ${
+                className={`text-[0.72rem] xs:text-[0.76rem] sm:text-[0.82rem] mt-0.5 leading-tight tracking-tight transition-colors text-center px-0.5 ${
                   isActive
-                    ? "font-bold text-[#8b0000]"
-                    : "font-medium text-[#5c3e32]"
+                    ? "font-bold text-[#8b0000] drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]"
+                    : "font-semibold text-[#4a2618]"
                 }`}
               >
                 {tab.label}

@@ -16,7 +16,7 @@ export default function SolutionChallenges({ solution }: SolutionChallengesProps
   const challenges = isHi ? solution.challengesHi : solution.challengesEn;
 
   return (
-    <section className="py-12 sm:py-16 bg-[#fff8e7] text-[#4a2618] border-b border-[#ebdcb9]">
+    <section className="py-4 sm:py-5 bg-[#fff8e7] text-[#4a2618] border-b border-[#ebdcb9]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#fee2e2] border border-red-200 text-[#991b1b] text-xs font-serif font-bold uppercase tracking-wider mb-2.5">

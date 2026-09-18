@@ -19,7 +19,7 @@ export default function SolutionSpiritualContext({
   const stambhanAction = isHi ? solution.stambhanActionHi : solution.stambhanActionEn;
 
   return (
-    <section className="py-12 sm:py-16 bg-[#fffaf0] text-[#3d2314] border-b border-[#ebdcb9]">
+    <section className="py-4 sm:py-5 bg-[#fffaf0] text-[#3d2314] border-b border-[#ebdcb9]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#fdf2d6] border border-[#d89b18]/40 text-[#8b0000] text-xs font-serif font-bold uppercase tracking-wider mb-2.5">

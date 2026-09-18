@@ -20,7 +20,7 @@ export default function SolutionVidhiSection({ solution }: SolutionVidhiSectionP
     : solution.anushthanDetailsEn;
 
   return (
-    <section className="py-12 sm:py-16 bg-[#fffdf7] text-[#3d2314] border-b border-[#ebdcb9]">
+    <section className="py-4 sm:py-5 bg-[#fffdf7] text-[#3d2314] border-b border-[#ebdcb9]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           {/* Left Column: Authentic Vedic Vidhi Details */}

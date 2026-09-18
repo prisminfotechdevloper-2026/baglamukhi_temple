@@ -27,7 +27,7 @@ export default function SolutionHero({ solution }: SolutionHeroProps) {
   )}`;
 
   return (
-    <section className="relative isolate overflow-hidden bg-gradient-to-b from-[#fff5e1] via-[#fffbf2] to-[#fff8e7] text-[#4a2618] border-b-2 border-[#d89b18]/60 py-10 sm:py-14 lg:py-18">
+    <section className="relative isolate overflow-hidden bg-gradient-to-b from-[#fff5e1] via-[#fffbf2] to-[#fff8e7] text-[#4a2618] border-b-2 border-[#d89b18]/60 py-4 sm:py-5 lg:py-6">
       {/* Background sacred ambient lighting */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[320px] bg-[#d89b18]/10 blur-3xl pointer-events-none rounded-full" />
       <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#d89b18] to-transparent opacity-60" />

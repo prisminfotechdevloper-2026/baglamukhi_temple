@@ -18,7 +18,7 @@ export default function SolutionBenefitsSection({
   const benefits = isHi ? solution.benefitsHi : solution.benefitsEn;
 
   return (
-    <section className="py-12 sm:py-16 bg-[#fffaf0] text-[#4a2618] border-b border-[#ebdcb9]">
+    <section className="py-4 sm:py-5 bg-[#fffaf0] text-[#4a2618] border-b border-[#ebdcb9]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#fdf2d6] border border-[#d89b18]/60 text-[#8b0000] text-xs font-serif font-bold uppercase tracking-wider mb-3 shadow-sm">

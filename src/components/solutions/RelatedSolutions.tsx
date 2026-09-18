@@ -18,7 +18,7 @@ export default function RelatedSolutions({ currentSlug }: RelatedSolutionsProps)
   const related = all.filter((s) => s.slug !== currentSlug).slice(0, 4);
 
   return (
-    <section className="py-12 sm:py-16 bg-[#fffaf0] text-[#4a2618] border-t border-[#ebdcb9]">
+    <section className="py-4 sm:py-5 bg-[#fffaf0] text-[#4a2618] border-t border-[#ebdcb9]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
           <div>

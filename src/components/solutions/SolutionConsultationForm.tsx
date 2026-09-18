@@ -51,7 +51,7 @@ export default function SolutionConsultationForm({
   return (
     <section
       id="consultation-booking"
-      className="py-12 sm:py-16 lg:py-20 bg-[#fffaf0] text-[#3d2314] border-b border-[#ebdcb9] scroll-mt-20"
+      className="py-4 sm:py-5 lg:py-6 bg-[#fffaf0] text-[#3d2314] border-b border-[#ebdcb9] scroll-mt-20"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto rounded-3xl bg-white border-2 border-[#d89b18]/60 shadow-[0_12px_40px_rgba(100,20,20,0.1)] overflow-hidden">

@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Marcellus&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 
 :root {
@@ -93,9 +92,9 @@
   );
 
   /* Fonts */
-  --font-heading: 'Cinzel', 'Marcellus', Georgia, serif;
-  --font-serif: 'Marcellus', Georgia, serif;
-  --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-heading: var(--font-cinzel), var(--font-marcellus), 'Nirmala UI', Mangal, Georgia, serif;
+  --font-serif: var(--font-marcellus), 'Nirmala UI', Mangal, Georgia, serif;
+  --font-body: var(--font-plus-jakarta), 'Nirmala UI', system-ui, -apple-system, sans-serif;
 }
 
 /* ================================

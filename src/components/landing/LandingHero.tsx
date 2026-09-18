@@ -37,12 +37,12 @@ export default function LandingHero() {
         {/* Mobile Background Image (Phone Viewport: visible on < md screens) */}
         <div className="block md:hidden absolute inset-0 w-full h-full">
           <Image
-            src="/hero/mobile-hero.png"
+            src="/hero/mobile-hero.webp"
             alt="माँ बगलामुखी नलखेड़ा धाम - मोबाइल दर्शन"
             fill
             priority
-            quality={100}
-            sizes="100vw"
+            quality={85}
+            sizes="(max-width: 767px) 100vw, 1px"
             className="object-cover object-top select-none"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-transparent via-50% to-black/45 pointer-events-none" />
@@ -51,12 +51,12 @@ export default function LandingHero() {
         {/* Large / Desktop Background Image (Tablet & Desktop Viewport) */}
         <div className="hidden md:block absolute inset-0 w-full h-full">
           <Image
-            src="/hero/hero.png"
-            alt="माँ बगलामुखी नलखेड़ा धाम गर्भगृह"
+            src="/hero/hero.webp"
+            alt="माँ बगलामुखी मंदिर नलखेड़ा धाम गर्भगृह"
             fill
             priority
-            quality={95}
-            sizes="100vw"
+            quality={85}
+            sizes="(min-width: 768px) 100vw, 1px"
             className="object-cover object-center lg:object-[center_28%] select-none transition-transform duration-700 ease-out scale-100"
           />
           {/* Directional Vignette */}
@@ -222,7 +222,8 @@ export default function LandingHero() {
                   src={maaDarshanImg}
                   alt={t.hero.darshanAlt}
                   priority
-                  quality={95}
+                  quality={85}
+                  sizes="(max-width: 640px) 250px, (max-width: 768px) 310px, (max-width: 1024px) 350px, 420px"
                   className="w-full h-full object-contain filter drop-shadow-[0_15px_35px_rgba(0,0,0,0.75)] drop-shadow-[0_0_35px_rgba(216,155,24,0.35)] select-none"
                 />
               </div>

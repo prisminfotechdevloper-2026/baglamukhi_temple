@@ -103,7 +103,7 @@ export default function SacredServicesStrip() {
       <div className="max-w-7xl mx-auto px-2.5 xs:px-3 sm:px-6 lg:px-8">
         {/* 8 SACRED CIRCULAR SERVICE BADGES ROW */}
         <div className="grid grid-cols-4 lg:grid-cols-8 gap-y-4 xs:gap-y-5 sm:gap-y-6 gap-x-1.5 xs:gap-x-2 sm:gap-x-4 lg:gap-x-3 items-start justify-items-center">
-          {services.map((service, index) => (
+          {services.map((service) => (
             <div
               key={service.id}
               className="flex flex-col items-center group cursor-pointer w-full max-w-[110px] sm:max-w-[125px] transition-transform duration-300"

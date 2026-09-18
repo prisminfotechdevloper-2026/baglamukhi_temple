@@ -38,9 +38,11 @@ export default function NavLinks({
   }, []);
 
   // Close mega menu on route change
-  useEffect(() => {
+  const [prevPathname, setPrevPathname] = useState(pathname);
+  if (prevPathname !== pathname) {
+    setPrevPathname(pathname);
     setIsMegaMenuOpen(false);
-  }, [pathname]);
+  }
 
   const handleMouseEnter = () => {
     if (megaMenuTimeoutRef.current) {
@@ -61,6 +63,7 @@ export default function NavLinks({
     { label: t.nav.home, href: "/" },
     // Solutions is handled separately as a Mega Dropdown
     { label: t.nav.services, href: "/#services" },
+    { label: t.nav.faq, href: "/#faq" },
     { label: t.nav.gallery, href: "/gallery" },
     { label: t.nav.contact, href: "/contact" },
   ];

@@ -294,7 +294,6 @@ export default function GurujiGallerySection() {
                 src={GURUJI_PHOTOS[activePhotoIndex].image}
                 alt={GURUJI_PHOTOS[activePhotoIndex].title}
                 fill
-                priority
                 className="object-cover object-top"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />

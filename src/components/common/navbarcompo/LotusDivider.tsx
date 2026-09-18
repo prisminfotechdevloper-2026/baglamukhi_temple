@@ -30,7 +30,6 @@ export default function LotusDivider({ className = "" }: LotusDividerProps) {
           width={130}
           height={42}
           className="h-full w-auto object-contain drop-shadow-[0_0_5px_rgba(216,155,24,0.45)]"
-          priority
         />
       </div>
 

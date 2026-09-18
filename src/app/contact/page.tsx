@@ -14,6 +14,12 @@ export const metadata: Metadata = {
   description:
     "माँ बगलामुखी मंदिर नलखेड़ा धाम संपर्क सूत्र, हेल्पलाइन (+91 93406 05235), मंदिर कैसे पहुंचे (ट्रेन, सड़क, वायु मार्ग), लाइव गूगल मैप, दर्शन व महाआरती समय, एवं पूज्य गुरुजी (पंडित शुभम शर्मा जी) से वैदिक परामर्श।",
   keywords: [
+    "shubham pandit nalkheda",
+    "baglamukhi mata temple",
+    "bagla mukhi mandir pujari shubam sharma",
+    "baglamukhi mandir pujari shubham sharma",
+    "pandit shubham sharma nalkheda",
+    "pujari shubham sharma phone number",
     "माँ बगलामुखी संपर्क",
     "बगलामुखी मंदिर फोन नंबर",
     "नलखेड़ा कैसे पहुंचे",
@@ -24,8 +30,11 @@ export const metadata: Metadata = {
     "शासकीय मां बगलामुखी मंदिर प्रबंध समिति",
     "नलखेड़ा धाम पता",
   ],
+  alternates: {
+    canonical: "https://mabaglamukhi.org/contact",
+  },
   openGraph: {
-    title: "संपर्क एवं मंदिर यात्रा मार्ग | माँ बगलामुखी मंदिर नलखेड़ा धाम",
+    title: "संपर्क एवं मंदिर यात्रा मार्ग | माँ बगलामुखी मंदिर नलखेड़ा धाम - पंडित शुभम शर्मा",
     description:
       "विश्व विख्यात माँ बगलामुखी शक्तिपीठ नलखेड़ा धाम—संपर्क सूत्र, यात्रा मार्गदर्शन, लाइव मैप, आरती समय एवं पूज्य गुरुजी सान्निध्य।",
     images: [
@@ -102,7 +111,13 @@ export default function ContactPage() {
         founder: {
           "@type": "Person",
           name: "पूज्य पंडित शुभम शर्मा जी (गुरुजी)",
-          jobTitle: "माँ बगलामुखी उपासक",
+          alternateName: [
+            "Pandit Shubham Sharma",
+            "Shubham Pandit Nalkheda",
+            "Pujari Shubham Sharma",
+            "Baglamukhi Mandir Pujari Shubham Sharma",
+          ],
+          jobTitle: "माँ बगलामुखी मुख्य उपासक एवं वरिष्ठ पुजारी",
           telephone: "+919340605235",
         },
       },

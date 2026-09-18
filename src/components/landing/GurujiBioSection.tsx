@@ -4,7 +4,6 @@ import React from "react";
 import Image from "next/image";
 import { CheckCircle2 } from "lucide-react";
 import LotusDivider from "@/components/common/navbarcompo/LotusDivider";
-import { DEFAULT_CONTACT } from "@/components/common/navbarcompo/constants";
 import { useLanguage } from "@/context/LanguageContext";
 import gurujiImage from "../../../public/guruji.png";
 
@@ -200,10 +199,10 @@ export default function GurujiBioSection() {
                 <div className="relative w-full h-full rounded-full overflow-hidden bg-[#240307]">
                   <Image
                     src={gurujiImage}
-                    alt="माँ बगलामुखी उपासक पूज्य पंडित शुभम शर्मा जी (गुरुजी) - नलखेड़ा धाम"
+                    alt="माँ बगलामुखी मंदिर नलखेड़ा पुजारी पंडित शुभम शर्मा (Pujari Shubham Sharma / Shubham Pandit Nalkheda)"
                     fill
-                    priority
-                    quality={95}
+                    loading="lazy"
+                    quality={85}
                     placeholder="blur"
                     sizes="(max-width: 640px) 250px, (max-width: 1024px) 380px, 420px"
                     itemProp="image"

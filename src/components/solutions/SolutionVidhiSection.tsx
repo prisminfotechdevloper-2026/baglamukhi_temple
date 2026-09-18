@@ -81,6 +81,7 @@ export default function SolutionVidhiSection({ solution }: SolutionVidhiSectionP
                   src="/mandir/baglamukhi-siddha-anusthan.jpg"
                   alt="माँ बगलामुखी अखंड महाहवन अनुष्ठान नलखेड़ा धाम"
                   fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 500px"
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />

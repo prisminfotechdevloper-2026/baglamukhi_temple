@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useState, useEffect } from "react";
+import React, { createContext, useContext, useSyncExternalStore } from "react";
 import { Language, Translations } from "@/i18n/types";
 import { translations } from "@/i18n/translations";
 
@@ -16,33 +16,54 @@ const LanguageContext = createContext<LanguageContextType | undefined>(
 );
 
 const STORAGE_KEY = "baglamukhi_preferred_language";
+const listeners = new Set<() => void>();
+
+function emitChange() {
+  for (const listener of listeners) {
+    listener();
+  }
+}
+
+function subscribe(callback: () => void) {
+  listeners.add(callback);
+  if (typeof window !== "undefined") {
+    window.addEventListener("storage", callback);
+  }
+  return () => {
+    listeners.delete(callback);
+    if (typeof window !== "undefined") {
+      window.removeEventListener("storage", callback);
+    }
+  };
+}
+
+function getSnapshot(): Language {
+  if (typeof window === "undefined") return "hi";
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY) as Language | null;
+    return saved === "en" ? "en" : "hi";
+  } catch {
+    return "hi";
+  }
+}
+
+function getServerSnapshot(): Language {
+  return "hi";
+}
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [language, setLanguageState] = useState<Language>("hi");
-
-  // Load language preference from localStorage on mount (hydration-safe)
-  useEffect(() => {
-    try {
-      const savedLang = localStorage.getItem(STORAGE_KEY) as Language | null;
-      if (savedLang === "hi" || savedLang === "en") {
-        setLanguageState(savedLang);
-        document.documentElement.lang = savedLang;
-      } else {
-        document.documentElement.lang = "hi";
-      }
-    } catch {
-      // Fallback silently if localStorage is restricted
-    }
-  }, []);
+  const language = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
   const setLanguage = (newLang: Language) => {
-    setLanguageState(newLang);
     try {
       localStorage.setItem(STORAGE_KEY, newLang);
-      document.documentElement.lang = newLang;
+      if (typeof document !== "undefined") {
+        document.documentElement.lang = newLang;
+      }
     } catch {
       // Ignore storage errors
     }
+    emitChange();
   };
 
   const toggleLanguage = () => {

@@ -13,6 +13,11 @@ export const metadata: Metadata = {
   description:
     "माँ बगलामुखी मंदिर नलखेड़ा धाम की पावन चित्र दीर्घा। गर्भगृह दिव्य दर्शन, स्वर्ण कलश, प्राचीन शिखर, वैदिक महाहवन, विशेष अनुष्ठान, पूज्य गुरुजी सान्निध्य एवं रात्रि दीप प्रकाश के सजीव दर्शन।",
   keywords: [
+    "shubham pandit nalkheda",
+    "baglamukhi mata temple",
+    "bagla mukhi mandir pujari shubam sharma",
+    "pandit shubham sharma nalkheda",
+    "pujari shubham sharma",
     "माँ बगलामुखी फोटो",
     "बगलामुखी मंदिर गैलरी",
     "Baglamukhi Mandir Nalkheda Photos",
@@ -23,6 +28,9 @@ export const metadata: Metadata = {
     "पंडित शुभम शर्मा नलखेड़ा",
     "गुरुजी पंडित शुभम शर्मा",
   ],
+  alternates: {
+    canonical: "https://mabaglamukhi.org/gallery",
+  },
   openGraph: {
     title: "दिव्य दर्शन एवं चित्र दीर्घा | माँ बगलामुखी मंदिर नलखेड़ा धाम",
     description:

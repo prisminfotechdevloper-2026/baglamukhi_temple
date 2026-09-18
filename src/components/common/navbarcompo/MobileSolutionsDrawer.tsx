@@ -13,7 +13,6 @@ import {
   MessageCircle,
   Flame,
   ChevronRight,
-  ExternalLink,
 } from "lucide-react";
 import { getAllCategories, getAllSolutions, SolutionItem } from "@/data/solutionsData";
 import { useLanguage } from "@/context/LanguageContext";
@@ -47,7 +46,6 @@ export default function MobileSolutionsDrawer({
   const [activeCategoryId, setActiveCategoryId] = useState<string>("all");
 
   const phoneNum = "+919340605235";
-  const displayPhone = "+91 93406 05235";
 
   // Prevent background body scroll when drawer is open
   useEffect(() => {

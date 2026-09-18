@@ -143,7 +143,6 @@ export default function GalleryLightbox({
               alt={currentItem.title}
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
-              priority
               className="object-contain drop-shadow-[0_12px_40px_rgba(0,0,0,0.95)]"
             />
           </div>

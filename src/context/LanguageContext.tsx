@@ -38,17 +38,17 @@ function subscribe(callback: () => void) {
 }
 
 function getSnapshot(): Language {
-  if (typeof window === "undefined") return "hi";
+  if (typeof window === "undefined") return "en";
   try {
     const saved = localStorage.getItem(STORAGE_KEY) as Language | null;
-    return saved === "en" ? "en" : "hi";
+    return saved === "hi" ? "hi" : "en";
   } catch {
-    return "hi";
+    return "en";
   }
 }
 
 function getServerSnapshot(): Language {
-  return "hi";
+  return "en";
 }
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {

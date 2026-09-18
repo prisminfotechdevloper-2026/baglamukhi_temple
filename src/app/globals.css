@@ -173,15 +173,16 @@ body {
   box-shadow: 0 0 18px rgba(216, 155, 24, 0.6), inset 0 0 8px rgba(183, 121, 0, 0.3);
 }
 
-/* Precise cropping for logo.png circle */
+/* Precise fitting for updated temple logo.png circle */
 .temple-logo-crop-img {
-  width: 142.5% !important;
-  height: 142.5% !important;
-  max-width: none !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
   position: absolute;
-  top: -5%;
-  left: -20.8%;
-  object-fit: cover;
+  top: 0;
+  left: 0;
+  object-fit: contain;
+  padding: 1px;
   display: block;
 }
 

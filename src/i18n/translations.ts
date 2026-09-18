@@ -599,8 +599,8 @@ export const translations: Record<"hi" | "en", Translations> = {
     },
     gurujiBio: {
       peethBadge: "॥ World Renowned Siddhapeeth • Maa Bagalamukhi Dham Nalkheda ॥",
-      omDevanagari: "॥ OM ॥",
-      titleSalutation: "Chief Priest & Upasak - Maa Baglamukhi Mata Temple Nalkheda",
+      omDevanagari: "॥ ॐ ॥",
+      titleSalutation: "Maa Baglamukhi Temple • Chief Priest & Upasak",
       name: "Pujya Pandit Shubham Sharma Ji (Shubham Pandit Nalkheda)",
       subtitle: "Baglamukhi Mandir Pujari Shubham Sharma - Senior Tantra & Hawan Specialist",
       bioText:
@@ -618,8 +618,8 @@ export const translations: Record<"hi" | "en", Translations> = {
         "Delivery of consecrated Raksha Kavach and sacred Prasad",
       ],
       rotatingWheelText:
-        "   ॥ OM ॥   Maa Bagalamukhi Maha Hawan   ॥ OM ॥   Shatru Stambhan Ritual   ॥ OM ॥   Court Case Victory Puja   ॥ OM ॥   1.25 Lakh Mantra Japa   ॥ OM ॥   Kaal Sarp Dosh Shanti   ॥ OM ॥   Business Growth Anushthan   ",
-      circleRibbon: "॥ Shree Bagalamukhi Devyai Namah ॥",
+        "   ॥ ॐ ॥   Maa Bagalamukhi Maha Hawan   ॥ ॐ ॥   Shatru Stambhan Ritual   ॥ ॐ ॥   Court Case Victory Puja   ॥ ॐ ॥   1.25 Lakh Mantra Japa   ॥ ॐ ॥   Kaal Sarp Dosh Shanti   ॥ ॐ ॥   Business Growth Anushthan   ",
+      circleRibbon: "॥ श्री बगलामुखी देव्यै नमः ॥",
       liveBadge: "Direct Temple Presence & Online Live Video Anushthan Available",
     },
     footer: {
@@ -668,7 +668,7 @@ export const translations: Record<"hi" | "en", Translations> = {
       breadcrumbHome: "Home",
       breadcrumbContact: "Contact Us",
       activeTiming: "Darshan: 05:30 AM - 09:30 PM",
-      heroBadge: "॥ OM ॥ Globally Renowned Siddha Shaktipeeth • Nalkheda Dham (M.P.)",
+      heroBadge: "॥ ॐ ॥ Globally Renowned Siddha Shaktipeeth • Nalkheda Dham (M.P.)",
       heroTitle: "Temple Contact, Darshan Timings",
       heroHighlight: "& Travel Guide",
       heroSubtitle: "Comprehensive travel directions, daily darshan timings, sacred Hawan and consultation bookings for the ancient Mahabharata era Siddhapeeth Maa Bagalamukhi Nalkheda Dham.",
@@ -762,7 +762,7 @@ export const translations: Record<"hi" | "en", Translations> = {
       breadcrumbHome: "Home",
       breadcrumbGallery: "Gallery",
       slideCounterLabel: "Darshan",
-      heroBadge: "॥ OM ॥ Globally Renowned Siddha Shaktipeeth • Nalkheda Dham (M.P.)",
+      heroBadge: "॥ ॐ ॥ Globally Renowned Siddha Shaktipeeth • Nalkheda Dham (M.P.)",
       heroTitle: "Maa Bagalamukhi Divine Darshan",
       heroHighlight: "& Sacred Temple Photo Gallery",
       heroSubtitle: "Captivating visual darshan of the ancient Mahabharata era swayambhu sanctum, continuous sacred yajnas, radiant golden deity shringar and historic temple architecture.",

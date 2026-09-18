@@ -30,21 +30,23 @@ export default function GurujiBioSection() {
 
             {/* Sacred Saffron Pill: NALKHEDA DHAM */}
             <div className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full bg-[#faedd2] border border-[#d89b18]/80 shadow-[0_2px_8px_rgba(216,155,24,0.16)] mb-2.5 sm:mb-3">
-              <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#b77900] flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2C11 5 8 8 5 9c3 1 5 3 6 6 1-3 3-5 6-6-3-1-5-4-5-7z M12 14c-1.5 2-4 3.5-7 4 3 .5 5.5 2 7 4 1.5-2 4-3.5 7-4-3-.5-5.5-2-7-4z" />
-              </svg>
+              
               <span className="font-serif text-[#78350f] text-[0.72rem] sm:text-xs md:text-[0.80rem] font-bold tracking-[0.14em] uppercase">
                 {t.gurujiBio.peethBadge}
               </span>
             </div>
 
-            {/* Sacred Salutation */}
-            <div className="flex items-center gap-2 mb-1 text-[#8b0000]">
-              <span className="text-xs sm:text-sm font-serif font-bold text-[#b77900]">{t.gurujiBio.omDevanagari}</span>
-              <h3 className="font-serif font-bold text-xs sm:text-sm md:text-base tracking-widest uppercase">
+            {/* Sacred Salutation (Single Line Guarantee) */}
+            <div className="flex items-center justify-center lg:justify-start gap-1.5 sm:gap-2 mb-1.5 text-[#8b0000] text-center lg:text-left whitespace-nowrap max-w-full">
+              <span className="text-xs sm:text-sm font-serif font-bold text-[#b77900] shrink-0 select-none">
+                {t.gurujiBio.omDevanagari}
+              </span>
+              <h3 className="font-serif font-bold text-[0.66rem] xs:text-[0.72rem] sm:text-[0.80rem] md:text-[0.88rem] lg:text-[0.92rem] tracking-wider uppercase leading-none truncate">
                 {t.gurujiBio.titleSalutation}
               </h3>
-              <span className="text-xs sm:text-sm font-serif font-bold text-[#b77900]">{t.gurujiBio.omDevanagari}</span>
+              <span className="text-xs sm:text-sm font-serif font-bold text-[#b77900] shrink-0 select-none">
+                {t.gurujiBio.omDevanagari}
+              </span>
             </div>
 
             {/* Main Primary Heading */}
@@ -217,8 +219,8 @@ export default function GurujiBioSection() {
 
                   <div className="absolute inset-0 bg-gradient-to-t from-[#1a0204]/85 via-transparent via-55% to-[#1a0204]/20 pointer-events-none" />
 
-                  <div className="absolute bottom-2.5 sm:bottom-3 inset-x-3 sm:inset-x-6 py-1 px-2.5 text-center bg-gradient-to-r from-[#4a0000]/95 via-[#850811]/95 to-[#4a0000]/95 rounded-full border border-[#f4d58d]/80 shadow-md backdrop-blur-sm">
-                    <p className="font-serif font-bold text-white text-[0.62rem] xs:text-[0.70rem] sm:text-[0.80rem] tracking-wider drop-shadow-sm truncate">
+                  <div className="absolute bottom-2.5 sm:bottom-3 left-1/2 -translate-x-1/2 w-[82%] xs:w-[80%] sm:w-[78%] max-w-[250px] py-0.5 sm:py-1 px-2 text-center bg-gradient-to-r from-[#4a0000]/95 via-[#850811]/95 to-[#4a0000]/95 rounded-full border border-[#f4d58d]/80 shadow-md backdrop-blur-sm flex items-center justify-center pointer-events-none">
+                    <p className="font-serif font-bold text-white text-[0.62rem] xs:text-[0.68rem] sm:text-[0.76rem] md:text-[0.80rem] tracking-wider drop-shadow-sm whitespace-nowrap">
                       {t.gurujiBio.circleRibbon}
                     </p>
                   </div>

@@ -95,8 +95,7 @@ export default function SolutionsMegaMenu({
 
         {/* Bottom Urgent Guidance & Direct Guruji Consultation Ribbon */}
         <div className="pt-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-serif bg-[#fbf5e6]/60 -mx-5 -mb-5 sm:-mx-6 sm:-mb-6 lg:-mx-7 lg:-mb-7 p-4 border-t border-[#ebdcb9]">
-          <div className="flex items-center gap-2 text-[#663b1f] text-center sm:text-left">
-            <span className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse flex-shrink-0" />
+          <div className="text-[#663b1f] text-center sm:text-left">
             <span className="font-medium">
               {isHi
                 ? "क्या आपकी कोई विशेष समस्या है? पूज्य पंडित शुभम शर्मा जी से सीधे परामर्श करें:"

@@ -18,9 +18,9 @@ export const HOME_FAQS: HomeFaqItem[] = [
     questionHi: "माँ बगलामुखी मंदिर नलखेड़ा में दर्शन एवं महाआरती का समय क्या है? (Darshan & Aarti Timings)",
     questionEn: "What are the Darshan and Aarti timings at Baglamukhi Temple Nalkheda?",
     answerHi:
-      "माँ बगलामुखी मंदिर नलखेड़ा धाम के पावन कपाट प्रतिदिन प्रातः 05:30 बजे से रात्रि 09:30 बजे तक खुले रहते हैं। प्रातः मंगला दर्शन व पूजन प्रातः 05:30 AM से दोपहर 12:30 PM तक और सांध्य महाआरती सायं 07:00 PM से रात्रि 08:30 PM तक होती है। विशेष महाहवन एवं तंत्र अनुष्ठान प्रातः 06:00 AM से सायं 06:00 PM तक निरंतर संपन्न होते हैं।",
+      "माँ बगलामुखी मंदिर नलखेड़ा धाम के पावन कपाट प्रतिदिन प्रातः 05:30 बजे से रात्रि 09:30 बजे तक खुले रहते हैं। प्रातः दर्शन व पूजन प्रातः 06:00 AM से 06:30 AM तक और सांध्य महाआरती सायं 07:30 PM से रात्रि 08:00 PM तक होती है। विशेष महाहवन एवं वैदिक अनुष्ठान दैनिक प्रातः 07:00 AM से संकल्प मुहूर्त अनुसार निरंतर संपन्न होते हैं।",
     answerEn:
-      "The temple sanctum opens daily from 05:30 AM to 09:30 PM. Morning Darshan & Pujan take place from 05:30 AM to 12:30 PM, and the evening Maha Aarti is conducted between 07:00 PM and 08:30 PM. Hawan and Vedic Anushthans proceed continuously from 06:00 AM to 06:00 PM.",
+      "The temple sanctum opens daily from 05:30 AM to 09:30 PM. Morning Darshan & Puja take place from 06:00 AM to 06:30 AM, and the evening Maha Aarti is conducted between 07:30 PM and 08:00 PM. Sacred Maha Hawan and Vedic Anushthans proceed daily from 07:00 AM onwards as per auspicious Sankalp Muhurta.",
   },
   {
     questionHi: "पंडित शुभम शर्मा जी (शुभम पंडित नलखेड़ा) से अनुष्ठान व पूजा परामर्श हेतु संपर्क कैसे करें?",

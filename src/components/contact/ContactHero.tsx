@@ -167,27 +167,28 @@ export default function ContactHero() {
           </div>
         </div>
 
-        {/* Action Buttons Row */}
-        <div className="flex flex-col xs:flex-row items-center justify-center gap-2.5 sm:gap-3.5 w-full xs:w-auto my-2 sm:my-2.5">
+        {/* Action Buttons Row (Single row on Desktop/Tablet, Clean Stack on Mobile) */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 md:gap-5 w-full sm:w-auto my-3 sm:my-3.5">
           <a
             href="#contact-form-section"
-            className="w-full xs:w-auto min-w-[200px] inline-flex items-center justify-center gap-2 px-6 py-2.5 sm:py-3 rounded-full bg-gradient-to-r from-[#d89b18] via-[#e5b338] to-[#c6890c] text-[#3d0309] font-serif font-bold text-xs sm:text-sm md:text-base shadow-[0_4px_18px_rgba(216,155,24,0.45)] hover:shadow-[0_6px_25px_rgba(216,155,24,0.65)] hover:scale-[1.02] active:scale-95 transition-all duration-200 border border-[#ffe8a3]"
+            className="group relative w-full sm:w-auto min-w-[210px] md:min-w-[230px] inline-flex items-center justify-center gap-2.5 px-6 sm:px-7 py-2.5 sm:py-3 rounded-full bg-gradient-to-r from-[#d89b18] via-[#f7d58d] to-[#c6890c] text-[#320509] font-serif font-bold text-xs sm:text-sm md:text-[0.95rem] shadow-[0_4px_20px_rgba(216,155,24,0.45)] hover:shadow-[0_6px_28px_rgba(255,215,120,0.65)] hover:scale-[1.02] active:scale-95 transition-all duration-200 border border-[#ffe8a3] overflow-hidden"
           >
-            <Send className="w-3.5 h-3.5 text-[#3d0309]" />
+            <span className="button-sheen-sweep absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent pointer-events-none" />
+            <Send className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#320509] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200 flex-shrink-0" />
             <span>{t.contact.btnForm}</span>
           </a>
 
           <a
             href="#how-to-reach"
-            className="w-full xs:w-auto min-w-[190px] inline-flex items-center justify-center gap-2 px-5 py-2.5 sm:py-3 rounded-full bg-black/60 hover:bg-black/80 text-[#ffd700] font-serif font-bold text-xs sm:text-sm md:text-base border border-[#d89b18]/60 shadow-md hover:scale-[1.02] active:scale-95 transition-all duration-200 backdrop-blur-md"
+            className="group w-full sm:w-auto min-w-[200px] md:min-w-[220px] inline-flex items-center justify-center gap-2.5 px-5 sm:px-6 py-2.5 sm:py-3 rounded-full bg-black/65 hover:bg-black/85 text-[#ffe28a] hover:text-[#ffd700] font-serif font-bold text-xs sm:text-sm md:text-[0.95rem] border border-[#d89b18]/60 hover:border-[#ffd700] shadow-[0_4px_16px_rgba(0,0,0,0.4)] hover:shadow-[0_6px_22px_rgba(216,155,24,0.3)] hover:scale-[1.02] active:scale-95 transition-all duration-200 backdrop-blur-md"
           >
             <span>{t.contact.btnRoutes}</span>
-            <ArrowDown className="w-3.5 h-3.5 text-[#ffd700] animate-bounce" />
+            <ArrowDown className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#ffd700] group-hover:translate-y-0.5 transition-transform duration-200 flex-shrink-0 animate-bounce" />
           </a>
         </div>
 
         {/* 4. 4-SEGMENT TRANSIT QUICK CARDS */}
-        <div className="w-full max-w-4xl mt-2.5 sm:mt-3 pt-2.5 border-t border-[#d89b18]/30">
+        <div className="w-full max-w-4xl mt-2.5 sm:mt-3 pt-3 border-t border-[#d89b18]/30">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-2.5">
             {TRANSIT_HIGHLIGHTS.map((item) => {
               const Icon = item.icon;
@@ -195,7 +196,7 @@ export default function ContactHero() {
                 <a
                   key={item.id}
                   href={item.href}
-                  className="group relative text-left rounded-xl overflow-hidden p-2 sm:p-2.5 transition-all duration-200 border border-[#d89b18]/35 border-l-[3.5px] sm:border-l-[4px] border-l-[#d89b18] bg-black/55 hover:bg-black/75 hover:border-[#ffd700] backdrop-blur-md shadow-md flex items-center gap-2.5"
+                  className="group relative text-left rounded-xl overflow-hidden p-2.5 sm:p-3 transition-all duration-200 border border-[#d89b18]/35 border-l-[3.5px] sm:border-l-[4px] border-l-[#d89b18] bg-black/55 hover:bg-black/80 hover:border-[#ffd700] hover:shadow-[0_4px_18px_rgba(216,155,24,0.25)] backdrop-blur-md shadow-md flex items-center gap-2.5"
                 >
                   <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-[#3d080e] border border-[#d89b18]/60 flex items-center justify-center text-[#ffd700] group-hover:scale-110 transition-all flex-shrink-0">
                     <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />

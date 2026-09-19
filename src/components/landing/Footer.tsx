@@ -202,12 +202,20 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* COPYRIGHT & QUICK LINKS BAR - Compact Single Row on Desktop */}
-        <div className="pt-2.5 border-t border-[#d89b18]/20 flex flex-col sm:flex-row items-center justify-between gap-2 text-center sm:text-left text-[0.70rem] sm:text-xs font-serif text-[#9e8366]">
+        {/* COPYRIGHT, DESIGN CREDIT & QUICK LINKS ROW */}
+        <div className="pt-3 border-t border-[#d89b18]/20 flex flex-col md:flex-row items-center justify-between gap-2.5 text-center md:text-left text-[0.70rem] sm:text-xs font-serif text-[#9e8366]">
           <p className="leading-snug">
             © {currentYear} {t.footer.copyright}
           </p>
-          <div className="flex items-center gap-3 sm:gap-4 text-[#c5a884] flex-shrink-0 md:pr-14 lg:pr-14 xl:pr-0">
+
+          <p className="leading-snug text-[#bba184] font-serif">
+            Design by{" "}
+            <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-[#ffd778] via-[#fff0c2] to-[#f59e0b] tracking-wide">
+              Prism Infotech Solution
+            </span>
+          </p>
+
+          <div className="flex items-center justify-center md:justify-end gap-3 sm:gap-4 text-[#c5a884] flex-shrink-0">
             <Link href="/#services" className="hover:text-[#ffd778] transition-colors">
               {t.footer.linksServices}
             </Link>

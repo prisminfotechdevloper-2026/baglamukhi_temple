@@ -203,18 +203,22 @@ export default function Footer() {
         </div>
 
         {/* COPYRIGHT, DESIGN CREDIT & QUICK LINKS ROW */}
-        <div className="pt-3 border-t border-[#d89b18]/20 flex flex-col md:flex-row items-center justify-between gap-2.5 text-center md:text-left text-[0.70rem] sm:text-xs font-serif text-[#9e8366]">
-          <p className="leading-snug">
-            © {currentYear} {t.footer.copyright}
-          </p>
+        <div className="pt-3 border-t border-[#d89b18]/20 flex flex-col md:flex-row items-center justify-between gap-3 text-center md:text-left text-[0.70rem] sm:text-xs font-serif text-[#9e8366]">
+          {/* Left Block: Copyright & Prism Infotech Solution Attribution */}
+          <div className="flex flex-wrap items-center justify-center md:justify-start gap-x-2.5 gap-y-1">
+            <p className="leading-snug">
+              © {currentYear} {t.footer.copyright}
+            </p>
+            <span className="hidden sm:inline text-[#d89b18]/50">|</span>
+            <p className="leading-snug text-[#bba184]">
+              Design by{" "}
+              <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-[#ffd778] via-[#fff0c2] to-[#f59e0b] tracking-wide">
+                Prism Infotech Solution
+              </span>
+            </p>
+          </div>
 
-          <p className="leading-snug text-[#bba184] font-serif">
-            Design by{" "}
-            <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-[#ffd778] via-[#fff0c2] to-[#f59e0b] tracking-wide">
-              Prism Infotech Solution
-            </span>
-          </p>
-
+          {/* Right Block: Quick Links */}
           <div className="flex items-center justify-center md:justify-end gap-3 sm:gap-4 text-[#c5a884] flex-shrink-0">
             <Link href="/#services" className="hover:text-[#ffd778] transition-colors">
               {t.footer.linksServices}
